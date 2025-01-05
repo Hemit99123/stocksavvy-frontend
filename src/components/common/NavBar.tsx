@@ -2,6 +2,7 @@
 
 import { menuItems } from '@/data/menuItems';
 import { MenuItem } from '@/types/navbar';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const NavBar = () => {
@@ -17,7 +18,12 @@ const NavBar = () => {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <Image 
+                src="/images/logo.png"
+                height={75}
+                width={75}
+                alt='logo'
+            />
           </a>
         </div>
         <div className="flex lg:hidden">
