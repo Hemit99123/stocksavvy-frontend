@@ -12,7 +12,7 @@ export default function Home() {
               <h3 className="text-green-800 md:text-3xl xl:text-4xl font-bold">where financial indepedence exists</h3>
             </div>
             <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 lg:text-lg">
-              Stock Savvy is a financial literacy initiative that helps young and aspiring high school students learn about financial concepts such as saving and spending, teaches investment strategies, and provides steps to become a successful investor. 
+              Stock Savvy is a financial literacy initiative that helps young and aspiring high school students learn about financial concepts such as saving/spending and provides steps to become a successful investor. 
             </p>
             <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
               <a
