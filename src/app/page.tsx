@@ -1,5 +1,6 @@
+import CTAButton from "@/components/landing-page/CTAButton";
 import Image from "next/image";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaArrowRight } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -15,15 +16,16 @@ export default function Home() {
               Stock Savvy is a financial literacy initiative that helps young and aspiring high school students learn about financial concepts such as saving/spending and provides steps to become a successful investor. 
             </p>
             <div className="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-              <a
-                href="https://www.instagram.com/stock.savvy_/"
-                className="inline-flex items-center justify-center w-full px-5 py-3 text-sm space-x-2 font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
-              >
-                  <FaInstagram 
-                    size={20}
-                  />
-                  <p className="font-bold">Instagram</p>
-              </a>
+              <CTAButton 
+                icon={FaArrowRight}
+                link="https://www.instagram.com/stock.savvy_/"
+                text="Get Started"
+              />
+              <CTAButton 
+                icon={FaInstagram}
+                link="https://www.instagram.com/stock.savvy_/"
+                text="Instagram"
+              />
             </div>
           </div>
           <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
