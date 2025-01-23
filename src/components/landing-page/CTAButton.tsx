@@ -9,9 +9,9 @@ const CTAButton: FC<CTAButtonProps> = ({ link, text }) => {
   return (
     <a
       href={link}
-      className="bg-green-700 hover:bg-green-800 text-white inline-flex items-center justify-center w-full px-5 py-3 text-sm space-x-2 font-medium text-center border border-gray-200 rounded-lg sm:w-auto focus:ring-4 focus:ring-gray-100"
+      className="bg-black rounded-full text-white px-4 py-2 text-sm"
     >
-      <p className="font-bold">{text}</p>
+      <p>{text}</p>
     </a>
   );
 };
