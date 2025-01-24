@@ -5,11 +5,11 @@ import { useSearchParams } from 'next/navigation'
 export default function SearchBar() {
   const searchParams = useSearchParams()
  
-  const title = searchParams.get('title')
+  const slug = searchParams.get('slug')
 
   return (
     <div>
-        title: {title}
+        slug: {slug}
     </div>
   )
 }
