@@ -18,7 +18,7 @@ const WorkshopItem: React.FC<WorkshopItemProps> = ({ img, title, fontColor }) =>
         height: 400,
       }}
     >
-      <h1 className="font-bold text-4xl font-custom absolute bottom-4 left-4">{title}</h1>
+      <h1 className="font-bold text-4xl font-custom absolute bottom-4 left-4 uppercase">{title}</h1>
     </div>
   );
 };

@@ -30,7 +30,7 @@ export const workshopItems: WorkshopItem[] = [
     },
     {
       img: 'https://ocdn.eu/pulscms-transforms/1/FtwktkpTURBXy82M2FlMGVlNjc1YzM0NTBkNWVmNjA2NTIyYzIyM2Y1Zi5qcGeSlQMAL80F3M0DS5MFzQMWzQGu',
-      title: 'BUDGETING',
+      title: 'budgeting',
       fontColor: 'black'
     }
   ];
