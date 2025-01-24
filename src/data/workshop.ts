@@ -25,7 +25,7 @@ export const workshopItems: WorkshopItem[] = [
     },
     {
       img: 'https://images.stockcake.com/public/1/7/4/174c0bce-6c5d-46f4-a7a0-1e93c2cd00e4_large/stock-exchange-interior-stockcake.jpg',
-      title: 'STOCK MARKET',
+      title: 'STOCKS',
       fontColor: 'white'
     },
     {
