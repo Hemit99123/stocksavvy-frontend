@@ -3,17 +3,16 @@ import React, { FC } from 'react';
 interface CTAButtonProps {
   link: string;
   text: string;
-  icon: React.ElementType; // This allows `icon` to be a React component.
+  isTransparent: boolean;
 }
 
-const CTAButton: FC<CTAButtonProps> = ({ link, text, icon: Icon }) => {
+const CTAButton: FC<CTAButtonProps> = ({ link, text, isTransparent }) => {
   return (
     <a
       href={link}
-      className="inline-flex items-center justify-center w-full px-5 py-3 text-sm space-x-2 font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
+      className={`items-center font-bold rounded-full text-sm px-4 py-2 transition-opacity duration-300 ${isTransparent ? 'bg-transparent border border-black text-black hover:opacity-80' : 'bg-black text-white hover:opacity-80'}`}
     >
-      {Icon && <Icon size={20} />}
-      <p className="font-bold">{text}</p>
+      <p>{text}</p>
     </a>
   );
 };
