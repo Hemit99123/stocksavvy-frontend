@@ -1,21 +1,24 @@
 import React from 'react';
 
 interface WorkshopItemProps {
-  color: string;
+  img: string;
   title: string;
+  fontColor: "black" | "white";
 }
 
-const WorkshopItem: React.FC<WorkshopItemProps> = ({ color, title }) => {
+const WorkshopItem: React.FC<WorkshopItemProps> = ({ img, title, fontColor }) => {
   return (
     <div
-      className="flex items-center justify-center rounded-3xl text-center"
+      className={`flex items-center justify-center rounded-3xl text-${fontColor} cursor-pointer relative`}
       style={{
-        backgroundColor: color,
+        backgroundImage: `url(${img})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         width: 300,
         height: 400,
       }}
     >
-      <h1 className="font-bold text-4xl font-custom">{title}</h1>
+      <h1 className="font-bold text-4xl font-custom absolute bottom-4 left-4">{title}</h1>
     </div>
   );
 };

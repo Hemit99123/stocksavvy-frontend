@@ -1,13 +1,40 @@
-import React from 'react';
-import { FaChalkboardTeacher } from 'react-icons/fa';
-import { IoMdPeople } from "react-icons/io";
-import { MdSchool } from "react-icons/md";
+"use client"
+
+import React, { useState, useRef, MouseEvent } from 'react';
 import AboutItem from './common/AboutItem';
-import Spacer from '../common/Spacer';
 import MultipleSpacer from '../common/MultipleSpacer';
 import WorkshopItem from './common/WorkshopItem';
+import { workshopItems } from '@/data/workshop';
+import { aboutItems } from '@/data/about';
 
-const About = () => {
+const About: React.FC = () => {
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const scrollContainerRef = useRef<HTMLUListElement | null>(null);
+
+  // Function to handle mouse down (start of drag)
+  const handleMouseDown = (e: MouseEvent<HTMLUListElement>): void => {
+    if (scrollContainerRef.current) {
+      setIsDragging(true);
+      setStartX(e.clientX - scrollContainerRef.current.offsetLeft);
+      setScrollLeft(scrollContainerRef.current.scrollLeft);
+    }
+  };
+
+  // Function to handle mouse move (during drag)
+  const handleMouseMove = (e: MouseEvent<HTMLUListElement>): void => {
+    if (!isDragging || !scrollContainerRef.current) return;
+    const x = e.clientX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // Function to handle mouse up (end of drag)
+  const handleMouseUp = (): void => {
+    setIsDragging(false);
+  };
+
   return (
     <div className="text-center px-4">
       {/* Header with gradient lines */}
@@ -25,31 +52,49 @@ const About = () => {
         </p>
       </div>
 
-      <div className="lg:flex items-center justify-center lg:space-x-28 space-y-10 lg:space-y-0">
-        <AboutItem
-          icon={<FaChalkboardTeacher />}
-          title="Workshops"
-          desc="We have done many workshops in the past!"
-        />
-        <AboutItem
-          icon={<MdSchool />}
-          title="Courses"
-          desc="Explore a variety of courses tailored for beginners."
-        />
-        <AboutItem
-          icon={<IoMdPeople />}
-          title="Mentorship"
-          desc="Get guidance from experienced mentors in the field."
-        />
-      </div>
+      {/* About section mapped from array */}
+      <ul className="lg:flex items-center justify-center lg:space-x-28 space-y-10 lg:space-y-0">
+        {aboutItems.map((item, index) => (
+          <li key={index}>
+            <AboutItem
+              icon={item.icon}
+              title={item.title}
+              desc={item.desc}
+            />
+          </li>
+        ))}
+      </ul>
+
       <MultipleSpacer 
         spacerCount={4}
       />
+
+      {/* Workshops section mapped from array */}
       <div className="text-start">
-        <h3 className="font-semibold text-3xl text-green-900">Accomplished Workshops...</h3>
-        <WorkshopItem 
-          color='#90EE90'
-          title='MCMASTER'
+        <h3 className="font-semibold text-3xl text-green-900">Workshops Completed:</h3>
+
+        {/* Scrollable container for workshops */}
+        <ul
+          ref={scrollContainerRef}
+          className="flex overflow-x-auto space-x-5 py-4 no-scrollbar"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp} // To stop dragging if mouse leaves the area
+        >
+          {workshopItems.map((workshop, index) => (
+            <li key={index}>
+              <WorkshopItem 
+                img={workshop.img}
+                title={workshop.title}
+                fontColor={workshop.fontColor}
+              />
+            </li>
+          ))}
+        </ul>
+        
+        <MultipleSpacer 
+          spacerCount={3}
         />
       </div>
     </div>
