@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 
 const Loading = () => {
   const [showText, setShowText] = useState(false); // State to control showing text
-  const [isTextFinal, setIsTextFinal] = useState(false); // State to track final position of the text
 
   useEffect(() => {
     // Set a timeout to change the showText state after 400ms
@@ -13,10 +12,6 @@ const Loading = () => {
 
     return () => clearTimeout(timeout); // Cleanup timeout if the component is unmounted
   }, []); // Empty dependency array means it runs once on mount
-
-  const handleAnimationComplete = () => {
-    setIsTextFinal(true); // Set text to final position after animation completes
-  }
 
   return (
     <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-yellow-200 via-lime-400 to-green-500 relative">
@@ -52,17 +47,9 @@ const Loading = () => {
               duration: 2,          // Fast movement duration
               ease: "linear",       // Smooth linear movement
             }}
-            onAnimationComplete={handleAnimationComplete} // Set final position after animation
           >
             StockSavvy
           </motion.div>
-        )}
-
-        {/* Permanently place the text under the image after the animation */}
-        {isTextFinal && (
-          <div className="text-2xl text-white">
-            <h1 className="font-black text-5xl ">StockSavvy</h1>
-          </div>
         )}
     </div>
   )
