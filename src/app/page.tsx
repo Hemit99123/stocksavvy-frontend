@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500); // Show loading for 500ms
+    }, 500); // Show loading for 500ms, afterwards remove the loading state
 
     return () => clearTimeout(timer); // Clean up timer on component unmount
   }, []);
