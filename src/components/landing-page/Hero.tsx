@@ -12,7 +12,7 @@ const Hero = () => {
             Finance is key.
         </h3>
         <p className="mb-6 lg:mb-8 text-base md:text-xl lg:text-2xl pt-4">
-            Stock Savvy is a financial literacy initiative that helps young and aspiring high school students. 
+            StockSavvy is a financial literacy initiative that helps young and aspiring high school students. 
         </p>
         <div className="flex space-x-2 justify-center lg:justify-start">
             <CTAButton 
