@@ -9,6 +9,7 @@ import Loading from "@/components/common/Loading";
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
+  /*
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -16,6 +17,7 @@ export default function Home() {
 
     return () => clearTimeout(timer); // Clean up timer on component unmount
   }, []);
+  */
 
   if (isLoading) {
     return <Loading />;
