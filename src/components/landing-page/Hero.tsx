@@ -1,32 +1,33 @@
 import React from 'react'
 import CTAButton from './CTAButton'
+import MultipleSpacer from '../common/MultipleSpacer';
 
 const Hero = () => {
+
   return (
-    <section>
-        <div className="grid max-w-screen-xl mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12 lg:pt-20">
-            <div className="place-self-center lg:col-span-7 px-4 sm:px-6 md:px-8">
-                <h3 className="md:text-5xl xl:text-8xl text-3xl font-bold leading-tight">
-                    Finance is key.
-                </h3>
-                <p className="mb-6 lg:mb-8 lg:text-xl pt-4 text-base">
-                    Stock Savvy is a financial literacy initiative that helps young and aspiring high school students. 
-                </p>
-                <div className="flex space-x-2 mb-44">
-                    <CTAButton 
-                        isTransparent={false}
-                        link="/"
-                        text="Get Started"
-                    />
-                    <CTAButton 
-                        isTransparent={true}
-                        link="https://www.instagram.com/stock.savvy_/"
-                        text="Instagram"
-                    />
-                </div>
-            </div>
+    <div className="lg:pt-16 lg:ml-32 text-center lg:text-start mb-8">
+        <h3 className="md:text-6xl xl:text-9xl text-4xl font-semibold leading-tight">
+            Finance is key.
+        </h3>
+        <p className="mb-6 lg:mb-8 text-base md:text-xl lg:text-2xl pt-4">
+            StockSavvy is a financial literacy initiative that helps young and aspiring high school students. 
+        </p>
+        <div className="flex space-x-2 justify-center lg:justify-start">
+            <CTAButton 
+                isTransparent={false}
+                link="/"
+                text="Get Started"
+            />
+            <CTAButton 
+                isTransparent={true}
+                link="https://www.instagram.com/stock.savvy_/"
+                text="Instagram"
+            />
         </div>
-    </section>
+        <MultipleSpacer 
+          spacerCount={5}
+        />
+    </div>
   )
 }
 
