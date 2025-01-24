@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaChalkboardTeacher } from 'react-icons/fa';
+import { IoMdPeople } from "react-icons/io";
+import { MdSchool } from "react-icons/md";
 import AboutItem from './common/AboutItem';
 import Spacer from '../common/Spacer';
 
@@ -28,12 +30,12 @@ const About = () => {
           desc="We have done many workshops in the past!"
         />
         <AboutItem
-          icon={<FaChalkboardTeacher />}
+          icon={<MdSchool />}
           title="Courses"
           desc="Explore a variety of courses tailored for beginners."
         />
         <AboutItem
-          icon={<FaChalkboardTeacher />}
+          icon={<IoMdPeople />}
           title="Mentorship"
           desc="Get guidance from experienced mentors in the field."
         />
