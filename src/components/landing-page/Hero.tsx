@@ -12,7 +12,7 @@ const Hero = () => {
                 <p className="mb-6 lg:mb-8 lg:text-xl pt-4 text-base">
                     Stock Savvy is a financial literacy initiative that helps young and aspiring high school students. 
                 </p>
-                <div className="flex space-x-2 mb-44">
+                <div className="flex space-x-2 mb-40">
                     <CTAButton 
                         isTransparent={false}
                         link="/"
