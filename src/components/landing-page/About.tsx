@@ -5,6 +5,7 @@ import { MdSchool } from "react-icons/md";
 import AboutItem from './common/AboutItem';
 import Spacer from '../common/Spacer';
 import MultipleSpacer from '../common/MultipleSpacer';
+import WorkshopItem from './common/WorkshopItem';
 
 const About = () => {
   return (
@@ -44,6 +45,13 @@ const About = () => {
       <MultipleSpacer 
         spacerCount={4}
       />
+      <div className="text-start">
+        <h3 className="font-semibold text-3xl text-green-900">Accomplished Workshops...</h3>
+        <WorkshopItem 
+          color='#90EE90'
+          title='McMaster'
+        />
+      </div>
     </div>
   );
 };
