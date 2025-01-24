@@ -27,12 +27,12 @@ const About = () => {
           title="Workshops"
           desc="We have done many workshops in the past!"
         />
-            <AboutItem
+        <AboutItem
           icon={<FaChalkboardTeacher />}
           title="Courses"
           desc="Explore a variety of courses tailored for beginners."
         />
-            <AboutItem
+        <AboutItem
           icon={<FaChalkboardTeacher />}
           title="Mentorship"
           desc="Get guidance from experienced mentors in the field."
