@@ -1,7 +1,5 @@
 import React from 'react'
-import { FaArrowRight, FaInstagram } from 'react-icons/fa'
 import CTAButton from './CTAButton'
-import Image from 'next/image'
 
 const Hero = () => {
   return (
