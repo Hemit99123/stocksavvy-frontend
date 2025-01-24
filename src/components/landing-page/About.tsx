@@ -49,7 +49,7 @@ const About = () => {
         <h3 className="font-semibold text-3xl text-green-900">Accomplished Workshops...</h3>
         <WorkshopItem 
           color='#90EE90'
-          title='McMaster'
+          title='MCMASTER'
         />
       </div>
     </div>
