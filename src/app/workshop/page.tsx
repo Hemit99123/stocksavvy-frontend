@@ -31,8 +31,26 @@ export default function SearchBar() {
                 </h1>
                 <div className="mt-5 max-w-full lg:max-w-xl">
                     <p className="text-lg break-words">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra nec enim eget hendrerit. Fusce nisi nisi, ullamcorper quis ante non, malesuada blandit odio. Vestibulum a felis ornare, venenatis enim quis, suscipit quam. Maecenas fringilla congue est, ac pellentesque tortor vehicula sit amet. Nam rutrum, mauris in auctor convallis, lacus mi malesuada neque, et congue turpis tortor ac odio. Praesent euismod lobortis quam id vestibulum. Nullam lobortis tellus vel malesuada interdum.                    
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pharetra nec enim eget hendrerit. Fusce nisi nisi, ullamcorper quis ante non, malesuada blandit odio. Vestibulum a felis ornare, venenatis enim quis, suscipit quam. Maecenas fringilla congue est, ac pellentesque tortor vehicula sit amet. Nam rutrum, mauris in auctor convallis, lacus mi malesuada neque, et congue turpis tortor ac odio. Praesent euismod lobortis quam id vestibulum. Nullam lobortis tellus vel malesuada interdum.
                     </p>
+                </div>
+                <div className="mt-9">
+                    <h1 className="text-4xl font-bold">Presenters/Guests</h1>
+                    <div className="mt-5">
+                      {item.people.map((person, index) => (
+                        <div key={index} className="flex items-center mb-4">
+                          <img 
+                            src={person.img} 
+                            alt={person.name} 
+                            className="w-16 h-16 rounded-full object-cover mr-4" 
+                          />
+                          <div>
+                            <h2 className="font-bold">{person.name}</h2>
+                            <p className="text-sm text-gray-500">{person.role}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                 </div>
             </div>
           </div>
