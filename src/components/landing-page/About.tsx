@@ -84,13 +84,13 @@ const About: React.FC = () => {
           onMouseLeave={handleMouseUp} // To stop dragging if mouse leaves the area
         >
           {workshopItems.map((workshop, index) => (
-            <li key={index}>
+            <a href={`/workshop?slug=${workshop.slug}`} key={index}>
               <WorkshopItem 
                 img={workshop.img}
                 title={workshop.title}
                 fontColor={workshop.fontColor}
               />
-            </li>
+            </a>
           ))}
         </ul>
         
