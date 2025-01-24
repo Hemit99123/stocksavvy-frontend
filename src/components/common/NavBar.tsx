@@ -17,13 +17,16 @@ const NavBar = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Image 
-                src="/images/logo.png"
-                height={75}
-                width={75}
-                alt='logo'
-            />
+            <div className='flex items-center'>
+              <Image 
+                  src="/images/logo.png"
+                  height={30}
+                  width={75}
+                  alt='logo'
+              />
+              <span className='font-medium text-lg text-gray-800'>StockSavvy</span>
+            </div>
+
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -44,9 +47,6 @@ const NavBar = () => {
                     {item.display}
                 </a>
             ))}
-        </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
       
@@ -78,9 +78,6 @@ const NavBar = () => {
                             {item.display}
                         </a>
                     ))}
-                </div>
-                <div className="py-6">
-                  <a href="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-sm font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
                 </div>
               </div>
             </div>
