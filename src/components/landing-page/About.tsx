@@ -46,7 +46,7 @@ const About: React.FC = () => {
 
       {/* Main content container */}
       <div className="max-w-5xl mx-auto mb-8">
-        <h3 className="text-4xl font-semibold">What is StockSavvy about?</h3>
+        <h3 className="text-2xl lg:text-4xl font-semibold">What is StockSavvy about?</h3>
         <p className="text-gray-600 text-lg mt-4">
           StockSavvy is a financial literacy initiative that helps young and aspiring high school students learn about economic concepts such as saving and spending, teaches investment strategies, and provides steps to becoming a successful investor.
         </p>
@@ -71,7 +71,8 @@ const About: React.FC = () => {
 
       {/* Workshops section mapped from array */}
       <div className="text-start">
-        <h3 className="font-semibold text-3xl text-green-900">Workshops Completed:</h3>
+        <h3 className="font-semibold text-3xl text-green-900">Workshops Info</h3>
+        <p className="lg:text-lg text-gray-600">These are the various topics/partners we have completed a workshop with!</p>
 
         {/* Scrollable container for workshops */}
         <ul
