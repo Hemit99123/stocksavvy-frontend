@@ -8,7 +8,7 @@ interface AboutItemProps {
 const AboutItem: React.FC<AboutItemProps> = ({icon, title, desc}) => {
   return (
     <div className="text-start">
-        <div>
+        <div className="text-xl text-green-900">
             {icon}
         </div>
         <h3 className="text-lg font-bold">{title}</h3>
