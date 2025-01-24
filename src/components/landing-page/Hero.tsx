@@ -1,10 +1,8 @@
 import React from 'react'
 import CTAButton from './CTAButton'
-import Spacer from '../common/Spacer'
+import MultipleSpacer from '../common/MultipleSpacer';
 
 const Hero = () => {
-  // Define how many spacers you need
-  const spacerCount = 5;
 
   return (
     <div className="lg:pt-16 lg:ml-32 text-center lg:text-start mb-8">
@@ -26,10 +24,9 @@ const Hero = () => {
                 text="Instagram"
             />
         </div>
-        {/* Dynamically render spacers */}
-        {[...Array(spacerCount)].map((_, index) => (
-          <Spacer key={index} />
-        ))}
+        <MultipleSpacer 
+          spacerCount={5}
+        />
     </div>
   )
 }

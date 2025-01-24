@@ -4,6 +4,7 @@ import { IoMdPeople } from "react-icons/io";
 import { MdSchool } from "react-icons/md";
 import AboutItem from './common/AboutItem';
 import Spacer from '../common/Spacer';
+import MultipleSpacer from '../common/MultipleSpacer';
 
 const About = () => {
   return (
@@ -40,7 +41,9 @@ const About = () => {
           desc="Get guidance from experienced mentors in the field."
         />
       </div>
-      <Spacer />
+      <MultipleSpacer 
+        spacerCount={4}
+      />
     </div>
   );
 };
