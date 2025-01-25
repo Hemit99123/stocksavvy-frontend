@@ -3,7 +3,7 @@ import React, { FC } from "react";
 interface CTAButtonProps {
   link: string;
   text: string;
-  isTransparent: boolean
+  isTransparent: boolean;
 }
 
 const CTAButton: FC<CTAButtonProps> = ({ link, text, isTransparent }) => {
