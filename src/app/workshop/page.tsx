@@ -22,6 +22,7 @@ export default function SearchBar() {
             <img
               src={item.img}
               className="rounded-r-3xl w-full h-full object-cover hidden lg:block"
+              alt="Main image"
             />
             <div className="absolute bottom-4 left-4 bg-lime-200 px-11 py-2 rounded-xl font-medium">
               {item.date}

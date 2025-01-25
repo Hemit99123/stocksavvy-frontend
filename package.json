@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
+    "lint": " eslint \"src/**/*.{ts,tsx}\"",
     "prepare": "husky && husky install && bash -c 'chmod ug+x .husky/*"
   },
   "dependencies": {
