@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { menuItems } from '@/data/menuItems';
-import { MenuItem } from '@/types/navbar';
-import Image from 'next/image';
-import React, { useState } from 'react';
+import { menuItems } from "@/data/menuItems";
+import { MenuItem } from "@/types/navbar";
+import Image from "next/image";
+import React, { useState } from "react";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,19 +14,18 @@ const NavBar = () => {
 
   return (
     <nav className={`text-white`}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <div className='flex items-center'>
-              <Image 
-                  src="/images/logo.png"
-                  height={30}
-                  width={75}
-                  alt='logo'
-              />
-              <span className='font-medium text-lg text-gray-800'>StockSavvy</span>
+            <div className="flex items-center">
+              <Image src="/images/logo.png" height={30} width={75} alt="logo" />
+              <span className="font-medium text-lg text-gray-800">
+                StockSavvy
+              </span>
             </div>
-
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -36,20 +35,35 @@ const NavBar = () => {
             onClick={toggleMobileMenu}
           >
             <span className="sr-only">Open main menu</span>
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
             </svg>
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
-            {menuItems.map((item: MenuItem) => (
-                <a key={item.display} href={item.pathname} className="text-sm font-semibold text-gray-900">
-                    {item.display}
-                </a>
-            ))}
+          {menuItems.map((item: MenuItem) => (
+            <a
+              key={item.display}
+              href={item.pathname}
+              className="text-sm font-semibold text-gray-900"
+            >
+              {item.display}
+            </a>
+          ))}
         </div>
       </div>
-      
+
       {mobileMenuOpen && (
         <div className="lg:hidden" role="dialog" aria-modal="true">
           <div className="fixed inset-0 z-10"></div>
@@ -61,19 +75,34 @@ const NavBar = () => {
                 onClick={toggleMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                    {menuItems.map((item: MenuItem) => (
-                        <a key={item.display} href={item.pathname} className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">
-                            {item.display}
-                        </a>
-                    ))}
+                  {menuItems.map((item: MenuItem) => (
+                    <a
+                      key={item.display}
+                      href={item.pathname}
+                      className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.display}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>

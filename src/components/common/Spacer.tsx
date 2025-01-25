@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Spacer = () => {
-  return (
-    <div>
-        &nbsp;
-    </div>
-  )
-}
+  return <div>&nbsp;</div>;
+};
 
-export default Spacer
+export default Spacer;

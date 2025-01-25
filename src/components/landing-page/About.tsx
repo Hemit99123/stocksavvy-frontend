@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import React, { useState, useRef, MouseEvent } from 'react';
-import AboutItem from './common/AboutItem';
-import MultipleSpacer from '../common/MultipleSpacer';
-import WorkshopItem from './common/WorkshopItem';
-import { workshopItems } from '@/data/workshop';
-import { aboutItems } from '@/data/about';
+import React, { useState, useRef, MouseEvent } from "react";
+import AboutItem from "./common/AboutItem";
+import MultipleSpacer from "../common/MultipleSpacer";
+import WorkshopItem from "./common/WorkshopItem";
+import { workshopItems } from "@/data/workshop";
+import { aboutItems } from "@/data/about";
 
 const About: React.FC = () => {
   const [isDragging, setIsDragging] = useState(false);
@@ -40,15 +40,22 @@ const About: React.FC = () => {
       {/* Header with gradient lines */}
       <div className="flex items-center justify-center space-x-4 mb-4">
         <div className="h-px w-12 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
-        <h2 className="text-sm lg:text-lg font-medium text-green-600">Built for students, by students</h2>
+        <h2 className="text-sm lg:text-lg font-medium text-green-600">
+          Built for students, by students
+        </h2>
         <div className="h-px w-12 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
       </div>
 
       {/* Main content container */}
       <div className="max-w-5xl mx-auto mb-8">
-        <h3 className="text-2xl lg:text-4xl font-semibold">What is StockSavvy about?</h3>
+        <h3 className="text-2xl lg:text-4xl font-semibold">
+          What is StockSavvy about?
+        </h3>
         <p className="text-gray-600 text-lg mt-4">
-          StockSavvy is a financial literacy initiative that helps young and aspiring high school students learn about economic concepts such as saving and spending, teaches investment strategies, and provides steps to becoming a successful investor.
+          StockSavvy is a financial literacy initiative that helps young and
+          aspiring high school students learn about economic concepts such as
+          saving and spending, teaches investment strategies, and provides steps
+          to becoming a successful investor.
         </p>
       </div>
 
@@ -56,23 +63,22 @@ const About: React.FC = () => {
       <ul className="lg:flex items-center justify-center lg:space-x-28 space-y-10 lg:space-y-0">
         {aboutItems.map((item, index) => (
           <li key={index}>
-            <AboutItem
-              icon={item.icon}
-              title={item.title}
-              desc={item.desc}
-            />
+            <AboutItem icon={item.icon} title={item.title} desc={item.desc} />
           </li>
         ))}
       </ul>
 
-      <MultipleSpacer 
-        spacerCount={4}
-      />
+      <MultipleSpacer spacerCount={4} />
 
       {/* Workshops section mapped from array */}
       <div className="text-start">
-        <h3 className="font-semibold text-3xl text-green-900">Workshops Info</h3>
-        <p className="lg:text-lg text-gray-600">These are the various topics/partners we have completed a workshop with!</p>
+        <h3 className="font-semibold text-3xl text-green-900">
+          Workshops Info
+        </h3>
+        <p className="lg:text-lg text-gray-600">
+          These are the various topics/partners we have completed a workshop
+          with!
+        </p>
 
         {/* Scrollable container for workshops */}
         <ul
@@ -85,7 +91,7 @@ const About: React.FC = () => {
         >
           {workshopItems.map((workshop, index) => (
             <a href={`/workshop?slug=${workshop.slug}`} key={index}>
-              <WorkshopItem 
+              <WorkshopItem
                 img={workshop.img}
                 title={workshop.title}
                 fontColor={workshop.fontColor}
@@ -93,10 +99,8 @@ const About: React.FC = () => {
             </a>
           ))}
         </ul>
-        
-        <MultipleSpacer 
-          spacerCount={3}
-        />
+
+        <MultipleSpacer spacerCount={3} />
       </div>
     </div>
   );

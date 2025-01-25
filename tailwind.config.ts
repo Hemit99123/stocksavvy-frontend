@@ -13,7 +13,7 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        custom: ['Libre Baskerville', 'serif']
+        custom: ["Libre Baskerville", "serif"],
       },
     },
   },
