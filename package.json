@@ -6,7 +6,6 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
     "prepare": "husky && husky install && bash -c 'chmod ug+x .husky/*"
   },

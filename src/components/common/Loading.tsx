@@ -34,7 +34,7 @@ const Loading = () => {
       {/* Show text once animation is done */}
       {showText && (
         <motion.div
-          className={`font-black text-5xl text-black absolute top-1/2 left-0`}
+          className="font-black text-5xl text-black absolute top-1/2 left-0"
           animate={{
             x: ["-100%", "100%"], // Move from left to right, beyond the screen width
             opacity: [1, 0], // Fade out as it moves
