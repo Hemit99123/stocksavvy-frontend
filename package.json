@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install && bash -c 'chmod ug+x .husky/*"
   },
   "dependencies": {
     "framer-motion": "^12.0.5",
