@@ -1,3 +1,6 @@
-# StockSavvy frontend
+# StockSavvy Frontend
+This is the frontend for the StockSavvy web platform. It includes the whole interface for all technology that is used by the platform.
 
-This is the frontend application of the incoming StockSavvy platform
+### Technology 🧑🏽‍💻:
+- NextJS
+- TailwindCSS
