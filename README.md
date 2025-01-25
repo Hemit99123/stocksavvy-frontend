@@ -4,7 +4,7 @@ This is the frontend for the StockSavvy web platform. It includes the whole inte
 ## Technology 🧑🏽‍💻:
 ### - NextJS:
 
-NextJS is a framework of ReactJS. It provides all the tools nescarry to start development like a router and SSR (rendering static pages on server for better response times). It also has amazing SEO capabilities whihc will help make StockSavvy more popular in Search Engine searches like Google or Bing. 
+NextJS is a framework of ReactJS. It provides all the tools nescarry to start development like a router and SSR (rendering static pages on server for better response times). It also has amazing SEO capabilities which will help make StockSavvy more popular in Search Engine searches like Google or Bing. 
 
 ### - TailwindCSS:
 
