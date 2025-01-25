@@ -28,7 +28,11 @@ const Loading = () => {
           ease: "easeInOut",
         }}
       >
-        <img src="/images/logo.png" className="h-96 w-96" alt="logo for animation"/>
+        <img
+          src="/images/logo.png"
+          className="h-96 w-96"
+          alt="logo for animation"
+        />
       </motion.div>
 
       {/* Show text once animation is done */}
