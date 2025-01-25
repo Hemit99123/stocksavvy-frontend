@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion"; 
 import NavBar from "@/components/common/NavBar";
 import About from "@/components/landing-page/About";
 import Hero from "@/components/landing-page/Hero";
