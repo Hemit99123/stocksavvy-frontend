@@ -14,7 +14,7 @@ const Loading = () => {
   }, []); // Empty dependency array means it runs once on mount
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-br from-yellow-200 via-lime-400 to-green-500 relative">
+    <div className="h-screen flex flex-col justify-center items-center relative">
       <motion.div
         animate={{
           rotate: [0, 180, 360],
@@ -38,7 +38,7 @@ const Loading = () => {
       {/* Show text once animation is done */}
       {showText && (
         <motion.div
-          className="font-black text-5xl text-black absolute top-1/2 left-0"
+          className="font-black text-5xl lg:text-8xl text-black absolute top-1/2 left-0"
           animate={{
             x: ["-100%", "100%"], // Move from left to right, beyond the screen width
             opacity: [1, 0], // Fade out as it moves
