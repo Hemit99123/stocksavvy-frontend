@@ -8,7 +8,7 @@ const Testimonial = () => {
             smalltext="Our members"
             title='Hear from our members'
         />
-        <p className="mt-6">Real stories of what it means to learn with StockSavvy.</p>
+        <p className="mt-4 font-light">Real stories of what it means to learn with StockSavvy.</p>
     </div>
   )
 }
