@@ -6,18 +6,35 @@ import NavBar from "@/components/common/NavBar";
 import About from "@/components/landing-page/About";
 import Hero from "@/components/landing-page/Hero";
 import Loading from "@/components/common/Loading";
+import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loading";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // Show loading for 1500ms, afterwards remove the loading state
+    const handleLoadingUI = async () => {
+      let state = await getLoadingState();
 
-    return () => clearTimeout(timer); // Clean up timer on component unmount
-  }, []);
+      if (state === null) {
+        setLoadingStateCookies("true"); 
+        state = "true"
 
+        setIsLoading(true);
+        const timer = setTimeout(() => {
+          setIsLoading(false); // Hide loading after 1500ms
+        }, 1500);
+
+        // Clean up the timer on unmount
+        return () => clearTimeout(timer);
+      } else if (state == "true") {
+        setLoadingStateCookies("false"); 
+      }
+    };
+
+    handleLoadingUI();
+  }, []); // Only run on mount
+
+  // Only show the loading screen if isLoading is true
   if (isLoading) {
     return <Loading />;
   }
