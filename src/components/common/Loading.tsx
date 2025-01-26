@@ -14,7 +14,7 @@ const Loading = () => {
   }, []); // Empty dependency array means it runs once on mount
 
   return (
-    <div className="h-screen flex flex-col justify-center items-center relative">
+    <div className="h-screen flex flex-col justify-center items-center relative bg-gradient-to-br from-yellow-200 via-lime-400 to-green-500">
       <motion.div
         animate={{
           rotate: [0, 180, 360],
