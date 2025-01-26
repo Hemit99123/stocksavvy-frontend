@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './common/Header';
 import TestimonialCard from './common/TestimonialCard';
 import {testimonials} from '@/data/testimonial'
+import MultipleSpacer from '../common/MultipleSpacer';
 
 const Testimonial = () => {
 
@@ -25,6 +26,10 @@ const Testimonial = () => {
           />
         ))}
       </div>
+
+      <MultipleSpacer 
+        spacerCount={4}
+      />
     </div>
   );
 };
