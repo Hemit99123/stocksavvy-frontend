@@ -73,7 +73,7 @@ const About: React.FC = () => {
       {/* Workshops section mapped from array */}
       <div className="text-start">
         <h3 className="font-semibold text-3xl text-green-900">
-          Workshops Info
+          Workshops Information
         </h3>
         <p className="lg:text-lg text-gray-600">
           These are the various topics/partners we have completed a workshop
