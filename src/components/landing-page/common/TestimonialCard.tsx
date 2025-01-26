@@ -2,9 +2,23 @@ import React from 'react';
 import { TestimonialCardProps } from '@/types/testimonial';
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ color, text, name, date, rotate }) => {
+  // Determine rotation class based on the "rotate" prop
+  const rotationClass =
+    rotate === "yes-left"
+      ? "-rotate-6"
+      : rotate === "yes-right"
+      ? "rotate-6"
+      : ""; // No rotation for "no" or undefined
+
   return (
     <div 
-      className={`bg-${color}-200 relative p-6 rounded-lg w-96 h-96 flex flex-col justify-center items-center text-center ${rotate}`}
+      className={`${
+        color === "cyan"
+          ? "bg-cyan-200"
+          : color === "yellow"
+          ? "bg-yellow-200"
+          : color === "green" && "bg-green-200"
+      } relative p-6 rounded-lg w-96 h-96 flex flex-col justify-center items-center text-center ${rotationClass}`}
     >
       {/* Sticky note effect */}
       <div className="absolute top-0 -right-0.5 transform">
