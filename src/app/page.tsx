@@ -8,6 +8,7 @@ import Hero from "@/components/landing-page/Hero";
 import Loading from "@/components/common/Loading";
 import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loading";
 import Mission from "@/components/landing-page/Mission";
+import Testimonial from "@/components/landing-page/Testimonial";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,6 +53,7 @@ const Home = () => {
       </div>
       <About />
       <Mission />
+      <Testimonial />
     </motion.div>
   );
 }
