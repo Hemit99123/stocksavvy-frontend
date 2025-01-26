@@ -30,25 +30,25 @@ const Mission = () => {
                         color="green"
                         title="Empowering Students"
                         text="Our mission is to provide high school students with the tools and knowledge to take control of their financial futures."
-                        isLifted={true} // Lifted up
+                        isLifted={true}
                     />
                     <MissionItem
                         color="yellow"
                         title="Building Strong Foundations"
                         text="We teach fundamental financial concepts such as budgeting, saving, and investing, to set students up for success."
-                        isLifted={false} // Pushed down
+                        isLifted={false} 
                     />
                     <MissionItem
                         color="yellow"
                         title="Inspiring Confidence"
                         text="We aim to inspire confidence in students, helping them understand the power of financial decision-making and how to apply it in their lives."
-                        isLifted={true} // Lifted up
+                        isLifted={true}
                     />
                     <MissionItem
                         color="green"
                         title="Creating Opportunities"
                         text="Through education and guidance, we open the door to a wide range of financial opportunities for young people to explore and benefit from."
-                        isLifted={false} // Pushed down
+                        isLifted={false} 
                     />
                 </div>
             </div>
