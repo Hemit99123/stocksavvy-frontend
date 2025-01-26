@@ -9,7 +9,7 @@ const Testimonial = () => {
   return (
     <div className="mt-16 text-center">
       <Header 
-        smalltext="Our members"
+        smalltext="Our testimonials"
         title="Hear from our members"
       />
       <p className="mt-4 font-light">Real stories vouching for the value gained from StockSavvy.</p>
