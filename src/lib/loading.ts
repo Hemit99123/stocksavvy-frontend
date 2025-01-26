@@ -9,6 +9,7 @@ export const setLoadingState = async (value: string) => {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production', // Only for production
     path: '/', // Cookie will be available on the entire site
+    maxAge: 120
   });
 };
 
