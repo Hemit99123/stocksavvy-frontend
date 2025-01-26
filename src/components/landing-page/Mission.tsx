@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './common/Header'
 import SeperatorItem from './common/SeperatorItem'
+import MissionItem from './common/MissionItem'
 
 const Mission = () => {
   return (
@@ -25,22 +26,30 @@ const Mission = () => {
         <div className="bg-[#121826] text-white flex justify-center items-center gap-10 py-32">
             <div>
                 <div className="grid grid-cols-2 gap-6 max-w-2xl text-black">
-                    <div className="bg-green-400 rounded-lg p-6 transform transition-all duration-500" style={{ transform: 'translateY(-15px)' }}>
-                        <h2 className="text-4xl font-bold mb-2">Empowering Students</h2>
-                        <p>Our mission is to provide high school students with the tools and knowledge to take control of their financial futures.</p>
-                    </div>
-                    <div className="bg-yellow-400 rounded-lg p-6 transform transition-all duration-500" style={{ transform: 'translateY(15px)' }}>
-                        <h2 className="text-4xl font-bold mb-2">Building Strong Foundations</h2>
-                        <p>We teach fundamental financial concepts such as budgeting, saving, and investing, to set students up for success.</p>
-                    </div>
-                    <div className="bg-yellow-400 rounded-lg p-6 transform transition-all duration-500" style={{ transform: 'translateY(-15px)' }}>
-                        <h2 className="text-4xl font-bold mb-2">Inspiring Confidence</h2>
-                        <p>We aim to inspire confidence in students, helping them understand the power of financial decision-making and how to apply it in their lives.</p>
-                    </div>
-                    <div className="bg-green-400 rounded-lg p-6 transform transition-all duration-500" style={{ transform: 'translateY(15px)' }}>
-                        <h2 className="text-4xl font-bold mb-2">Creating Opportunities</h2>
-                        <p>Through education and guidance, we open the door to a wide range of financial opportunities for young people to explore and benefit from.</p>
-                    </div>
+                    <MissionItem
+                        color="green"
+                        title="Empowering Students"
+                        text="Our mission is to provide high school students with the tools and knowledge to take control of their financial futures."
+                        isLifted={true} // Lifted up
+                    />
+                    <MissionItem
+                        color="yellow"
+                        title="Building Strong Foundations"
+                        text="We teach fundamental financial concepts such as budgeting, saving, and investing, to set students up for success."
+                        isLifted={false} // Pushed down
+                    />
+                    <MissionItem
+                        color="yellow"
+                        title="Inspiring Confidence"
+                        text="We aim to inspire confidence in students, helping them understand the power of financial decision-making and how to apply it in their lives."
+                        isLifted={true} // Lifted up
+                    />
+                    <MissionItem
+                        color="green"
+                        title="Creating Opportunities"
+                        text="Through education and guidance, we open the door to a wide range of financial opportunities for young people to explore and benefit from."
+                        isLifted={false} // Pushed down
+                    />
                 </div>
             </div>
             <div>
