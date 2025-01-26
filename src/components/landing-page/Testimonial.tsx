@@ -21,6 +21,7 @@ const Testimonial = () => {
             text={testimonial.text}
             name={testimonial.name}
             date={testimonial.date}
+            rotate={testimonial.rotate}
           />
         ))}
       </div>
