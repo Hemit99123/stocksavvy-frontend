@@ -8,7 +8,7 @@ import Hero from "@/components/landing-page/Hero";
 import Loading from "@/components/common/Loading";
 import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loading";
 
-export const Home = () => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -53,3 +53,5 @@ export const Home = () => {
     </motion.div>
   );
 }
+
+export default Home;
