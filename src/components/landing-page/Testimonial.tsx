@@ -13,7 +13,7 @@ const Testimonial = () => {
       />
       <p className="mt-4 font-light">Real stories vouching for the value gained from StockSavvy.</p>
 
-      <div className="flex flex-wrap justify-center gap-8 mt-8">
+      <div className="flex flex-wrap justify-center gap-8 mt-8 lg:space-x-12">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard 
             key={index}
