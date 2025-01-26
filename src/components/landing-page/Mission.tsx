@@ -23,7 +23,7 @@ const Mission = () => {
             />
         </div>
 
-        <div className="bg-[#121826] text-white flex justify-center items-center gap-10 py-32">
+        <div className="bg-[#121826] text-white flex justify-center items-center gap-10 py-28">
             <div>
                 <div className="grid grid-cols-2 gap-6 max-w-2xl text-black">
                     <MissionItem
