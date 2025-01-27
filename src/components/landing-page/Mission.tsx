@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from './common/Header'
-import SeperatorItem from './common/SeperatorItem'
 import MissionItem from './common/MissionItem'
 
 const Mission = () => {
@@ -11,19 +10,8 @@ const Mission = () => {
             title="Defining our impact."
         />
 
-        <div className="flex justify-center items-center bg-gradient-to-br from-green-200 to-green-500 py-1.5 space-x-4 mt-5">
-            <SeperatorItem 
-                text="Stocks"
-            />
-            <SeperatorItem 
-                text="Money"
-            />
-            <SeperatorItem 
-                text="Investments"
-            />
-        </div>
 
-        <div className="bg-[#121826] text-white flex flex-col lg:flex-row justify-center items-center gap-10 py-28">
+        <div className="bg-[#121826] text-white flex flex-col lg:flex-row justify-center items-center gap-10 py-28 mt-11">
             <div className="max-w-full lg:max-w-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
                     <MissionItem
