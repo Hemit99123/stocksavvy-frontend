@@ -20,7 +20,7 @@ const Footer = () => {
 
             <a className="flex items-center self-start cursor-pointer space-x-2 text-sm md:text-base lg:text-lg" href="https://www.instagram.com/stock.savvy_/">
                 <FaInstagram />
-                <p className="font-medium">INSTAGRAM</p>
+                <p className="font-medium">Instagram</p>
                 <FiArrowUpRight className="font-light" />
             </a>
 
