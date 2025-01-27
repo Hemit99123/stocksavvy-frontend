@@ -22,7 +22,7 @@ const WorkshopItem: React.FC<WorkshopItemProps> = ({
         height: 400,
       }}
     >
-      <h1 className="font-bold text-4xl font-custom absolute bottom-4 left-4 uppercase">
+      <h1 className="font-black text-4xl absolute bottom-4 left-4 uppercase">
         {title}
       </h1>
     </div>
