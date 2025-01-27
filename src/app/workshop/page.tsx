@@ -2,6 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { workshopItems } from "@/data/workshop";
+import { Suspense } from "react";
 
 export default function SearchBar() {
   const searchParams = useSearchParams();
@@ -15,7 +16,7 @@ export default function SearchBar() {
   const item = filteredItems[0];
 
   return (
-    <>
+    <Suspense>
       {slug ? (
         <div className="flex flex-col lg:flex-row h-auto lg:h-screen">
           <div className="w-full lg:w-1/2 h-full relative">
@@ -67,6 +68,6 @@ export default function SearchBar() {
       ) : (
         <div>No slug provided.</div>
       )}
-    </>
+    </Suspense>
   );
 }
