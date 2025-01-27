@@ -32,7 +32,10 @@ const Footer = () => {
         </div>
 
         <h1 className="font-black text-center text-10xl">STOCKSAVVY</h1>
-        <p className="text-right mr-8 text-xs md:text-sm">© StockSavvy {getCurrentYear()}</p>
+        <p className="text-right mr-8 text-xs md:text-sm">
+            <span>© StockSavvy {getCurrentYear()} </span>
+            <a className="underline cursor-pointer">Privacy & Policy</a>
+        </p>
         <Spacer />
     </div>
   )
