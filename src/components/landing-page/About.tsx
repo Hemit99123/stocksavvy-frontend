@@ -6,6 +6,7 @@ import MultipleSpacer from "../common/MultipleSpacer";
 import WorkshopItem from "./common/WorkshopItem";
 import { workshopItems } from "@/data/workshop";
 import { aboutItems } from "@/data/about";
+import { IoIosInformationCircle } from "react-icons/io";
 import Header from "./common/Header";
 
 const About: React.FC = () => {
@@ -65,9 +66,10 @@ const About: React.FC = () => {
 
       {/* Workshops section mapped from array */}
       <div className="text-start">
-        <h3 className="font-semibold text-3xl text-green-900">
-          Workshops Information
-        </h3>
+        <div className="flex items-center space-x-2.5 font-semibold text-3xl text-green-900">
+          <IoIosInformationCircle />
+          <p>Workshops Information</p>
+        </div>
         <p className="lg:text-lg text-gray-600">
           These are the various topics/partners we have completed a workshop
           with!
