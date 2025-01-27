@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontSize: {
+        '10xl': ['clamp(4rem, 15vw, 18rem)', { lineHeight: '1.1' }], // Starts at 4rem, grows with screen size, maxes at 18rem
+      },
       fontFamily: {
         custom: ["Libre Baskerville", "serif"],
       },
