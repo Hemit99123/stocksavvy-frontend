@@ -15,7 +15,7 @@ const Hero = () => {
       <div className="flex space-x-2 justify-center lg:justify-start">
         <CTAButton 
           isTransparent={false} 
-          link="/" 
+          link="/platform" 
           text="Get Started" 
         />
         <CTAButton
