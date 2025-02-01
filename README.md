@@ -37,4 +37,4 @@ The branch should have the following naming structure: `YOUR NAME/GITHUB USER/1-
 
 Ok now create a PR with the **same name as the issue** and once you are done with your contribution, simply merge the PR and close the issue :)
 
-#### Happy Coding 🧑🏽‍💻
+### Happy Coding 🧑🏽‍💻
