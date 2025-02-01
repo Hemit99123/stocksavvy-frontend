@@ -11,6 +11,7 @@ interface WorkshopItem {
   fontColor: "white" | "black"; // Union type for fontColor
   date: string;
   people: Person[]; // Array of people associated with the workshop
+  description: string; // Added description field
 }
 
 export const workshopItems: WorkshopItem[] = [
@@ -20,6 +21,7 @@ export const workshopItems: WorkshopItem[] = [
     slug: "mcmaster",
     fontColor: "white",
     date: "November 28 2024",
+    description: "Join us at McMaster University for an insightful workshop covering higher education opportunities, academic success strategies, and career planning. Engage with experts and network with like-minded students.",
     people: [
       {
         name: "John Doe",
@@ -39,6 +41,7 @@ export const workshopItems: WorkshopItem[] = [
     slug: "bramela_deca",
     fontColor: "white",
     date: "December 7 2024",
+    description: "A must-attend workshop for aspiring business leaders! Prepare for DECA competitions with hands-on case studies, presentation tips, and expert guidance. Elevate your business and leadership skills.",
     people: [
       {
         name: "Alice Brown",
@@ -58,6 +61,7 @@ export const workshopItems: WorkshopItem[] = [
     slug: "dailysat",
     fontColor: "black",
     date: "December 21 2024",
+    description: "Boost your SAT scores with expert tutoring, practice tests, and strategic test-taking tips. This workshop is designed to help students maximize their performance on the SAT exam.",
     people: [
       {
         name: "Sam Wilson",
@@ -72,6 +76,7 @@ export const workshopItems: WorkshopItem[] = [
     slug: "stocks",
     fontColor: "white",
     date: "December 14 2024",
+    description: "Learn the fundamentals of stock investing, market analysis, and financial strategies. This workshop is perfect for beginners looking to build their knowledge of the stock market.",
     people: [
       {
         name: "Olivia Green",
@@ -86,6 +91,7 @@ export const workshopItems: WorkshopItem[] = [
     slug: "budgeting",
     fontColor: "black",
     date: "December 2 2024",
+    description: "Master the art of budgeting and personal finance! Learn how to manage expenses, save efficiently, and plan for financial success in this hands-on workshop.",
     people: [
       {
         name: "Ethan Scott",

@@ -24,8 +24,8 @@ const Home = () => {
 
         setIsLoading(true);
         const timer = setTimeout(() => {
-          setIsLoading(false); // Hide loading after 1500ms
-        }, 1500);
+          setIsLoading(false); // Hide loading after 2300ms
+        }, 2500);
 
         // Clean up the timer on unmount
         return () => clearTimeout(timer);
@@ -49,7 +49,7 @@ const Home = () => {
       animate={{ opacity: 1 }} // Animate to opacity 1
       transition={{ duration: 1.5 }} // Duration of the opacity transition
     >
-      <div className="bg-gradient-to-br from-yellow-200 via-lime-400 to-green-500 rounded-b-3xl">
+      <div className="bg-gradient-to-br from-yellow-300 via-lime-500 to-green-400 rounded-b-3xl">
         <NavBar />
         <Hero />
       </div>
