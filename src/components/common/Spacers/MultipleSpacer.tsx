@@ -1,5 +1,5 @@
 import React from "react";
-import Spacer from "./Spacers/Spacer";
+import Spacer from "./Spacer";
 
 interface MultipleSpacerProps {
   spacerCount: number;
