@@ -1,5 +1,5 @@
 import React from 'react'
-import Spacer from '../common/Spacer'
+import Spacer from '../common/Spacers/Spacer'
 import { FaInstagram } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 

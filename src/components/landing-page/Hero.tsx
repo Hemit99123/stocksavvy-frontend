@@ -1,6 +1,6 @@
 import React from "react";
 import CTAButton from "./CTAButton";
-import MultipleSpacer from "../common/MultipleSpacer";
+import MultipleSpacer from "../common/Spacers/MultipleSpacer";
 
 const Hero = () => {
   return (

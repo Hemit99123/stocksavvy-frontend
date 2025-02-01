@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, MouseEvent } from "react";
 import AboutItem from "./common/AboutItem";
-import MultipleSpacer from "../common/MultipleSpacer";
+import MultipleSpacer from "../common/Spacers/MultipleSpacer";
 import WorkshopItem from "./common/WorkshopItem";
 import { workshopItems } from "@/data/workshop";
 import { aboutItems } from "@/data/about";
