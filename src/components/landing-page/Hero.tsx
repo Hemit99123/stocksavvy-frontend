@@ -13,7 +13,11 @@ const Hero = () => {
         aspiring high school students.
       </p>
       <div className="flex space-x-2 justify-center lg:justify-start">
-        <CTAButton isTransparent={false} link="/" text="Get Started" />
+        <CTAButton 
+          isTransparent={false} 
+          link="/" 
+          text="Get Started" 
+        />
         <CTAButton
           isTransparent={true}
           link="https://www.instagram.com/stock.savvy_/"
