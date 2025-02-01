@@ -34,14 +34,7 @@ export default function SearchBar() {
             </h1>
             <div className="mt-5 max-w-full lg:max-w-xl">
               <p className="text-lg break-words">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                pharetra nec enim eget hendrerit. Fusce nisi nisi, ullamcorper
-                quis ante non, malesuada blandit odio. Vestibulum a felis
-                ornare, venenatis enim quis, suscipit quam. Maecenas fringilla
-                congue est, ac pellentesque tortor vehicula sit amet. Nam
-                rutrum, mauris in auctor convallis, lacus mi malesuada neque, et
-                congue turpis tortor ac odio. Praesent euismod lobortis quam id
-                vestibulum. Nullam lobortis tellus vel malesuada interdum.
+                {item.description}
               </p>
             </div>
             <div className="mt-9">
