@@ -24,8 +24,8 @@ const Home = () => {
 
         setIsLoading(true);
         const timer = setTimeout(() => {
-          setIsLoading(false); // Hide loading after 1500ms
-        }, 1500);
+          setIsLoading(false); // Hide loading after 2300ms
+        }, 2500);
 
         // Clean up the timer on unmount
         return () => clearTimeout(timer);
