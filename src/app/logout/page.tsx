@@ -6,7 +6,9 @@ import React from 'react'
 const page = () => {
   
   const handleLogout = async () => {
-    await axios.post("http://localhost:3001/auth/logout")
+    await axios.get("http://localhost:3001/auth/logout", {
+        withCredentials: true
+    })
   }
   return (
     <div>
