@@ -1,15 +1,32 @@
 "use client"
 
-import React from "react";
+import React, { useState } from "react";
 import { GoogleLogin } from "@react-oauth/google";
 import httpHeader from "@/services/httpHeader";
 
 const Auth = () => {
 
-  const handleLoginGoogleSSO = async (id_token: string | undefined) => {
-     await httpHeader.post("/auth/login", {
-        id_token
+  const [email, setEmail] = useState("")
+  const [otp, setOTP] = useState("")
+  const [name, setName] = useState("")
+  const handleLoginGoogleSSO = async (idToken: string | undefined) => {
+     await httpHeader.post("/auth/login/google", {
+        idToken
      })
+  }
+
+  const handleGenerateOTP = async () => {
+    await httpHeader.post("/auth/assign-otp", {
+      email
+    })
+  }
+
+  const handleVerifyOTPLogin = async () => {
+    await httpHeader.post("/auth/login/email-magic", {
+      email,
+      otp,
+      name
+    })
   }
   return (
     <div>
