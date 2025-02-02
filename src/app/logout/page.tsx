@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 const Logout = () => {
   const router = useRouter()
-  
+
   /* eslint-disable  @typescript-eslint/no-explicit-any */
   const [response, setResponse] = useState<AxiosResponse<any, any>>()
   
@@ -24,7 +24,6 @@ const Logout = () => {
     } else {
       router.push("/logout/success")
     }
-    router.push("/")
   }, [])
 
   return null
