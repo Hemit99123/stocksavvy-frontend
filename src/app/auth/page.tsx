@@ -12,7 +12,7 @@ const Auth = () => {
           console.log("Access Token:", response.credential); // This is your access token
         }}
         onError={() => {
-          console.log("Login Failed");
+          alert("An error has occured!")
         }}
       />
     </div>
