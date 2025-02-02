@@ -16,8 +16,8 @@ const GetStarted = () => {
           <p>StockSavvy</p>
         </div>
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold">Get Started!</h1>
-          <p className="mt-4 text-lg">Complete these easy steps to get started.</p>
+          <h1 className="text-3xl font-bold">Get Started!</h1>
+          <p className="mt-4 text-lg text-gray-400">Complete these easy steps to get started.</p>
         </div>
         
         <div className="w-96">
