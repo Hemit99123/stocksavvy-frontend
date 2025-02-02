@@ -49,7 +49,7 @@ const Home = () => {
       animate={{ opacity: 1 }} // Animate to opacity 1
       transition={{ duration: 1.5 }} // Duration of the opacity transition
     >
-      <div className="bg-gradient-to-br from-lime-400 to-green-600 rounded-b-3xl">
+      <div className="bg-gradient-to-br from-lime-400 to-green-500 rounded-b-3xl">
         <NavBar />
         <Hero />
       </div>
