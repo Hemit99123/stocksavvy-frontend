@@ -52,7 +52,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-md mx-auto p-6 bg-white rounded-lg">
       {/* Google Login */}
       <div className="w-full mb-6">
         <GoogleLogin
@@ -78,7 +78,7 @@ const Auth = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+              className="w-full px-4 py-2 bg-gray-100 placeholder:text-xs rounded-lg mb-8"
             />
             <button
               onClick={handleGenerateOTP}
@@ -97,18 +97,18 @@ const Auth = () => {
             placeholder="Enter OTP"
             value={otp}
             onChange={(e) => setOTP(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+            className="w-full px-4 py-2 bg-gray-100 placeholder:text-xs rounded-lg focus:outline-none mb-4"
           />
           <input
             type="text"
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+            className="w-full px-4 py-2 bg-gray-100 placeholder:text-xs rounded-lg focus:outline-none mb-4"
           />
           <button
             onClick={handleVerifyOTPLogin}
-            className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none"
           >
             Login
           </button>
