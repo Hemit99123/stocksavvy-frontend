@@ -1,11 +1,11 @@
 import LoginView from '@/components/auth/LoginView'
-import WiseQuotes from '@/components/auth/WiseQuotes'
+import GetStarted from '@/components/auth/GetStarted'
 import React from 'react'
 
 const page = () => {
   return (
     <div className="flex ">
-      <WiseQuotes />
+      <GetStarted />
       <LoginView />
     </div>
   )
