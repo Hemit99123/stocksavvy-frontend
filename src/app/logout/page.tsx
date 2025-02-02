@@ -1,18 +1,33 @@
 "use client"
 
 import httpHeader from '@/services/httpHeader'
-import React from 'react'
+import { AxiosResponse } from 'axios'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-const page = () => {
+const Logout = () => {
+  const router = useRouter()
+  
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  const [response, setResponse] = useState<AxiosResponse<any, any>>()
   
   const handleLogout = async () => {
-    await httpHeader.get("/auth/logout")
+    const response = await httpHeader.get("/auth/logout")
+    setResponse(response)
   }
-  return (
-    <div>
-        <button onClick={handleLogout}>Logout</button>
-    </div>
-  )
+
+  useEffect(() => {
+    handleLogout()
+
+    if (response?.status == 400  || response?.status == 500) {
+      router.push("/logout/error")
+    } else {
+      router.push("/logout/success")
+    }
+    router.push("/")
+  }, [])
+
+  return null
 }
 
-export default page
+export default Logout
