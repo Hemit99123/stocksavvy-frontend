@@ -1,26 +1,27 @@
 "use client"
 
 import React from "react";
-import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import httpHeader from "@/services/httpHeader";
 
 const Auth = () => {
 
-  const handleLoginGoogleSSO =  useGoogleLogin({
-    onSuccess: async (credentialResponse) => {
-      await httpHeader.post("/auth/login", {
-        access_token: credentialResponse.access_token
-     })      
-    },
-    onError: () => {
-      alert("An error has occured with Google!")
-    },
-  });
-
+  const handleLoginGoogleSSO = async (id_token: string | undefined) => {
+     await httpHeader.post("/auth/login", {
+        id_token
+     })
+  }
   return (
     <div>
       <h2>Login with Google</h2>
-      <button onClick={() => handleLoginGoogleSSO()}>Sign in with google</button>
+      <GoogleLogin
+        onSuccess={(response) => {
+          handleLoginGoogleSSO(response.credential); // This is your id token
+        }}
+        onError={() => {
+          alert("An error has occured!")
+        }}
+      />
     </div>
   );
 };
