@@ -52,7 +52,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="mx-auto p-6 bg-white rounded-lg">
+    <div className="mx-auto p-6 bg-white rounded-lg h-screen flex flex-col justify-center items-center">
 
       <h1 className="font-bold text-4xl mb-3">Welcome Back!</h1>
 
