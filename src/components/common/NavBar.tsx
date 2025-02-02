@@ -1,13 +1,14 @@
 "use client";
 
-import { menuItems } from "@/data/menuItems";
+import { useMenuItems } from "@/hooks/menuItems";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
 import React, { useState } from "react";
 
 const NavBar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const menuItems = useMenuItems();
+  
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
