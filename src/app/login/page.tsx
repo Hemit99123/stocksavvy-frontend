@@ -6,7 +6,7 @@ import httpHeader from "@/services/httpHeader";
 
 const Auth = () => {
 
-  const loginGoogleSSO = async (access_token: string | undefined) => {
+  const handleLoginGoogleSSO = async (access_token: string | undefined) => {
      await httpHeader.post("/auth/login", {
         access_token
      })
@@ -16,7 +16,7 @@ const Auth = () => {
       <h2>Login with Google</h2>
       <GoogleLogin
         onSuccess={(response) => {
-          loginGoogleSSO(response.credential); // This is your access token
+          handleLoginGoogleSSO(response.credential); // This is your access token
         }}
         onError={() => {
           alert("An error has occured!")
