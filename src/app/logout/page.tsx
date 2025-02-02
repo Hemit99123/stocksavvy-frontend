@@ -1,14 +1,12 @@
 "use client"
 
-import axios from 'axios'
+import httpHeader from '@/services/httpHeader'
 import React from 'react'
 
 const page = () => {
   
   const handleLogout = async () => {
-    await axios.get("http://localhost:3001/auth/logout", {
-        withCredentials: true
-    })
+    await httpHeader.get("http://localhost:3001/auth/logout")
   }
   return (
     <div>
