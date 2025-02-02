@@ -1,24 +1,23 @@
-"use client";
+'use client';
 
-import { useMenuItems } from "@/hooks/menuItems";
+import { useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
-import React, { useState } from "react";
 
-const NavBar = () => {
+interface NavBarProps {
+  menuItems: MenuItem[];
+}
+
+const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const menuItems = useMenuItems();
-  
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
   return (
-    <nav className={`text-white`}>
-      <div
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
+    <nav className="text-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <div className="flex items-center">
@@ -30,35 +29,16 @@ const NavBar = () => {
           </a>
         </div>
         <div className="flex lg:hidden">
-          <button
-            type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={toggleMobileMenu}
-          >
+          <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onClick={toggleMobileMenu}>
             <span className="sr-only">Open main menu</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
           {menuItems.map((item: MenuItem) => (
-            <a
-              key={item.display}
-              href={item.pathname}
-              className="text-sm font-semibold text-gray-900"
-            >
+            <a key={item.display} href={item.pathname} className="text-sm font-semibold text-gray-900">
               {item.display}
             </a>
           ))}
@@ -70,25 +50,10 @@ const NavBar = () => {
           <div className="fixed inset-0 z-10"></div>
           <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={toggleMobileMenu}
-              >
+              <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700" onClick={toggleMobileMenu}>
                 <span className="sr-only">Close menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
@@ -96,11 +61,7 @@ const NavBar = () => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {menuItems.map((item: MenuItem) => (
-                    <a
-                      key={item.display}
-                      href={item.pathname}
-                      className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
-                    >
+                    <a key={item.display} href={item.pathname} className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">
                       {item.display}
                     </a>
                   ))}
