@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Error = () => {
@@ -39,12 +40,12 @@ const Error = () => {
         <p className="text-gray-600 mb-6">
           An unexpected error has occurred. Please try again later or contact our support team for assistance.
         </p>
-        <a
+        <Link
           href="/"
           className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded transition duration-300 ease-in-out"
         >
           Return to Home
-        </a>
+        </Link>
       </div>
     </div>
   );
