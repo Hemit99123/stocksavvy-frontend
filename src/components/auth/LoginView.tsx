@@ -38,16 +38,14 @@ const Auth = () => {
 
   const handleVerifyOTPLogin = async () => {
     try {
-      const response = await httpHeader.post("/auth/login/email-magic", {
+       await httpHeader.post("/auth/login/email-magic", {
         email,
         otp,
         name,
       });
       alert("OTP verification successful!");
-      console.log(response.data);
     } catch (error) {
-      alert("OTP verification failed. Please check your OTP and try again.");
-      console.error(error);
+      alert(error);
     }
   };
 
