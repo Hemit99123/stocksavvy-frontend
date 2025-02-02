@@ -1,10 +1,20 @@
+import Image from "next/image";
 import React from "react";
 
 const GetStarted = () => {
   return (
     <div className="h-screen w-1/2 bg-gradient-to-b from-green-900 to-black flex flex-col items-center justify-center text-white p-8">
-
       <div className="mt-32">
+        <div className="flex justify-center items-center">
+          <Image 
+            src="/images/logo.png"
+            width={50}
+            height={50}
+            alt="stocksavvy logo"
+            className="mt-2"
+          />
+          <p>StockSavvy</p>
+        </div>
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold">Get Started!</h1>
           <p className="mt-4 text-lg">Complete these easy steps to get started.</p>
