@@ -7,7 +7,7 @@ import httpHeader from "@/services/httpHeader";
 const Auth = () => {
 
   const loginGoogleSSO = async (access_token: string | undefined) => {
-     await httpHeader.post("http://localhost:3001/auth/login", {
+     await httpHeader.post("/auth/login", {
         access_token
      })
   }

@@ -6,7 +6,7 @@ import React from 'react'
 const page = () => {
   
   const handleLogout = async () => {
-    await httpHeader.get("http://localhost:3001/auth/logout")
+    await httpHeader.get("/auth/logout")
   }
   return (
     <div>
