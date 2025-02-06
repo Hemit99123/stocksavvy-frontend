@@ -44,7 +44,6 @@ const Home = () => {
 
   return (
     <motion.div
-      className="bg-[#f7f7f7]"
       initial={{ opacity: 0 }} // Start with opacity 0
       animate={{ opacity: 1 }} // Animate to opacity 1
       transition={{ duration: 1.5 }} // Duration of the opacity transition
