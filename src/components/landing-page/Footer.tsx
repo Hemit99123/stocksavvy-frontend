@@ -10,7 +10,7 @@ const Footer = () => {
   }
 
   return (
-    <div className="bg-[#d5d5d5] rounded-t-3xl">
+    <div className="bg-green-50 rounded-t-3xl">
         <div className="text-right md:text-left md:flex md:justify-between p-10 mb-56 space-y-11 lg:space-y-0">
             <div className="text-2xl md:text-3xl lg:text-5xl font-medium">
                 <h3>SMART</h3>
