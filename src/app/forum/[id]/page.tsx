@@ -1,6 +1,6 @@
 import { ArrowBigUp, ArrowBigDown, MessageSquare, Share2, Shield } from "lucide-react"
 import Link from "next/link"
-import { notFound } from "next/navigation"
+import { notFound, redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
 import type React from "react" // Import React
@@ -9,7 +9,7 @@ export default function PostDetail({ params }: { params: { id: string } }) {
   const post = getPost(params.id)
 
   if (!post) {
-    notFound()
+    redirect("/404")
   }
 
   return (

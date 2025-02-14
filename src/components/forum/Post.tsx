@@ -14,7 +14,7 @@ export function Post({ post }: PostProps) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/post/${post.id}`);
+    router.push(`/forum/${post.id}`);
   };
 
   return (
