@@ -7,7 +7,6 @@ export interface Post {
       avatar?: string
     }
     createdAt: string
-    upvotes: number
     commentCount: number
     subreddit: string
     comments: Comment[]
@@ -23,7 +22,6 @@ export interface Post {
       flair?: string
     }
     createdAt: string
-    upvotes: number
   }
   
   

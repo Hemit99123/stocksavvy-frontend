@@ -1,4 +1,4 @@
-import { ArrowBigUp, ArrowBigDown, MessageSquare, Share2, Shield } from "lucide-react"
+import { , MessageSquare, Share2, Shield } from "lucide-react"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
@@ -61,7 +61,6 @@ function PostContent({ post }: { post: Post }) {
   return (
     <div className="bg-zinc-800 rounded-lg p-4 mb-4">
       <div className="flex">
-        <VoteButtons upvotes={post.upvotes} />
         <div className="flex-1 space-y-4">
           {post.content.split("\n\n").map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
@@ -73,25 +72,11 @@ function PostContent({ post }: { post: Post }) {
   )
 }
 
-/* 📌 VOTE BUTTONS */
-function VoteButtons({ upvotes }: { upvotes: number }) {
-  return (
-    <div className="flex flex-col items-center mr-4">
-      <button className="hover:text-green-500 transition">
-        <ArrowBigUp className="h-6 w-6" />
-      </button>
-      <span className="text-white font-medium">{upvotes}</span>
-      <button className="hover:text-red-500 transition">
-        <ArrowBigDown className="h-6 w-6" />
-      </button>
-    </div>
-  )
-}
 
 /* 📌 POST ACTIONS */
 function PostActions({ commentCount }: { commentCount: number }) {
   return (
-    <div className="flex items-center gap-4 mt-4 ml-10">
+    <div className="flex items-center gap-4 mt-4 ml-px">
       <button className="hover:text-zinc-100 transition">
         <MessageSquare className="h-4 w-4 mr-2" />
         {commentCount} Comments
@@ -122,7 +107,7 @@ function CommentItem({ comment, depth }: { comment: Comment; depth: number }) {
     <div className={`relative p-4 bg-zinc-800 rounded-lg ${depth > 0 ? "ml-8 border-l-4 border-zinc-700 pl-4" : ""}`}>
       {/* Author */}
       <div className="flex items-center gap-2 mb-2">
-        <Avatar src={""} fallback="M" />
+        <Avatar src={"https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg"} fallback="M" />
         <span className={`font-medium flex items-center gap-1 ${comment.author.isModerator ? "text-green-500" : ""}`}>
           {comment.author.username}
           {comment.author.isModerator && <Shield className="h-4 w-4" />}
@@ -132,19 +117,7 @@ function CommentItem({ comment, depth }: { comment: Comment; depth: number }) {
 
       {/* Content */}
       <div className="text-zinc-100">{comment.content}</div>
-
-      {/* Actions */}
-      <div className="flex items-center gap-4 mt-2 text-zinc-400 text-sm">
-        <div className="flex items-center gap-1 group">
-          <button className="hover:text-green-500 transition">
-            <ArrowBigUp className="h-4 w-4 group-hover:scale-110 transition-transform" />
-          </button>
-          <span className="text-white">{comment.upvotes}</span>
-          <button className="hover:text-red-500 transition">
-            <ArrowBigDown className="h-4 w-4 group-hover:scale-110 transition-transform" />
-          </button>
-        </div>
-      </div>
+d
     </div>
   )
 }
@@ -163,7 +136,7 @@ function Sidebar({ subreddit }: { subreddit: string }) {
 
 /* 📌 AVATAR */
 function Avatar({ src, fallback }: { src?: string; fallback: string }) {
-  return <div className="w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center">{src ? <img src={src} alt="Avatar" /> : fallback}</div>
+  return <div className="w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center">{src ? <img src={"https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg"} alt="Avatar" /> : fallback}</div>
 }
 
 /* 📌 TIME FORMATTER */
