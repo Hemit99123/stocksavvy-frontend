@@ -22,7 +22,7 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
           <a href="#" className="-m-1.5 p-1.5">
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
-              <span className="font-medium text-lg text-gray-800">
+              <span className="font-medium text-lg text-gray-800 mb-3">
                 StockSavvy
               </span>
             </div>
