@@ -2,6 +2,7 @@ import React from 'react'
 import Spacer from '../common/Spacers/Spacer'
 import { FaInstagram } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
+import Link from 'next/link';
 
 const Footer = () => {
 
@@ -34,7 +35,7 @@ const Footer = () => {
         <h1 className="font-black text-center text-10xl">STOCKSAVVY</h1>
         <p className="text-right mr-8 text-xs md:text-sm">
             <span>© StockSavvy {getCurrentYear()} </span>
-            <a className="underline cursor-pointer">Privacy & Policy</a>
+            <Link href="/privacy-policy" className="underline cursor-pointer">Privacy & Policy</Link>
         </p>
         <Spacer />
     </div>
