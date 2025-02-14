@@ -1,7 +1,6 @@
 import { Header } from "@/components/forum/Header"
 import { Sidebar } from "@/components/forum/Sidebar"
-import { posts } from "@/data/post"
-import { Post } from "@/components/forum/Post"
+import { PostList } from "@/components/forum/PostList"
 
 export default function Home() {
   return (
@@ -15,12 +14,7 @@ export default function Home() {
           <main className="flex-1 px-4">
             <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>
             <div className="space-y-4">
-              {posts.map((post) => (
-                <Post
-                  key={post.id}
-                  post={post}
-                />
-              ))}
+              <PostList />
             </div>
           </main>
         </div>
