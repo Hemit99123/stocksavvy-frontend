@@ -1,4 +1,4 @@
-import { , MessageSquare, Share2, Shield } from "lucide-react"
+import { MessageSquare, Share2, Shield } from "lucide-react"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
