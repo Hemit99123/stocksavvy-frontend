@@ -4,8 +4,8 @@ import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
 
-export default function PostDetail({ params }: { params: { id: string } }) {
-  const post = getPost(params.id)
+export default async function PostDetail({ params }: { params: { id: string } }) {
+  const post = await getPost(params.id)
 
   if (!post) {
     redirect("/404")
