@@ -1,12 +1,12 @@
-import Home from '@/components/landing-page/Home'
-import { useGetMenuItems } from '@/hooks/useGetMenuItems'
+import HomeView from '@/components/landing-page/Home'
+import { useGetMenuItems } from '@/hooks/menuitems'
 import React from 'react'
 
-const page = async () => {
-  const menuItems = await useGetMenuItems()
+const Home = () => {
+  const menuItems = useGetMenuItems()
   return (
-    <Home menuItems={menuItems}/>
+    <HomeView menuItems={menuItems}/>
   )
 }
 
-export default page
+export default Home
