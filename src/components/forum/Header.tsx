@@ -6,7 +6,7 @@ export function Header() {
     <header className="bg-green-800 text-white p-4">
       <div className="container mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
-          Forum
+          StockForum
         </Link>
         <div className="flex-1 mx-4">
           <div className="relative">

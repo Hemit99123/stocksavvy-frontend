@@ -8,10 +8,6 @@ export function Sidebar() {
         <Home size={20} />
         <span>Home</span>
       </Link>
-      <Link href="/trending" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
-        <Trending size={20} />
-        <span>Trending</span>
-      </Link>
       <Link href="/saved" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
         <Bookmark size={20} />
         <span>Saved</span>
@@ -21,7 +17,7 @@ export function Sidebar() {
         <span>Settings</span>
       </Link>
       <div className="pt-4 border-t border-green-200">
-        <h3 className="font-semibold text-green-800 mb-2">Top Communities</h3>
+        <h3 className="font-semibold text-green-800 mb-2">Communities available:</h3>
         <ul className="space-y-2">
           <li>
             <Link href="/r/gardening" className="text-green-700 hover:text-green-900">
