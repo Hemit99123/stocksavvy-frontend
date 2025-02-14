@@ -20,13 +20,11 @@ I truly dont know how to go about this. Hes a sensitive man and i would feel bro
     comments: [
       {
         id: "c1",
-        content:
-          "Welcome to r/AmITheAsshole. Please view our voting guide here, and remember to use only one judgement in your comment.\n\nOP has offered the following explanation for why they think they might be the asshole:\n\nI feel like im an asshole for not letting my dad show his love for me on the regular basis that he does. Even typing this out sounds bad, but i just dont want to worry about always responding to his texts",
+        content: "Welcome to r/AmITheAsshole. Please view our voting guide here, and remember to use only one judgement in your comment.\n\nOP has offered the following explanation for why they think they might be the asshole:\n\nI feel like im an asshole for not letting my dad show his love for me on the regular basis that he does. Even typing this out sounds bad, but i just dont want to worry about always responding to his texts",
         author: {
           username: "Judgement_Bot_AITA",
           avatar: "/placeholder.svg",
           isModerator: true,
-          flair: "BOT",
         },
         createdAt: "2024-02-13T22:16:00Z",
         upvotes: 125,
