@@ -1,6 +1,6 @@
 import { getSessionCookie } from "@/lib/auth"; // assuming you have a function for this
 
-export async function getMenuItems() {
+export async function useGetMenuItems() {
   const authStatus = await getSessionCookie();
   return [
     {
