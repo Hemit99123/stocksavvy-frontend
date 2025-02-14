@@ -13,7 +13,7 @@ export default function Home() {
             <Sidebar />
           </div>
           <main className="flex-1 px-4">
-            <h1 className="text-2xl font-bold text-green-800 mb-6">Popular Posts</h1>
+            <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>
             <div className="space-y-4">
               {posts.map((post) => (
                 <Post
