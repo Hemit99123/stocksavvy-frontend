@@ -1,4 +1,4 @@
-import { Home, TrendingUpIcon as Trending, Bookmark, Settings } from "lucide-react"
+import { Home, Bookmark, Settings } from "lucide-react"
 import Link from "next/link"
 
 export function Sidebar() {
