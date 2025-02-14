@@ -1,3 +1,5 @@
+"use client"
+
 import HomeView from '@/components/landing-page/Home'
 import { useGetMenuItems } from '@/hooks/menuitems'
 import React from 'react'
