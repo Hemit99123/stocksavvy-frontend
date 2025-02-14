@@ -1,6 +1,6 @@
 import { ArrowBigUp, ArrowBigDown, MessageSquare, Share2, Shield } from "lucide-react"
 import Link from "next/link"
-import { notFound, redirect } from "next/navigation"
+import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
 import type React from "react" // Import React
@@ -31,7 +31,7 @@ export default function PostDetail({ params }: { params: { id: string } }) {
 function PostHeader({ post }: { post: Post }) {
   return (
     <div className="flex items-center gap-2 mb-4">
-      <Link href="/" className="text-zinc-400 hover:text-white">
+      <Link href="/forum" className="text-zinc-400 hover:text-white">
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
@@ -146,18 +146,6 @@ function Sidebar({ subreddit }: { subreddit: string }) {
               A catharsis for the frustrated moral philosopher in all of us, and a place to finally find out if you were
               wrong in an argument.
             </p>
-          </div>
-          <div className="border-t border-zinc-700 pt-4">
-            <div className="flex justify-between text-white">
-              <div>
-                <div className="text-xl font-bold">24M</div>
-                <div className="text-sm text-zinc-400">Potential Assholes</div>
-              </div>
-              <div>
-                <div className="text-xl font-bold">5K</div>
-                <div className="text-sm text-zinc-400">Judging right now</div>
-              </div>
-            </div>
           </div>
           <div className="border-t border-zinc-700 pt-4">
             <p className="text-sm text-zinc-400">Created Jun 8, 2013</p>
