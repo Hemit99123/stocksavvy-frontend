@@ -1,11 +1,16 @@
-import { MessageSquare, Share2, Shield } from "lucide-react"
+import { MessageSquare, Share2, Shield } from 'lucide-react'
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
 
-export default async function PostDetail({ params }: { params: { id: string } }) {
-  const post = await getPost(params.id)
+export default async function PostDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  const post = await getPost(id)
 
   if (!post) {
     redirect("/404")
@@ -29,6 +34,7 @@ export default async function PostDetail({ params }: { params: { id: string } })
     </div>
   )
 }
+
 
 /* 📌 POST HEADER */
 function PostHeader({ post }: { post: Post }) {
