@@ -15,8 +15,7 @@ const Auth = () => {
       const response = await httpHeader.post("/auth/login/google", {
         idToken,
       });
-      alert("Google login successful!");
-      console.log(response.data);
+      alert(response.data.message);
     } catch (error) {
       alert("Google login failed. Please try again.");
       console.error(error);
@@ -36,12 +35,12 @@ const Auth = () => {
 
   const handleVerifyOTPLogin = async () => {
     try {
-      await httpHeader.post("/auth/login/email-magic", {
+      const response = await httpHeader.post("/auth/login/email-magic", {
         email,
         otp,
         name,
       });
-      alert("OTP verification successful!");
+      alert(response.data.message);
     } catch (error) {
       alert("OTP verification failed. Please try again.");
       console.error(error);
