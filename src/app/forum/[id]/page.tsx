@@ -1,9 +1,12 @@
+"use client"
+
 import { MessageSquare, Share2, Shield } from 'lucide-react'
 import Link from "next/link"
 import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
 import SharePopUp from '@/components/forum/SharePopUp'
+import useSharePopupStore from '@/store/sharepopup'
 
 export default async function PostDetail({
   params,
@@ -16,6 +19,7 @@ export default async function PostDetail({
   if (!post) {
     redirect("/404")
   }
+
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
@@ -80,13 +84,15 @@ function PostContent({ post }: { post: Post }) {
 
 /* 📌 POST ACTIONS */
 function PostActions({ commentCount }: { commentCount: number }) {
+  const togglePopupStatus = useSharePopupStore((state) => state.toggleStatus)
+
   return (
     <div className="flex items-center gap-4 mt-4 ml-px">
       <button className="hover:text-zinc-100 transition">
         <MessageSquare className="h-4 w-4 mr-2" />
         {commentCount} Comments
       </button>
-      <button className="hover:text-zinc-100 transition">
+      <button className="hover:text-zinc-100 transition" onClick={togglePopupStatus}>
         <Share2 className="h-4 w-4 mr-2" />
         Share
       </button>

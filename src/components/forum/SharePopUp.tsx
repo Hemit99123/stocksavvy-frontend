@@ -1,5 +1,6 @@
 "use client";
 
+import useSharePopupStore from "@/store/sharepopup";
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
@@ -8,10 +9,10 @@ import { FaX } from "react-icons/fa6";
 
 const SharePopUp = () => {
 
-    const isOpen = true
-    const onClose = () => {}
+    const status = useSharePopupStore((state) => state.status)
+    const togglePopupStatus = useSharePopupStore((state) => state.toggleStatus)
 
-  if (!isOpen) return null; // Prevents rendering when closed
+  if (!status) return null; // Prevents rendering when closed
   const url = window.location
 
   return (
@@ -22,7 +23,7 @@ const SharePopUp = () => {
         <div className="flex justify-between items-center border-b border-gray-200 pb-3">
           <p className="text-xl font-bold text-gray-800">Share Modal</p>
           <button
-            onClick={onClose}
+            onClick={togglePopupStatus}
             className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-300 hover:bg-gray-400 text-gray-600"
           >
             &times;
