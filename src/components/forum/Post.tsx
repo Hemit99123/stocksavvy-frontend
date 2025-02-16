@@ -30,16 +30,6 @@ export function Post({ post }: PostProps) {
           <p className="text-sm text-gray-500 mb-2">
             Posted by {post.author.username} • {formatTimeAgo(new Date(post.createdAt))}
           </p>
-          <div className="flex items-center space-x-4 text-sm text-gray-500">
-            <button className="flex items-center space-x-1 hover:bg-green-100 p-1 rounded">
-              <MessageSquare size={16} />
-              <span>{post.commentCount} Comments</span>
-            </button>
-            <button className="flex items-center space-x-1 hover:bg-green-100 p-1 rounded">
-              <Share2 size={16} />
-              <span>Share</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
