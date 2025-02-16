@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
+import Link from "next/link";
 
 interface NavBarProps {
   menuItems: MenuItem[];
@@ -19,14 +20,14 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
     <nav className="text-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
               <span className="font-medium text-lg text-gray-800 mb-3">
                 StockSavvy
               </span>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onClick={toggleMobileMenu}>
