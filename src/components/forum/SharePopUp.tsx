@@ -62,7 +62,7 @@ const SharePopUp = () => {
             />
             <button
               onClick={() => navigator.clipboard.writeText(`${url}`)}
-              className="px-4 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600"
+              className="px-4 py-1 bg-black text-white rounded-lg"
             >
               Copy
             </button>
