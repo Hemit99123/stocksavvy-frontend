@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 
 
@@ -10,7 +10,6 @@ const SharePopUp = () => {
 
     const isOpen = true
     const onClose = () => {}
-    const id = 3
 
   if (!isOpen) return null; // Prevents rendering when closed
   const url = window.location
