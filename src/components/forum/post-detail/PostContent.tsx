@@ -10,11 +10,11 @@ function PostActions({ commentCount }: { commentCount: number }) {
   
     return (
       <div className="flex items-center gap-4 mt-4 ml-px">
-        <button className="hover:text-zinc-100 transition">
+        <button className="flex items-center hover:text-zinc-100 transition">
           <MessageSquare className="h-4 w-4 mr-2" />
           {commentCount} Comments
         </button>
-        <button className="hover:text-zinc-100 transition" onClick={togglePopupStatus}>
+        <button className="flex items-center hover:text-zinc-100 transition" onClick={togglePopupStatus}>
           <Share2 className="h-4 w-4 mr-2" />
           Share
         </button>
