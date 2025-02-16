@@ -4,7 +4,6 @@ import useSharePopupStore from "@/store/sharepopup";
 import Link from "next/link";
 import React from "react";
 import { FaLinkedin, FaReddit, FaWhatsapp } from "react-icons/fa";
-import { FaX } from "react-icons/fa6";
 
 
 
