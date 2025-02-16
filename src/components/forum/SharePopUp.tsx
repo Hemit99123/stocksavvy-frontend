@@ -4,7 +4,7 @@ import useSharePopupStore from "@/store/sharepopup";
 import Link from "next/link";
 import React from "react";
 import { FaLinkedin, FaReddit, FaWhatsapp } from "react-icons/fa";
-
+import {FaTiktok} from "react-icons/fa6"
 
 
 const SharePopUp = () => {
@@ -38,7 +38,8 @@ const SharePopUp = () => {
             {[
               { platform: "LinkedIn", icon: <FaLinkedin />, color: "bg-blue-600", shareLink: `https://www.linkedin.com/sharing/share-offsite/?url=${url}` },
               { platform: "WhatsApp", icon: <FaWhatsapp />, color: "bg-green-600", shareLink: `https://api.whatsapp.com/send?text=Check%20this%20out!%20${url}`},
-              { platform: "Reddit", icon: <FaReddit />, color: "bg-orange-600", shareLink: `https://reddit.com/submit?url=${url}&title=Check%20this%20out!`}
+              { platform: "Reddit", icon: <FaReddit />, color: "bg-orange-600", shareLink: `https://reddit.com/submit?url=${url}&title=Check%20this%20out!`},
+              { platform: "Tiktok", icon: <FaTiktok />, color: "bg-black", shareLink: `https://www.tiktok.com/share?url=${url}`}
             ].map(({ platform, icon, color, shareLink }) => (
               <Link
                 href={shareLink || ""}
