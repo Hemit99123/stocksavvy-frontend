@@ -1,8 +1,9 @@
 "use client";
 
 import useSharePopupStore from "@/store/sharepopup";
+import Link from "next/link";
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FaX } from "react-icons/fa6";
 
 
@@ -36,17 +37,18 @@ const SharePopUp = () => {
           
           <div className="flex justify-around my-4">
             {[
-              { platform: "Facebook", icon: <FaFacebook />, color: "bg-blue-600" },
+              { platform: "LinkedIn", icon: <FaLinkedin />, color: "bg-blue-600", shareLink: `https://www.linkedin.com/sharing/share-offsite/?url=${url}` },
               { platform: "X", icon: <FaX />, color: "bg-black" },
               { platform: "Instagram", icon: <FaInstagram />, color: "bg-pink-600" },
-            ].map(({ platform, icon, color }) => (
-              <button
+            ].map(({ platform, icon, color, shareLink }) => (
+              <Link
+                href={shareLink || ""}
                 key={platform}
                 className={`w-12 h-12 rounded-full flex items-center justify-center text-white ${color} shadow-lg hover:opacity-80`}
                 aria-label={`Share on ${platform}`}
               >
                 {icon}
-              </button>
+              </Link>
             ))}
           </div>
 
