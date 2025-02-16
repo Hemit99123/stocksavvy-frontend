@@ -3,6 +3,7 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { getPost } from "@/data/post"
 import type { Post, Comment } from "@/types/post"
+import SharePopUp from '@/components/forum/SharePopUp'
 
 export default async function PostDetail({
   params,
@@ -25,6 +26,7 @@ export default async function PostDetail({
             <PostHeader post={post} />
             <PostContent post={post} />
             <CommentSection comments={post.comments} />
+            <SharePopUp />
           </div>
         </div>
       </div>
