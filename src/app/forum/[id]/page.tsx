@@ -26,9 +26,6 @@ export default async function PostDetail({
             <PostContent post={post} />
             <CommentSection comments={post.comments} />
           </div>
-
-          {/* Sidebar */}
-          <Sidebar subreddit={post.subreddit} />
         </div>
       </div>
     </div>
@@ -124,18 +121,6 @@ function CommentItem({ comment, depth }: { comment: Comment; depth: number }) {
       {/* Content */}
       <div className="text-zinc-100">{comment.content}</div>
 d
-    </div>
-  )
-}
-
-/* 📌 SIDEBAR */
-function Sidebar({ subreddit }: { subreddit: string }) {
-  return (
-    <div className="hidden lg:block w-80">
-      <div className="bg-zinc-800 rounded-lg p-4">
-        <h2 className="text-lg font-semibold">r/{subreddit}</h2>
-        <p className="text-zinc-400">A place for discussion and engagement.</p>
-      </div>
     </div>
   )
 }
