@@ -1,6 +1,5 @@
 "use client"
 
-import { MessageSquare, Share2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { formatTimeAgo } from '@/lib/formatTime';
 import {Post as PostType} from "@/types/post"
