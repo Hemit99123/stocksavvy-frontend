@@ -24,7 +24,7 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
               <span className="font-medium text-lg text-gray-800 mb-3">
-                StockSavvy
+                Stock Savvy
               </span>
             </div>
           </Link>
