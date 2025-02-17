@@ -58,7 +58,7 @@ const Footer = () => {
           {/* CTA Section */}
           <div className="mb-20">
             <p className="text-white/80 mb-2">GOT A PROJECT IN MIND?</p>
-            <h2 className="text-white text-7xl font-light">Let's talk</h2>
+            <h2 className="text-white text-7xl font-light">Let&apos;s talk</h2>
           </div>
 
           {/* Bottom Footer */}
