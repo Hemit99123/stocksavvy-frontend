@@ -53,7 +53,7 @@ const Home: React.FC<Home> = ({ menuItems }) => {
       animate={{ opacity: 1 }} // Animate to opacity 1
       transition={{ duration: 1.5 }} // Duration of the opacity transition
     >
-      <div className="bg-gradient-to-br from-yellow-300 via-lime-500 to-green-400 rounded-b-3xl">
+      <div className="bg-green-500 rounded-b-3xl">
         <NavBar menuItems={menuItems}/>
         <Hero />
       </div>
