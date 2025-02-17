@@ -46,7 +46,7 @@ const Mission = () => {
             <div className="text-center lg:text-left">
                 <h1 className="font-bold text-4xl mb-3">We are passionate</h1>
                 <p className="max-w-full lg:max-w-lg mx-auto lg:mx-0">
-                    At StockSavvy, we are committed to building a generation of financially literate individuals who are empowered to make sound financial decisions, contribute to their communities, and pave the way for a more secure future.
+                    At Stock Savvy, we are committed to building a generation of financially literate individuals who are empowered to make sound financial decisions, contribute to their communities, and pave the way for a more secure future.
                 </p>
             </div>
         </div>
