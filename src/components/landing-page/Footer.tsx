@@ -1,45 +1,119 @@
-import React from 'react'
-import Spacer from '../common/Spacers/Spacer'
-import { FaInstagram } from "react-icons/fa";
-import { FiArrowUpRight } from "react-icons/fi";
-import Link from 'next/link';
+import { Facebook, Youtube, Instagram, Twitter, ArrowUp } from "lucide-react"
+import Link from "next/link"
 
 const Footer = () => {
-
-  const getCurrentYear = () => {
-        return new Date().getFullYear()
-  }
-
   return (
-    <div className="bg-green-50 text-green-800 rounded-t-3xl">
-        <div className="text-right md:text-left md:flex md:justify-between p-10 mb-56 space-y-11 lg:space-y-0">
-            <div className="text-2xl md:text-3xl lg:text-5xl font-medium">
-                <h3>SMART</h3>
-                <h3>MONEY</h3>
-                <h3>CHOICES</h3>
+    <footer className="w-full">
+
+      {/* Main Footer */}
+      <div className="bg-green-500 pt-24 pb-8 px-12">
+        <div className="max-w-7xl mx-auto">
+          {/* Logo and Links Grid */}
+          <div className="grid grid-cols-4 gap-8 mb-20">
+            {/* Logo */}
+            <div>
+              <Link href="/" className="text-white text-3xl font-bold">
+                STOCK SAVVY
+              </Link>
             </div>
 
-            <a className="flex items-center self-start cursor-pointer space-x-2 text-sm md:text-base lg:text-lg" href="https://www.instagram.com/stock.savvy_/">
-                <FaInstagram />
-                <p className="font-medium">Instagram</p>
-                <FiArrowUpRight className="font-light" />
-            </a>
-
-            <div className="text-left md:text-right">
-                <p className="md:text-lg lg:text-xl mb-1 font-semibold">Get in touch!</p>
-                <p className="text-sm md:text-base underline cursor-pointer">stocksavvy00@gmail.com </p>
-                <p className="text-sm md:text-base underline cursor-pointer">123 456 7890</p>
+            {/* Navigation Links */}
+            <div className="space-y-4">
+              <Link href="/websites" className="block text-white hover:opacity-80">
+                Websites
+              </Link>
+              <Link href="/collections" className="block text-white hover:opacity-80">
+                Collections
+              </Link>
+              <Link href="/elements" className="block text-white hover:opacity-80">
+                Elements
+              </Link>
             </div>
+
+            <div className="space-y-4">
+              <Link href="/academy" className="block text-white hover:opacity-80">
+                Academy
+              </Link>
+              <Link href="/jobs" className="block text-white hover:opacity-80">
+                Jobs
+              </Link>
+              <Link href="/market" className="block text-white hover:opacity-80">
+                Market
+              </Link>
+            </div>
+
+            <div className="space-y-4">
+              <Link href="/faqs" className="block text-white hover:opacity-80">
+                FAQs
+              </Link>
+              <Link href="/about" className="block text-white hover:opacity-80">
+                About Us
+              </Link>
+              <Link href="/contact" className="block text-white hover:opacity-80">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mb-20">
+            <p className="text-white/80 mb-2">GOT A PROJECT IN MIND?</p>
+            <h2 className="text-white text-7xl font-light">Let's talk</h2>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-white/10 pt-8 flex justify-between items-center">
+            <div className="flex gap-6">
+              <Link href="/cookies" className="text-white/80 hover:text-white text-sm">
+                Cookies Policy
+              </Link>
+              <Link href="/legal" className="text-white/80 hover:text-white text-sm">
+                Legal Terms
+              </Link>
+              <Link href="/privacy" className="text-white/80 hover:text-white text-sm">
+                Privacy Policy
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-8">
+              {/* Social Links */}
+              <div className="flex gap-6">
+                <Link href="#" className="text-white hover:opacity-80">
+                  <Facebook className="h-6 w-6" />
+                  <span className="sr-only">Facebook</span>
+                </Link>
+                <Link href="#" className="text-white hover:opacity-80">
+                  <Twitter className="h-6 w-6" />
+                  <span className="sr-only">Twitter</span>
+                </Link>
+                <Link href="#" className="text-white hover:opacity-80">
+                  <Instagram className="h-6 w-6" />
+                  <span className="sr-only">Instagram</span>
+                </Link>
+                <Link href="#" className="text-white hover:opacity-80">
+                  <Youtube className="h-6 w-6" />
+                  <span className="sr-only">YouTube</span>
+                </Link>
+              </div>
+
+              {/* Back to Top Link */}
+              <Link
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault()
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }}
+                className="bg-white p-6 rounded-xl hover:bg-white/90 text-[#6B46C1]"
+              >
+                <ArrowUp className="h-6 w-6" />
+                <span className="sr-only">Back to top</span>
+              </Link>
+            </div>
+          </div>
         </div>
-
-        <h1 className="font-black text-center text-10xl">STOCKSAVVY</h1>
-        <p className="text-right mr-8 text-xs md:text-sm">
-            <span>© StockSavvy {getCurrentYear()} </span>
-            <Link href="/privacy-policy" className="underline cursor-pointer">Privacy & Policy</Link>
-        </p>
-        <Spacer />
-    </div>
+      </div>
+    </footer>
   )
 }
 
-export default Footer
+export default Footer;
