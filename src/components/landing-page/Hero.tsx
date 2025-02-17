@@ -8,8 +8,8 @@ const Hero = () => {
       <h3 className="md:text-6xl xl:text-9xl text-4xl font-black leading-tight ">
         Finance is key.
       </h3>
-      <p className="mb-6 lg:mb-8 text-base md:text-xl lg:text-2xl pt-4 p-10 lg:p-0">
-        StockSavvy is a financial literacy initiative that helps young and
+      <p className="mt-4 mb-8 lg:mb-8 text-base md:text-xl lg:text-2xl pt-4 p-10 lg:p-0">
+        Stock Savvy is a financial literacy initiative that helps young and
         aspiring high school students.
       </p>
       <div className="flex space-x-2 justify-center lg:justify-start">
