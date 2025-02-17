@@ -1,5 +1,6 @@
-import { Facebook, Youtube, Instagram, Twitter, ArrowUp } from "lucide-react"
+import { Instagram, ArrowUp } from "lucide-react"
 import Link from "next/link"
+import { FaMailBulk, FaPhone } from "react-icons/fa"
 
 const Footer = () => {
   return (
@@ -18,7 +19,7 @@ const Footer = () => {
             </div>
 
             {/* Navigation Links */}
-            <div className="space-y-4">
+            <div className="space-y-2">
               <Link href="/websites" className="block text-white hover:opacity-80">
                 Websites
               </Link>
@@ -56,21 +57,24 @@ const Footer = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mb-20">
-            <p className="text-white/80 mb-2">GOT A PROJECT IN MIND?</p>
+          <div className="mb-10">
+            <p className="text-white/80 mb-2 uppercase">Got a question in mind?</p>
             <h2 className="text-white text-7xl font-light">Let&apos;s talk</h2>
+            <div className="text-white flex items-center mt-4 space-x-4">
+                <FaPhone />
+                <p>(123)-456-7890</p>
+            </div>
+
+            <div className="text-white flex items-center mt-4 space-x-4">
+                <FaMailBulk />
+                <p>stocksavvy00@gmail.com</p>
+            </div>
           </div>
 
           {/* Bottom Footer */}
           <div className="border-t border-white/10 pt-8 flex justify-between items-center">
             <div className="flex gap-6">
-              <Link href="/cookies" className="text-white/80 hover:text-white text-sm">
-                Cookies Policy
-              </Link>
-              <Link href="/legal" className="text-white/80 hover:text-white text-sm">
-                Legal Terms
-              </Link>
-              <Link href="/privacy" className="text-white/80 hover:text-white text-sm">
+              <Link href="/privacy-policy" className="text-white/80 hover:text-white text-sm">
                 Privacy Policy
               </Link>
             </div>
@@ -79,20 +83,8 @@ const Footer = () => {
               {/* Social Links */}
               <div className="flex gap-6">
                 <Link href="#" className="text-white hover:opacity-80">
-                  <Facebook className="h-6 w-6" />
-                  <span className="sr-only">Facebook</span>
-                </Link>
-                <Link href="#" className="text-white hover:opacity-80">
-                  <Twitter className="h-6 w-6" />
-                  <span className="sr-only">Twitter</span>
-                </Link>
-                <Link href="#" className="text-white hover:opacity-80">
                   <Instagram className="h-6 w-6" />
                   <span className="sr-only">Instagram</span>
-                </Link>
-                <Link href="#" className="text-white hover:opacity-80">
-                  <Youtube className="h-6 w-6" />
-                  <span className="sr-only">YouTube</span>
                 </Link>
               </div>
 
