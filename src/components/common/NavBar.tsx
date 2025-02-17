@@ -22,8 +22,8 @@ const NavBar = () => {
           <a href="#" className="-m-1.5 p-1.5">
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
-              <span className="font-medium text-lg text-gray-800 mb-3">
-                StockSavvy
+              <span className="font-medium text-lg mb-3">
+                Stock Savvy
               </span>
             </div>
           </a>
@@ -31,7 +31,7 @@ const NavBar = () => {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
             onClick={toggleMobileMenu}
           >
             <span className="sr-only">Open main menu</span>
@@ -56,7 +56,7 @@ const NavBar = () => {
             <a
               key={item.display}
               href={item.pathname}
-              className="text-sm font-semibold text-gray-900"
+              className="text-sm font-semibold"
             >
               {item.display}
             </a>
@@ -71,7 +71,7 @@ const NavBar = () => {
             <div className="flex items-center justify-between">
               <button
                 type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                className="-m-2.5 rounded-md p-2.5"
                 onClick={toggleMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
@@ -98,7 +98,7 @@ const NavBar = () => {
                     <a
                       key={item.display}
                       href={item.pathname}
-                      className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50"
+                      className="block rounded-lg py-2 text-sm font-semibold hover:bg-gray-50"
                     >
                       {item.display}
                     </a>
