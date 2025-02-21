@@ -1,9 +1,13 @@
-import ComingSoon from '@/components/common/ComingSoon'
 import React from 'react'
 
 const Questions = () => {
   return (
-    <ComingSoon />
+    <div>
+        <div className="p-8">
+          <h1 className="text-6xl font-bold">Stock Questions</h1>
+          <p className="text-gray-600 text-lg mb-2">Let's test your financial skills!</p>
+        </div>
+    </div>
   )
 }
 
