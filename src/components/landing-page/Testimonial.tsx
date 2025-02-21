@@ -18,7 +18,6 @@ const Testimonial = () => {
         {testimonials.map((testimonial, index) => (
           <TestimonialCard 
             key={index}
-            color={testimonial.color}
             text={testimonial.text}
             name={testimonial.name}
             date={testimonial.date}

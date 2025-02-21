@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StockSavvy",
+  title: "Stock Savvy",
   description:
     "Stock Savvy is a financial literacy initiative that helps young and aspiring high school students learn about financial concepts such as saving and spending, teaches investment strategies, and provides steps to become a successful investor. Our mission revolves around teaching you how to maintain your MONEY, and how to grow it over time! Join us on this meaningful journey of learning together",
 };
