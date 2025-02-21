@@ -5,7 +5,7 @@ const Questions = () => {
     <div>
         <div className="p-8">
           <h1 className="text-6xl font-bold">Stock Questions</h1>
-          <p className="text-gray-600 text-lg mb-2">Let's test your financial skills!</p>
+          <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills!</p>
         </div>
     </div>
   )
