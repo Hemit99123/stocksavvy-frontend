@@ -5,7 +5,7 @@ import { MdHomeFilled } from 'react-icons/md'
 const Questions = () => {
   return (
     <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mx-8 mt-5">
             <div className="flex justify-center text-green-500">
               <div className='mt-0.5'>
                 <MdHomeFilled /> 
@@ -15,9 +15,11 @@ const Questions = () => {
               </div>
             </div>
 
-            <div className="flex text-gray-600">
-              <Hand />
-              Not feeling ready for this? Check out <span className="text-green-500 underline">Financial guide</span>
+            <div className="flex text-gray-600 text-xs gap-2">
+              <Hand size={16}/>
+              <div>
+                Not feeling ready for this? Check out <span className="text-green-500 underline font-bold">Financial guide</span>
+              </div>
             </div>
         </div>
 
