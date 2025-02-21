@@ -26,7 +26,7 @@ const Questions = () => {
 
         <div className="p-8">
           <h1 className="text-6xl font-bold">Stock Questions<span className="text-green-500 font-black">?</span></h1>
-          <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills!</p>
+          <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills! Explore below...</p>
         </div>
     </div>
   )
