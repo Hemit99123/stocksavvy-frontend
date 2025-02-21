@@ -5,4 +5,8 @@ export const menuItems: MenuItem[] = [
     display: "Platform",
     pathname: "/platform",
   },
+  {
+    display: "Questions",
+    pathname: "/questions",
+  },
 ];
