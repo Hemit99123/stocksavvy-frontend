@@ -18,7 +18,7 @@ const Questions = () => {
             <div className="flex text-gray-600 text-xs gap-2">
               <Hand size={16}/>
               <div>
-                Not feeling ready for this? Check out <span className="text-green-500 underline font-bold">Financial guide</span>
+                Not feeling ready for this? Check out <span className="text-green-500 underline font-bold cursor-pointer">Financial guide</span>
               </div>
             </div>
         </div>
