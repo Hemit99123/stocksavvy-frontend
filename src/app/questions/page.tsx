@@ -11,7 +11,8 @@ const Questions = () => {
               <div className='mt-1'>
                 <MdHomeFilled /> 
               </div>
-              <div>
+
+              <div className='ml-1'>
                 • StockSavvy
               </div>
             </Link>
