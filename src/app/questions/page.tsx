@@ -1,3 +1,4 @@
+import Sidebar from '@/components/questions/SideBar'
 import { Hand } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'
@@ -25,10 +26,14 @@ const Questions = () => {
             </div>
         </div>
 
-        <div className="p-8">
-          <h1 className="text-6xl font-bold">Stock Questions<span className="text-green-500 font-black">?</span></h1>
-          <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills! Explore below...</p>
+        <div>
+          <div className="p-8">
+            <h1 className="text-6xl font-bold">Stock Questions<span className="text-green-500 font-black">?</span></h1>
+            <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills! Explore below...</p>
+          </div>
+          <Sidebar />
         </div>
+
     </div>
   )
 }
