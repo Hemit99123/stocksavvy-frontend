@@ -18,9 +18,10 @@ const Sidebar = () => {
     // If clicked again, unselect it!
     if (newTopic.name == type) {
       setType("None")
+    } else {
+      setType(newTopic.name) 
     }
 
-    setType(newTopic.name) // Set the selected topic's name as the type in the store
   }
 
   const filteredTopics = topics.filter((topic) =>
