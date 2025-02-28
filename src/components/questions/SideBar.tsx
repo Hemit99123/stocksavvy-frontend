@@ -34,7 +34,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="w-full md:w-1/3 md:pl-8 flex-shrink-0 flex flex-col gap-4">
+    <div className="w-full md:w-1/3 md:pl-8 flex-shrink-0 flex flex-col gap-4 mr-16">
       {/* Top bar */}
       <div className="flex justify-between items-center mb-5 mx-4">
         <Search
