@@ -1,3 +1,5 @@
+"use client"
+
 import { useQuestionTypeStore } from '@/store/questions'
 import React from 'react'
 

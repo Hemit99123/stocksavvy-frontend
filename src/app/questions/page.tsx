@@ -1,3 +1,4 @@
+import QuestionView from '@/components/questions/QuestionView'
 import Sidebar from '@/components/questions/SideBar'
 import { Hand } from 'lucide-react'
 import Link from 'next/link'
@@ -32,6 +33,7 @@ const Questions = () => {
             <p className="text-gray-600 text-lg mb-2">Let&apos;s test your financial skills! Explore below...</p>
           </div>
           <Sidebar />
+          <QuestionView />
         </div>
 
     </div>
