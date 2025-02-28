@@ -5,7 +5,7 @@ export type TopicName = "Information and Ideas" | "Craft and Structure" | "Expre
 
 export interface Topic {
     id: number;
-    name: string;
+    name: TopicName;
     description: string;
     icon: LucideIcon;
 }
