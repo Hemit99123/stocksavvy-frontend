@@ -7,9 +7,12 @@ const QuestionView = () => {
   const { type } = useQuestionTypeStore() // Use the store's state and setter
 
   return (
-    <div>
+    <div className="flex items-center">
       {type === "None" ? (
-        <div>None chosen</div>
+        <div className="text-center">
+            <h1 className="font-bold text-lg">Start with a topic</h1>
+            <p className="text-gray-500">Get started through selecting a topic.</p>
+        </div>
       ) : (
         <div>chosen: {type}</div>
       )}
