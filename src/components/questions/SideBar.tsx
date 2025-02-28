@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Search, Filter } from "lucide-react"
+import { Search } from "lucide-react"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Slot } from "@radix-ui/react-slot"
 import { topics } from "@/data/topics"
@@ -81,73 +81,101 @@ Badge.displayName = "Badge"
 
 const Sidebar = () => {
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null)
-  const [showFilters, setShowFilters] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [showSearchModal, setShowSearchModal] = useState(false)
 
   const handleTopicClick = (newTopic: Topic) => {
     setSelectedTopic(newTopic)
   }
 
+  const filteredTopics = topics.filter((topic) =>
+    topic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    topic.description.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   return (
     <div className="w-full md:w-1/3 md:pl-8 flex-shrink-0 flex flex-col gap-4">
-      {/* Search and filter */}
+      {/* Search Button */}
       <div className="relative mb-5">
-        <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute right-1 top-1"
-          onClick={() => setShowFilters(!showFilters)}
-        >
-          <Filter className="h-4 w-4" />
-        </Button>
+        <Search className="h-4 w-4 text-muted-foreground" onClick={() => setShowSearchModal(true)} />
       </div>
 
-      {/* Filter options */}
-      {showFilters && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="flex flex-wrap gap-2 mb-2"
-        >
-          {["All", "Recent", "Popular", "Bookmarked"].map((filter) => (
-            <Badge key={filter} variant="outline" className="cursor-pointer hover:bg-primary/10">
-              {filter}
-            </Badge>
-          ))}
-        </motion.div>
+      {/* Search Modal */}
+      {showSearchModal && (
+        <div className="fixed inset-0 z-10 bg-black bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg w-96">
+            <h2 className="text-xl font-semibold mb-4">Search Topics</h2>
+            <input
+              type="text"
+              placeholder="Search for a topic..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-2 mb-4 border rounded-md"
+            />
+            <Button variant="destructive" onClick={() => setShowSearchModal(false)} className="w-full">
+              Close
+            </Button>
+            {/* Display filtered topics */}
+            <div className="mt-4 max-h-60 overflow-y-auto">
+              {filteredTopics.map((topic) => (
+                <motion.div
+                  key={topic.id}
+                  className={`rounded-lg overflow-hidden cursor-pointer group transition-all duration-200 ${
+                    selectedTopic?.id === topic.id ? "bg-primary/10 shadow-md" : "bg-card hover:bg-primary/5"
+                  }`}
+                  onClick={() => handleTopicClick(topic)}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  {selectedTopic?.id === topic.id && (
+                    <motion.div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" layoutId="activeIndicator" />
+                  )}
+                  <div className="py-4 px-4 flex items-start gap-3">
+                    <div className="p-2 rounded-md bg-muted text-muted-foreground text-green-500">
+                      <topic.icon size={24} className="text-primary" /> {/* Render as JSX with props */}
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                        {topic.description}
+                      </p>
+                      <p className="text-base font-semibold mt-1">{topic.name}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Topics List */}
       <div className="space-y-3 overflow-y-auto max-h-[calc(100vh-180px)] pr-2">
-        {topics.map((topic) => {
-          return (
-            <motion.div
-              key={topic.id}
-              className={`relative rounded-lg overflow-hidden cursor-pointer group transition-all duration-200 ${
-                selectedTopic?.id === topic.id ? "bg-primary/10 shadow-md" : "bg-card hover:bg-primary/5"
-              }`}
-              onClick={() => handleTopicClick(topic)}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
-            >
-              {selectedTopic?.id === topic.id && (
-                <motion.div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" layoutId="activeIndicator" />
-              )}
-              <div className="py-4 px-4 flex items-start gap-3">
-                <div className="p-2 rounded-md bg-muted text-muted-foreground text-green-500">
-                  <topic.icon size={24} className="text-primary" /> {/* Render as JSX with props */}
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                    {topic.description}
-                  </p>
-                  <p className="text-base font-semibold mt-1">{topic.name}</p>
-                </div>
+        {filteredTopics.map((topic) => (
+          <motion.div
+            key={topic.id}
+            className={`relative rounded-lg overflow-hidden cursor-pointer group transition-all duration-200 ${
+              selectedTopic?.id === topic.id ? "bg-primary/10 shadow-md" : "bg-card hover:bg-primary/5"
+            }`}
+            onClick={() => handleTopicClick(topic)}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.99 }}
+          >
+            {selectedTopic?.id === topic.id && (
+              <motion.div className="absolute left-0 top-0 bottom-0 w-1 bg-primary" layoutId="activeIndicator" />
+            )}
+            <div className="py-4 px-4 flex items-start gap-3">
+              <div className="p-2 rounded-md bg-muted text-muted-foreground text-green-500">
+                <topic.icon size={24} className="text-primary" /> {/* Render as JSX with props */}
               </div>
-            </motion.div>
-          )
-        })}
+              <div className="flex-1">
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  {topic.description}
+                </p>
+                <p className="text-base font-semibold mt-1">{topic.name}</p>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   )
