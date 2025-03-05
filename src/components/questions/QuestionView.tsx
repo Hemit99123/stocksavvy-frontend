@@ -1,7 +1,8 @@
 "use client"
 
 import { useQuestionTypeStore } from '@/store/questions'
-import { SiGoogleclassroom } from "react-icons/si";
+import GoogleClassroom from "../../../public/icons/classroom.svg"
+import LinkedIn from "../../../public/icons/linkedin.svg"
 import { MdOutlineOpenInNew } from "react-icons/md";
 
 import React from 'react'
@@ -23,14 +24,14 @@ const QuestionView = () => {
 
           <div className='flex space-x-10'>
             <div className='cursor-pointer flex items-center space-x-2 text-green-800 text-sm'>
-              <SiGoogleclassroom />
+              <GoogleClassroom />
               <p>Google Classroom</p>
               <MdOutlineOpenInNew />
             </div>
 
             <div className='cursor-pointer flex items-center space-x-2 text-green-800 text-sm'>
-              <SiGoogleclassroom />
-              <p>Google Classroom</p>
+              <LinkedIn />
+              <p>Lin</p>
               <MdOutlineOpenInNew />
             </div>
           </div>
