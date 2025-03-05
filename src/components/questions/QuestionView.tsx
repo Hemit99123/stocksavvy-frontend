@@ -43,7 +43,7 @@ const QuestionView = () => {
   }
 
   return (
-    <div>
+    <div className="overflow-auto">
       {type === "None" ? (
         <div className="text-center">
           <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
@@ -74,7 +74,7 @@ const QuestionView = () => {
 
           {/* QUESTION PART */}
           <div className="px-28 mt-10">
-            <p className="font-medium">
+            <p className="text-lg font-medium">
               Given the importance of physical activity for maintaining good health, which of the following is
               considered the most beneficial for improving cardiovascular fitness?
             </p>
@@ -128,6 +128,10 @@ const QuestionView = () => {
                 </motion.button>
               ))}
             </div>
+
+            <button className="mt-3 mb-5 bg-green-500 px-5 py-2 text-white rounded-lg">
+              Submit
+            </button>
           </div>
         </div>
       )}
