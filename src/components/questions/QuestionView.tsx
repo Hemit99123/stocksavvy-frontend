@@ -31,7 +31,7 @@ const QuestionView = () => {
 
             <div className='cursor-pointer flex items-center space-x-2 text-green-800 text-sm'>
               <LinkedIn />
-              <p>Lin</p>
+              <p>LinkedIn</p>
               <MdOutlineOpenInNew />
             </div>
           </div>
