@@ -34,7 +34,7 @@ const Questions = () => {
       </div>
 
       {/* Main content with Sidebar and Question View */}
-      <div className="lg:flex flex-col lg:flex-row px-px justify-center items-center">
+      <div className="lg:flex flex-col lg:flex-row px-px justify-center ">
         <Sidebar/> {/* Fixed width for sidebar */}
         <div className="flex flex-grow justify-center"> {/* Center the QuestionView */}
           <QuestionView />
