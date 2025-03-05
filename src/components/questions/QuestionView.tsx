@@ -1,51 +1,133 @@
 "use client"
 
-import { useQuestionTypeStore } from '@/store/questions'
+import { useQuestionTypeStore } from "@/store/questions"
 import GoogleClassroom from "../../../public/icons/classroom.svg"
 import LinkedIn from "../../../public/icons/linkedin.svg"
-import { MdOutlineOpenInNew } from "react-icons/md";
-import React, { useState, useEffect } from 'react'
-import Link from 'next/link';
+import { MdOutlineOpenInNew } from "react-icons/md"
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import { CheckCircle } from "lucide-react"
+import { motion } from "framer-motion"
+
+// Assuming LetterCircle is a custom component that you will define later
+const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
+  <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
+    <span className={`text-lg ${isSelected ? 'text-green-500' : 'text-gray-600'}`}>{letter}</span>
+  </div>
+);
 
 const QuestionView = () => {
-
-  const { type } = useQuestionTypeStore() // Use the store's state and setter
+  const { type } = useQuestionTypeStore() // Use the store's state and setter (only rerenders this, saving efficiency)
   const [isClient, setIsClient] = useState(false)
+  const [selectedOption, setSelectedOption] = useState<number | null>(null)
 
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs
   }, [])
 
   // Only use window object on the client-side
-  const url = isClient ? encodeURIComponent(window.location.href) : "";
+  const url = isClient ? encodeURIComponent(window.location.href) : ""
 
   const googleClassroomShare = `https://classroom.google.com/u/0/share?url=${url}`
-  const linkedInShare = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-  
+  const linkedInShare = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
+
+  // Sample options for the question
+  const options = [
+    { letter: 'A', text: "20 minute run", description: "Improves overall cardiovascular health" },
+    { letter: 'B', text: "10 minute walk", description: "Light exercise for general health" },
+    { letter: 'C', text: "30 minute yoga session", description: "Helps flexibility and relaxation" },
+  ]
+
+  const handleOptionSelect = (index: number) => {
+    setSelectedOption(index)
+  }
+
   return (
     <div>
       {type === "None" ? (
         <div className="text-center">
-            <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
-            <h1 className="font-bold text-lg">Start with a topic</h1>
-            <p className="text-gray-500">Get started through selecting a topic.</p>
+          <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
+          <h1 className="font-bold text-lg">Start with a topic</h1>
+          <p className="text-gray-500">Get started by selecting a topic.</p>
         </div>
       ) : (
         <div>
           <h1 className="text-center text-3xl font-bold mb-2">{type}</h1>
 
-          <div className='flex space-x-10'>
-            <Link href={googleClassroomShare} className='cursor-pointer flex items-center space-x-2 text-green-800 text-sm'>
+          {/* HEADER */}
+          <div className="flex justify-center space-x-10">
+            <Link
+              href={googleClassroomShare}
+              className="cursor-pointer flex items-center space-x-2 text-green-800 text-sm"
+            >
               <GoogleClassroom />
               <p>Google Classroom</p>
               <MdOutlineOpenInNew />
             </Link>
 
-            <Link href={linkedInShare} className='cursor-pointer flex items-center space-x-2 text-green-800 text-sm'>
+            <Link href={linkedInShare} className="cursor-pointer flex items-center space-x-2 text-green-800 text-sm">
               <LinkedIn />
               <p>LinkedIn</p>
               <MdOutlineOpenInNew />
             </Link>
+          </div>
+
+          {/* QUESTION PART */}
+          <div className="px-28 mt-10">
+            <p className="font-medium">
+              Given the importance of physical activity for maintaining good health, which of the following is
+              considered the most beneficial for improving cardiovascular fitness?
+            </p>
+
+            <p className="mt-5 text-sm font-bold text-green-400">Select one:</p>
+            <hr className="h-px my-2 bg-green-200 border-0" />
+
+            <div className="space-y-3 mt-4">
+              {options.map((option, index) => (
+                <motion.button
+                  key={index}
+                  onClick={() => handleOptionSelect(index)}
+                  className={`w-full text-left rounded-xl transition-all duration-200 overflow-hidden ${
+                    selectedOption === index
+                      ? "ring-2 ring-green-500 bg-green-50"
+                      : "hover:bg-gray-50 border border-gray-200"
+                  }`}
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  <div className="flex items-center p-4">
+                    <LetterCircle letter={option.letter} isSelected={selectedOption === index} />
+                    <div className="flex-1 ml-4">
+                      <div className="flex justify-between items-center">
+                        <h3
+                          className={`font-medium ${selectedOption === index ? "text-green-700" : "text-gray-800"}`}
+                        >
+                          {option.text}
+                        </h3>
+                        {selectedOption === index && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                          >
+                            <CheckCircle className="h-6 w-6 text-green-600" />
+                          </motion.div>
+                        )}
+                      </div>
+                      <p className="text-sm text-gray-500 mt-1">{option.description}</p>
+                    </div>
+                  </div>
+                  {selectedOption === index && (
+                    <motion.div
+                      className="h-1 bg-green-500"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </motion.button>
+              ))}
+            </div>
           </div>
         </div>
       )}
