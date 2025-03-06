@@ -9,6 +9,7 @@ import Link from "next/link"
 import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { toast, ToastContainer } from "react-toastify"
+import { Option } from "@/types/option"
 
 // Assuming LetterCircle is a custom component that you will define later
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
@@ -20,8 +21,7 @@ const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: bool
 const QuestionView = () => {
   const { type } = useQuestionTypeStore() // Use the store's state and setter (only rerenders this, saving efficiency)
   const [isClient, setIsClient] = useState(false)
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  const [selectedOption, setSelectedOption] = useState<any | null>(null)
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs
@@ -41,7 +41,7 @@ const QuestionView = () => {
   ]
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
-  const handleOptionSelect = (option: any) => {
+  const handleOptionSelect = (option: Option) => {
     setSelectedOption(option)
   }
 
@@ -98,9 +98,9 @@ const QuestionView = () => {
               {options.map((option, index) => (
                 <motion.button
                   key={index}
-                  onClick={() => handleOptionSelect(option)}
+                  onClick={() => handleOptionSelect(option as Option)}
                   className={`w-full text-left rounded-xl transition-all duration-200 overflow-hidden ${
-                    selectedOption.letter === option.letter
+                    selectedOption?.letter === option.letter
                       ? "ring-2 ring-green-500 bg-green-50"
                       : "hover:bg-gray-50 border border-gray-200"
                   }`}
@@ -108,15 +108,15 @@ const QuestionView = () => {
                   whileTap={{ scale: 0.99 }}
                 >
                   <div className="flex items-center p-4">
-                    <LetterCircle letter={option.letter} isSelected={selectedOption.letter === option.letter} />
+                    <LetterCircle letter={option.letter} isSelected={selectedOption?.letter === option.letter} />
                     <div className="flex-1 ml-4">
                       <div className="flex justify-between items-center">
                         <h3
-                          className={`font-medium ${selectedOption.letter === option.letter ? "text-green-700" : "text-gray-800"}`}
+                          className={`font-medium ${selectedOption?.letter === option.letter ? "text-green-700" : "text-gray-800"}`}
                         >
                           {option.text}
                         </h3>
-                        {selectedOption.letter === option.letter && (
+                        {selectedOption?.letter === option.letter && (
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -128,7 +128,7 @@ const QuestionView = () => {
                       </div>
                     </div>
                   </div>
-                  {selectedOption.letter === option.letter && (
+                  {selectedOption?.letter === option.letter && (
                     <motion.div
                       className="h-1 bg-green-500"
                       initial={{ width: 0 }}
