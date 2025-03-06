@@ -35,9 +35,9 @@ const QuestionView = () => {
 
   // Sample options for the question
   const options = [
-    { letter: 'A', text: "20 minute run", description: "Improves overall cardiovascular health", correctAnswer: true },
-    { letter: 'B', text: "10 minute walk", description: "Light exercise for general health" },
-    { letter: 'C', text: "30 minute yoga session", description: "Helps flexibility and relaxation" },
+    { letter: 'A', text: "20 minute run", correctAnswer: true },
+    { letter: 'B', text: "10 minute walk" },
+    { letter: 'C', text: "30 minute yoga session" },
   ]
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
@@ -126,7 +126,6 @@ const QuestionView = () => {
                           </motion.div>
                         )}
                       </div>
-                      <p className="text-sm text-gray-500 mt-1">{option.description}</p>
                     </div>
                   </div>
                   {selectedOption.letter === option.letter && (
