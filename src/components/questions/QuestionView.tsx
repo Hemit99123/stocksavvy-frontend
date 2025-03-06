@@ -10,6 +10,7 @@ import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { toast, ToastContainer } from "react-toastify"
 import { Option } from "@/types/option"
+import { SubmitButton } from "./SubmitButton"
 
 // Assuming LetterCircle is a custom component that you will define later
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
@@ -140,9 +141,7 @@ const QuestionView = () => {
               ))}
             </div>
 
-            <button className="mt-3 mb-5 bg-green-500 px-5 py-2 text-white rounded-lg" onClick={handleSubmit}>
-              Submit
-            </button>
+            <SubmitButton handleSubmit={handleSubmit}/>
           </div>
         </div>
       )}
