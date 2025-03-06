@@ -8,6 +8,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
+import { toast, ToastContainer } from "react-toastify"
 
 // Assuming LetterCircle is a custom component that you will define later
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
@@ -19,7 +20,8 @@ const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: bool
 const QuestionView = () => {
   const { type } = useQuestionTypeStore() // Use the store's state and setter (only rerenders this, saving efficiency)
   const [isClient, setIsClient] = useState(false)
-  const [selectedOption, setSelectedOption] = useState<number | null>(null)
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  const [selectedOption, setSelectedOption] = useState<any | null>(null)
 
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs
@@ -33,17 +35,27 @@ const QuestionView = () => {
 
   // Sample options for the question
   const options = [
-    { letter: 'A', text: "20 minute run", description: "Improves overall cardiovascular health" },
+    { letter: 'A', text: "20 minute run", description: "Improves overall cardiovascular health", correctAnswer: true },
     { letter: 'B', text: "10 minute walk", description: "Light exercise for general health" },
     { letter: 'C', text: "30 minute yoga session", description: "Helps flexibility and relaxation" },
   ]
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
-  const handleOptionSelect = (index: number) => {
-    setSelectedOption(index)
+  const handleOptionSelect = (option: any) => {
+    setSelectedOption(option)
+  }
+
+  const handleSubmit = () => {
+    if (selectedOption?.correctAnswer) {
+      toast.success("Correct Answer")
+    } else {
+      toast.error("Wrong Answer")
+    }
   }
 
   return (
     <div className="overflow-auto">
+      <ToastContainer />
       {type === "None" ? (
         <div className="text-center">
           <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
@@ -86,9 +98,9 @@ const QuestionView = () => {
               {options.map((option, index) => (
                 <motion.button
                   key={index}
-                  onClick={() => handleOptionSelect(index)}
+                  onClick={() => handleOptionSelect(option)}
                   className={`w-full text-left rounded-xl transition-all duration-200 overflow-hidden ${
-                    selectedOption === index
+                    selectedOption.letter === option.letter
                       ? "ring-2 ring-green-500 bg-green-50"
                       : "hover:bg-gray-50 border border-gray-200"
                   }`}
@@ -96,15 +108,15 @@ const QuestionView = () => {
                   whileTap={{ scale: 0.99 }}
                 >
                   <div className="flex items-center p-4">
-                    <LetterCircle letter={option.letter} isSelected={selectedOption === index} />
+                    <LetterCircle letter={option.letter} isSelected={selectedOption.letter === option.letter} />
                     <div className="flex-1 ml-4">
                       <div className="flex justify-between items-center">
                         <h3
-                          className={`font-medium ${selectedOption === index ? "text-green-700" : "text-gray-800"}`}
+                          className={`font-medium ${selectedOption.letter === option.letter ? "text-green-700" : "text-gray-800"}`}
                         >
                           {option.text}
                         </h3>
-                        {selectedOption === index && (
+                        {selectedOption.letter === option.letter && (
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
@@ -117,7 +129,7 @@ const QuestionView = () => {
                       <p className="text-sm text-gray-500 mt-1">{option.description}</p>
                     </div>
                   </div>
-                  {selectedOption === index && (
+                  {selectedOption.letter === option.letter && (
                     <motion.div
                       className="h-1 bg-green-500"
                       initial={{ width: 0 }}
@@ -129,7 +141,7 @@ const QuestionView = () => {
               ))}
             </div>
 
-            <button className="mt-3 mb-5 bg-green-500 px-5 py-2 text-white rounded-lg">
+            <button className="mt-3 mb-5 bg-green-500 px-5 py-2 text-white rounded-lg" onClick={handleSubmit}>
               Submit
             </button>
           </div>
