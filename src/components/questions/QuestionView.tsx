@@ -11,6 +11,7 @@ import { motion } from "framer-motion"
 import { toast, ToastContainer } from "react-toastify"
 import { Option } from "@/types/option"
 import { SubmitButton } from "./SubmitButton"
+import { useSubmitTypeStore } from "@/store/submit"
 
 // Assuming LetterCircle is a custom component that you will define later
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
@@ -21,6 +22,7 @@ const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: bool
 
 const QuestionView = () => {
   const { type } = useQuestionTypeStore() // Use the store's state and setter (only rerenders this, saving efficiency)
+  const { setType: setSubmitType } = useSubmitTypeStore.getState()
   const [isClient, setIsClient] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
@@ -45,15 +47,20 @@ const QuestionView = () => {
   const handleOptionSelect = (option: Option) => {
     setSelectedOption(option)
   }
-
   const handleSubmit = () => {
+    setSubmitType("success");
+  
     if (selectedOption?.correctAnswer) {
-      toast.success("Correct Answer")
+      toast.success("Correct Answer");
     } else {
-      toast.error("Wrong Answer")
+      toast.error("Wrong Answer");
     }
-  }
 
+    setTimeout(() => {
+      setSubmitType("idle")
+    }, 1500)
+  };
+  
   return (
     <div className="overflow-auto">
       <ToastContainer />

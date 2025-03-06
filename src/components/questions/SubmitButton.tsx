@@ -3,16 +3,17 @@
 import { useState } from "react"
 import { motion, AnimatePresence, useMotionTemplate, useMotionValue } from "framer-motion"
 import { Check, Loader2 } from 'lucide-react'
+import { useSubmitTypeStore } from "@/store/submit"
 
 interface SubmitButtonProps {
     handleSubmit: () => void
 }
 
 export const SubmitButton: React.FC<SubmitButtonProps> = ({handleSubmit}) => {
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle")
+
+  const {type} = useSubmitTypeStore.getState()
   const [isHovered, setIsHovered] = useState(false)
   
-  setStatus("success")
   // For the gradient effect
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -77,16 +78,16 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({handleSubmit}) => {
       <motion.button
         className="relative mt-3 mb-5 px-8 py-3 text-white rounded-lg overflow-hidden"
         style={{ 
-          background: status === "idle" ? background : (status === "success" ? "#10b981" : "#16a34a")
+          background: type === "idle" ? background : (type === "success" ? "#10b981" : "#16a34a")
         }}
         initial="idle"
-        animate={status}
+        animate={type}
         variants={buttonVariants}
         onMouseMove={handleMouseMove}
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}
         onClick={handleSubmit}
-        disabled={status !== "idle"}
+        disabled={type !== "idle"}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={{
@@ -116,7 +117,7 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({handleSubmit}) => {
         
         {/* Loading spinner */}
         <AnimatePresence>
-          {status === "loading" && (
+          {type === "loading" && (
             <motion.div 
               className="absolute inset-0 flex items-center justify-center"
               initial="hidden"
@@ -132,7 +133,7 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({handleSubmit}) => {
         
         {/* Success checkmark and particles */}
         <AnimatePresence>
-          {status === "success" && (
+          {type === "success" && (
             <>
               <motion.div 
                 className="absolute inset-0 flex items-center justify-center"
@@ -175,7 +176,7 @@ export const SubmitButton: React.FC<SubmitButtonProps> = ({handleSubmit}) => {
           className="absolute bottom-0 left-0 h-1 bg-green-300"
           initial={{ width: 0 }}
           animate={{ 
-            width: status === "loading" ? "100%" : 0
+            width: type === "loading" ? "100%" : 0
           }}
           transition={{ 
             duration: 1.5, 
