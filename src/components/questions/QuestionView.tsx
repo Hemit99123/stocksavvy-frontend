@@ -6,7 +6,7 @@ import LinkedIn from "../../../public/icons/linkedin.svg"
 import { MdOutlineOpenInNew } from "react-icons/md"
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, RotateCw } from "lucide-react"
 import { motion } from "framer-motion"
 import { toast, ToastContainer } from "react-toastify"
 import { Option } from "@/types/option"
@@ -30,31 +30,33 @@ const QuestionView = () => {
   const [question, setQuestion] = useState<Question>()
   const router = useRouter()
 
+  const handleGetRandomQuestion = async () => {
+    try {
+      const response = await httpHeader.get(`/question/get?type=${type}`);
+      setQuestion(response.data.question);
+      toast.info("got a question.")
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+    } catch (error: any) {
+      if (error.response?.status === 401) {
+        // in case user not logged in (401 error) give them option to log in
+        const shouldRedirect = prompt("Not authenticated, would you like to login? Y/N:")?.toUpperCase();
+
+        if (shouldRedirect == "Y") {
+          router.push("/login")
+        }
+        
+        
+      } else {
+        alert("Something went wrong, please try again later.");
+      }
+    }
+  };    
+
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs (after component mounted)
   }, [])
 
   useEffect(() => {
-    const handleGetRandomQuestion = async () => {
-      try {
-        const response = await httpHeader.get(`/question/get?type=${type}`);
-        setQuestion(response.data.question);
-        /* eslint-disable  @typescript-eslint/no-explicit-any */
-      } catch (error: any) {
-        if (error.response?.status === 401) {
-          const shouldRedirect = prompt("Not authenticated, would you like to login? Y/N:")?.toUpperCase();
-
-          if (shouldRedirect == "Y") {
-            router.push("/login")
-          }
-          
-        } else {
-          console.error("Error fetching question:", error);
-          alert("Something went wrong, please try again later.");
-        }
-      }
-    };    
-
     if (type !== "None") {
       handleGetRandomQuestion();
     }
@@ -112,6 +114,10 @@ const QuestionView = () => {
               <p>LinkedIn</p>
               <MdOutlineOpenInNew />
             </Link>
+
+            <button onClick={handleGetRandomQuestion}>
+              <RotateCw size={20}/>
+            </button>
           </div>
 
           {/* QUESTION PART */}
