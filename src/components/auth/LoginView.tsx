@@ -41,6 +41,8 @@ const Auth = () => {
           <h1 className="text-4xl font-bold mb-11">Welcome Back!</h1>
         </div>
         <div className="w-full mt-10">
+          <hr className="my-6 border-gray-300" />
+
           {/* Email Login Section */}
           {!isOTPGenerated && (
             <>
