@@ -14,6 +14,7 @@ import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
+import { useRouter } from "next/navigation"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
@@ -27,6 +28,7 @@ const QuestionView = () => {
   const [isClient, setIsClient] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
   const [question, setQuestion] = useState<Question>()
+  const router = useRouter()
 
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs (after component mounted)
@@ -34,9 +36,24 @@ const QuestionView = () => {
 
   useEffect(() => {
     const handleGetRandomQuestion = async () => {
-      const response = await httpHeader.get(`/question/get?type=${type}`)
-      setQuestion(response.data.question)
-    }
+      try {
+        const response = await httpHeader.get(`/question/get?type=${type}`);
+        setQuestion(response.data.question);
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
+      } catch (error: any) {
+        if (error.response?.status === 401) {
+          const shouldRedirect = prompt("Not authenticated, would you like to login? Y/N:")?.toUpperCase();
+
+          if (shouldRedirect == "Y") {
+            router.push("/login")
+          }
+          
+        } else {
+          console.error("Error fetching question:", error);
+          alert("Something went wrong, please try again later.");
+        }
+      }
+    };    
 
     if (type !== "None") {
       handleGetRandomQuestion();
