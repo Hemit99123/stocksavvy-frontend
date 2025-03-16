@@ -12,6 +12,8 @@ import { toast, ToastContainer } from "react-toastify"
 import { Option } from "@/types/option"
 import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
+import httpHeader from "@/services/httpHeader"
+import { Question } from "@/types/question"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
@@ -24,10 +26,22 @@ const QuestionView = () => {
   const { setType: setSubmitType } = useSubmitTypeStore.getState()
   const [isClient, setIsClient] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
+  const [question, setQuestion] = useState<Question>()
 
   useEffect(() => {
-    setIsClient(true) // Set state to true once client-side rendering occurs
+    setIsClient(true) // Set state to true once client-side rendering occurs (after component mounted)
   }, [])
+
+  useEffect(() => {
+    const handleGetRandomQuestion = async () => {
+      const response = await httpHeader.get(`/question/get?type=${type}`)
+      setQuestion(response.data.question)
+    }
+
+    if (type !== "None") {
+      handleGetRandomQuestion();
+    }
+  }, [type])
 
   // Only use window object on the client-side
   const url = isClient ? encodeURIComponent(window.location.href) : ""
@@ -35,21 +49,13 @@ const QuestionView = () => {
   const googleClassroomShare = `https://classroom.google.com/u/0/share?url=${url}`
   const linkedInShare = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`
 
-  // Sample options for the question
-  const options = [
-    { letter: 'A', text: "20 minute run", correctAnswer: true },
-    { letter: 'B', text: "10 minute walk" },
-    { letter: 'C', text: "30 minute yoga session" },
-  ]
-/* eslint-disable  @typescript-eslint/no-explicit-any */
-
   const handleOptionSelect = (option: Option) => {
     setSelectedOption(option)
   }
   const handleSubmit = () => {
     setSubmitType("success");
   
-    if (selectedOption?.correctAnswer) {
+    if (selectedOption?.letter === question?.correctAnswer) {
       toast.success("Correct Answer");
     } else {
       toast.error("Wrong Answer");
@@ -94,15 +100,14 @@ const QuestionView = () => {
           {/* QUESTION PART */}
           <div className="px-28 mt-10">
             <p className="text-lg font-medium">
-              Given the importance of physical activity for maintaining good health, which of the following is
-              considered the most beneficial for improving cardiovascular fitness?
+              {question?.question}
             </p>
 
             <p className="mt-5 text-sm font-bold text-green-400">Select one:</p>
             <hr className="h-px my-2 bg-green-200 border-0" />
 
             <div className="space-y-3 mt-4">
-              {options.map((option, index) => (
+              {question?.options.map((option, index) => (
                 <motion.button
                   key={index}
                   onClick={() => handleOptionSelect(option as Option)}
