@@ -1,9 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import { FaMailBulk, FaPhone } from "react-icons/fa"
+import { FaMailBulk, FaPhone, FaInstagram, FaArrowUp } from "react-icons/fa"
+import { useCallback } from "react"
 
 const Footer = () => {
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [])
+
   return (
     <footer className="w-full">
       {/* Main Footer */}
@@ -11,12 +19,8 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto">
           {/* CTA Section */}
           <div className="mb-8 md:mb-10">
-            <p className="text-white/80 mb-1 md:mb-2 uppercase text-sm md:text-base">
-              Got a question in mind?
-            </p>
-            <h2 className="text-white text-4xl sm:text-5xl md:text-7xl font-light">
-              Let&apos;s talk
-            </h2>
+            <p className="text-white/80 mb-1 md:mb-2 uppercase text-sm md:text-base">Got a question in mind?</p>
+            <h2 className="text-white text-4xl sm:text-5xl md:text-7xl font-light">Let&apos;s talk</h2>
             <div className="text-white flex items-center mt-3 md:mt-4 space-x-3 md:space-x-4">
               <FaPhone className="text-sm md:text-base" />
               <p className="text-sm md:text-base">(123)-456-7890</p>
@@ -24,21 +28,33 @@ const Footer = () => {
 
             <div className="text-white flex items-center mt-2 md:mt-4 space-x-3 md:space-x-4">
               <FaMailBulk className="text-sm md:text-base" />
-              <p className="text-sm md:text-base break-all md:break-normal">
-                stocksavvy00@gmail.com
-              </p>
+              <p className="text-sm md:text-base break-all md:break-normal">stocksavvy00@gmail.com</p>
             </div>
           </div>
 
           {/* Bottom Footer */}
           <div className="border-t border-white/10 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
-            <div className="flex gap-6">
-              <Link
-                href="/privacy-policy"
-                className="text-white/80 hover:text-white text-xs sm:text-sm"
-              >
+            <div className="flex gap-6 items-center">
+              <Link href="/privacy-policy" className="text-white/80 hover:text-white text-xs sm:text-sm">
                 Privacy Policy
               </Link>
+              <Link
+                href="https://www.instagram.com/stock.savvy_?igsh=dmxza2RkYmY0c3o4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white text-xs sm:text-sm flex items-center gap-1"
+              >
+                <FaInstagram className="text-sm md:text-base" />
+                Instagram
+              </Link>
+              <button
+                onClick={scrollToTop}
+                className="text-white/80 hover:text-white text-xs sm:text-sm flex items-center gap-1 cursor-pointer"
+                aria-label="Scroll to top"
+              >
+                <FaArrowUp className="text-sm md:text-base" />
+                Up
+              </button>
             </div>
           </div>
         </div>
@@ -48,3 +64,4 @@ const Footer = () => {
 }
 
 export default Footer
+
