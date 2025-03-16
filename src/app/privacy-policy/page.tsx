@@ -1,8 +1,4 @@
-"use client"
-
-import { useState } from "react"
-
-export default function PrivacyPolicy() {
+const PrivacyPolicy = () => {
 
   const policyContent = [
     {
@@ -77,3 +73,5 @@ export default function PrivacyPolicy() {
     </div>
   )
 }
+
+export default PrivacyPolicy 
