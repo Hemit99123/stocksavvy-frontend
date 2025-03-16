@@ -31,7 +31,7 @@ const NavBar = () => {
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
               <span className="font-medium text-lg mb-3">
-                Stock Savvy
+                StockSavvy
               </span>
             </div>
           </a>
