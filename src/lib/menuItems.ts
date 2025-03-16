@@ -8,6 +8,14 @@ export async function getMenuItems() {
       pathname: "/platform",
     },
     {
+      display: "Questions",
+      pathname: "/questions",
+    },
+    {
+      display: "Team",
+      pathname: "/team",
+    },
+    {
       display: authStatus ? "Logout" : "Login",
       pathname: authStatus ? "/logout" : "/login",
     },
