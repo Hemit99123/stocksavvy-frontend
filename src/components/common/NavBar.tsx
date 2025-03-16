@@ -1,11 +1,22 @@
-"use client";
+'use client';
 
-import { menuItems } from "@/data/menuItems";
+import { useEffect, useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
-import React, { useState } from "react";
+import { getMenuItems } from "@/lib/menuItems";
 
 const NavBar = () => {
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
+
+  useEffect(() => {
+    const handleGetMenuItems = async () => {
+      const menuItems = await getMenuItems()
+      setMenuItems(menuItems)
+    }
+
+    handleGetMenuItems()
+  }, [])
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -13,11 +24,8 @@ const NavBar = () => {
   };
 
   return (
-    <nav className={`text-white`}>
-      <div
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
+    <nav className="text-white">
+      <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <div className="flex items-center">
@@ -35,19 +43,8 @@ const NavBar = () => {
             onClick={toggleMobileMenu}
           >
             <span className="sr-only">Open main menu</span>
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
           </button>
         </div>
@@ -75,19 +72,8 @@ const NavBar = () => {
                 onClick={toggleMobileMenu}
               >
                 <span className="sr-only">Close menu</span>
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
