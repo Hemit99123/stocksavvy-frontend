@@ -15,7 +15,7 @@ const NavBar = () => {
     }
 
     handleGetMenuItems()
-  })
+  }, [])
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
