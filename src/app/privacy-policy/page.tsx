@@ -55,22 +55,6 @@ export default function PrivacyPolicy() {
           <p className="mt-2 text-sm text-gray-600">Last updated: February 13, 2025</p>
         </header>
 
-        <nav className="mb-8">
-          <div className="flex flex-wrap justify-center gap-2">
-            {policyContent.map((section) => (
-              <button
-                key={section.title}
-                onClick={() => setActiveSection(section.title)}
-                className={`px-3 py-2 text-sm font-medium rounded-md ${
-                  activeSection === section.title ? "bg-green-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
-                }`}
-              >
-                {section.title}
-              </button>
-            ))}
-          </div>
-        </nav>
-
         <div className="space-y-6">
           {policyContent.map((section) => (
             <div
