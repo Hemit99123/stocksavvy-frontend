@@ -1,8 +1,8 @@
 "use client"
 
 import { useQuestionTypeStore } from "@/store/questions"
-import GoogleClassroom from "../../../public/icons/classroom.svg"
-import LinkedIn from "../../../public/icons/linkedin.svg"
+import GoogleClassroom from "@/public/icons/classroom.svg"
+import LinkedIn from "@/public/icons/linkedin.svg"
 import { MdOutlineOpenInNew } from "react-icons/md"
 import { useState, useEffect } from "react"
 import Link from "next/link"
