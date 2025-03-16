@@ -1,4 +1,4 @@
-import { policyContent } from "@/data/privacyPolicy.ts"
+import { policyContent } from "@/data/privacyPolicy"
 
 const PrivacyPolicy = () => {
 
