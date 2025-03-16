@@ -45,7 +45,6 @@ const QuestionView = () => {
           router.push("/login")
         }
         
-        
       } else {
         alert("Something went wrong, please try again later.");
       }
@@ -76,6 +75,8 @@ const QuestionView = () => {
   
     if (selectedOption?.letter === question?.correctAnswer) {
       toast.success("Correct Answer");
+      handleGetRandomQuestion();
+      setSelectedOption(null)
     } else {
       toast.error("Wrong Answer");
     }
@@ -86,7 +87,7 @@ const QuestionView = () => {
   };
   
   return (
-    <div className="overflow-auto">
+    <div className="overflow-auto w-11/12">
       <ToastContainer />
       {type === "None" ? (
         <div className="text-center">
