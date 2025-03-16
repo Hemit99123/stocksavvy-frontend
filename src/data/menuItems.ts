@@ -9,4 +9,8 @@ export const menuItems: MenuItem[] = [
     display: "Questions",
     pathname: "/questions",
   },
+  {
+    display: "Team",
+    pathname: "/team",
+  },
 ];

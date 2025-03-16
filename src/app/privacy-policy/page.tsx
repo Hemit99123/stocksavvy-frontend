@@ -1,37 +1,6 @@
-"use client"
+import { policyContent } from "@/data/privacyPolicy"
 
-import { useState } from "react"
-
-export default function PrivacyPolicy() {
-  const [activeSection, setActiveSection] = useState("Information We Collect")
-
-  const policyContent = [
-    {
-      title: "Information We Collect",
-      content:
-        "We collect information you provide directly to us, such as when you create an account, subscribe to our newsletter, or contact us for support.",
-    },
-    {
-      title: "How We Use Your Information",
-      content:
-        "We use the information we collect to provide, maintain, and improve our services, to develop new ones, and to protect our company and our users.",
-    },
-    {
-      title: "Information Sharing and Disclosure",
-      content:
-        "We do not share your personal information with third parties except as described in this privacy policy.",
-    },
-    {
-      title: "Data Retention",
-      content:
-        "We retain your information for as long as necessary to provide our services and fulfill the purposes outlined in this privacy policy.",
-    },
-    {
-      title: "Your Rights and Choices",
-      content:
-        "You have the right to access, correct, or delete your personal information. You can also object to or restrict certain processing of your data.",
-    },
-  ]
+const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -55,29 +24,11 @@ export default function PrivacyPolicy() {
           <p className="mt-2 text-sm text-gray-600">Last updated: February 13, 2025</p>
         </header>
 
-        <nav className="mb-8">
-          <div className="flex flex-wrap justify-center gap-2">
-            {policyContent.map((section) => (
-              <button
-                key={section.title}
-                onClick={() => setActiveSection(section.title)}
-                className={`px-3 py-2 text-sm font-medium rounded-md ${
-                  activeSection === section.title ? "bg-green-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
-                }`}
-              >
-                {section.title}
-              </button>
-            ))}
-          </div>
-        </nav>
-
         <div className="space-y-6">
           {policyContent.map((section) => (
             <div
               key={section.title}
-              className={`bg-white shadow overflow-hidden sm:rounded-lg ${
-                activeSection === section.title ? "border-2 border-green-600" : ""
-              }`}
+              className={"bg-white shadow overflow-hidden sm:rounded-lg"}
             >
               <div className="px-4 py-5 sm:px-6">
                 <h3 className="text-lg leading-6 font-medium text-gray-900">{section.title}</h3>
@@ -95,3 +46,4 @@ export default function PrivacyPolicy() {
   )
 }
 
+export default PrivacyPolicy 
