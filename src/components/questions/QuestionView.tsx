@@ -29,12 +29,12 @@ const QuestionView = () => {
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
   const [question, setQuestion] = useState<Question>()
   const router = useRouter()
+  const [streak, setStreak] = useState(0)
 
   const handleGetRandomQuestion = async () => {
     try {
       const response = await httpHeader.get(`/question/get?type=${type}`);
       setQuestion(response.data.question);
-      toast.info("got a question.")
       /* eslint-disable  @typescript-eslint/no-explicit-any */
     } catch (error: any) {
       if (error.response?.status === 401) {
@@ -77,8 +77,10 @@ const QuestionView = () => {
       toast.success("Correct Answer");
       handleGetRandomQuestion();
       setSelectedOption(null)
+      setStreak((prevStreak) => prevStreak + 1)
     } else {
       toast.error("Wrong Answer");
+      setStreak(0)
     }
 
     setTimeout(() => {
@@ -88,6 +90,18 @@ const QuestionView = () => {
   
   return (
     <div className="overflow-auto w-11/12">
+          <div className="flex items-center justify-center bg-green-100 rounded-lg shadow-md p-4 my-4">
+      <motion.div
+        key={streak}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="text-3xl font-bold text-green-700"
+      >
+        {streak}
+      </motion.div>
+      <span className="ml-3 text-lg font-medium text-green-600">🔥 Streak</span>
+    </div>
       <ToastContainer />
       {type === "None" ? (
         <div className="text-center">
