@@ -13,7 +13,6 @@ import { Option } from "@/types/option"
 import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
 
-// Assuming LetterCircle is a custom component that you will define later
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
     <span className={`text-lg ${isSelected ? 'text-green-500' : 'text-gray-600'}`}>{letter}</span>

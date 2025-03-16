@@ -1,14 +1,22 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
+import { getMenuItems } from "@/lib/menuItems";
 
-interface NavBarProps {
-  menuItems: MenuItem[];
-}
+const NavBar = () => {
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
 
-const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
+  useEffect(() => {
+    const handleGetMenuItems = async () => {
+      const menuItems = await getMenuItems()
+      setMenuItems(menuItems)
+    }
+
+    handleGetMenuItems()
+  })
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
