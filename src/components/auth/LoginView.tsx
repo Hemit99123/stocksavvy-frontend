@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import httpHeader from "@/services/httpHeader";
+import { toast } from "react-toastify";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -13,9 +14,9 @@ const Auth = () => {
     try {
       await httpHeader.post("/auth/assign-otp", { email });
       setIsOTPGenerated(true); // Mark OTP as generated
-      alert("OTP has been sent to your email!");
+      toast.info("OTP has been sent to your email!");
     } catch (error) {
-      alert("Failed to generate OTP. Please check your email and try again.");
+      toast.info("Failed to generate OTP. Please check your email and try again.");
       console.error(error);
     }
   };
@@ -27,9 +28,9 @@ const Auth = () => {
         otp,
         name,
       });
-      alert("OTP verification successful!");
+      toast.info("OTP verification successful!");
     } catch (error) {
-      alert("OTP verification failed. Please try again.");
+      toast.info("OTP verification failed. Please try again.");
       console.error(error);
     }
   };
