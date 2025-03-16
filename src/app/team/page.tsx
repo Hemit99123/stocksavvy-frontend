@@ -1,7 +1,52 @@
 "use client"
 
+import type React from "react"
+import type { ReactNode } from "react"
+
+// Type definitions
+type CardProps = {
+  className?: string
+  children: ReactNode
+  [key: string]: any
+}
+
+type AvatarProps = {
+  className?: string
+  children: ReactNode
+  [key: string]: any
+}
+
+type AvatarImageProps = {
+  className?: string
+  src: string
+  alt?: string
+  [key: string]: any
+}
+
+type AvatarFallbackProps = {
+  className?: string
+  children: ReactNode
+  [key: string]: any
+}
+
+type ButtonProps = {
+  className?: string
+  variant?: "default" | "outline" | "icon"
+  size?: "default" | "sm" | "lg" | "icon"
+  children: ReactNode
+  [key: string]: any
+}
+
+type TeamMember = {
+  name: string
+  role: string
+  image: string
+  bio: string
+  initials: string
+}
+
 // Card components
-const Card = ({ className, children, ...props }) => {
+const Card: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className || ""}`} {...props}>
       {children}
@@ -9,7 +54,7 @@ const Card = ({ className, children, ...props }) => {
   )
 }
 
-const CardHeader = ({ className, children, ...props }) => {
+const CardHeader: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <div className={`flex flex-col space-y-1.5 p-6 ${className || ""}`} {...props}>
       {children}
@@ -17,7 +62,7 @@ const CardHeader = ({ className, children, ...props }) => {
   )
 }
 
-const CardTitle = ({ className, children, ...props }) => {
+const CardTitle: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <h3 className={`text-2xl font-semibold leading-none tracking-tight ${className || ""}`} {...props}>
       {children}
@@ -25,7 +70,7 @@ const CardTitle = ({ className, children, ...props }) => {
   )
 }
 
-const CardDescription = ({ className, children, ...props }) => {
+const CardDescription: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <p className={`text-sm text-muted-foreground ${className || ""}`} {...props}>
       {children}
@@ -33,7 +78,7 @@ const CardDescription = ({ className, children, ...props }) => {
   )
 }
 
-const CardContent = ({ className, children, ...props }) => {
+const CardContent: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <div className={`p-6 pt-0 ${className || ""}`} {...props}>
       {children}
@@ -41,7 +86,7 @@ const CardContent = ({ className, children, ...props }) => {
   )
 }
 
-const CardFooter = ({ className, children, ...props }) => {
+const CardFooter: React.FC<CardProps> = ({ className, children, ...props }) => {
   return (
     <div className={`flex items-center p-6 pt-0 ${className || ""}`} {...props}>
       {children}
@@ -50,7 +95,7 @@ const CardFooter = ({ className, children, ...props }) => {
 }
 
 // Avatar components
-const Avatar = ({ className, children, ...props }) => {
+const Avatar: React.FC<AvatarProps> = ({ className, children, ...props }) => {
   return (
     <div className={`relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full ${className || ""}`} {...props}>
       {children}
@@ -58,7 +103,7 @@ const Avatar = ({ className, children, ...props }) => {
   )
 }
 
-const AvatarImage = ({ className, src, alt = "", ...props }) => {
+const AvatarImage: React.FC<AvatarImageProps> = ({ className, src, alt = "", ...props }) => {
   return (
     <img
       className={`aspect-square h-full w-full ${className || ""}`}
@@ -69,7 +114,7 @@ const AvatarImage = ({ className, src, alt = "", ...props }) => {
   )
 }
 
-const AvatarFallback = ({ className, children, ...props }) => {
+const AvatarFallback: React.FC<AvatarFallbackProps> = ({ className, children, ...props }) => {
   return (
     <div
       className={`flex h-full w-full items-center justify-center rounded-full bg-muted ${className || ""}`}
@@ -81,7 +126,7 @@ const AvatarFallback = ({ className, children, ...props }) => {
 }
 
 // Button component
-const Button = ({ className, variant = "default", size = "default", children, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ className, variant = "default", size = "default", children, ...props }) => {
   const variantClasses = {
     default: "bg-primary text-primary-foreground hover:bg-primary/90",
     outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
@@ -106,7 +151,7 @@ const Button = ({ className, variant = "default", size = "default", children, ..
 }
 
 // SVG Icons
-const TwitterIcon = () => (
+const TwitterIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -123,7 +168,7 @@ const TwitterIcon = () => (
   </svg>
 )
 
-const LinkedinIcon = () => (
+const LinkedinIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -142,7 +187,7 @@ const LinkedinIcon = () => (
   </svg>
 )
 
-const GithubIcon = () => (
+const GithubIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -159,7 +204,7 @@ const GithubIcon = () => (
   </svg>
 )
 
-const MailIcon = () => (
+const MailIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -178,8 +223,8 @@ const MailIcon = () => (
 )
 
 // Main TeamUI component
-const TeamUI = () => {
-  const teamMembers = [
+const TeamUI: React.FC = () => {
+  const teamMembers: TeamMember[] = [
     {
       name: "Misha",
       role: "President",
