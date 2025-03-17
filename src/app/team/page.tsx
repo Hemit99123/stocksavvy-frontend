@@ -222,23 +222,23 @@ const MailIcon: React.FC = () => (
 const TeamUI: React.FC = () => {
   const teamMembers: TeamMember[] = [
     {
-      name: "Misha",
+      name: "Misha Patel",
       role: "President",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/people/placeholder.png",
       bio: "Leading our organization with vision and strategic direction to achieve our goals.",
       initials: "MP",
     },
     {
-      name: "Jiya",
+      name: "Jiya Patel",
       role: "Vice President",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/people/placeholder.png",
       bio: "Supporting our president and overseeing day-to-day operations with dedication.",
       initials: "JV",
     },
     {
-      name: "Hemit",
+      name: "Hemit Patel",
       role: "Technology Analyst",
-      image: "/placeholder.svg?height=400&width=400",
+      image: "/images/people/hemit.png",
       bio: "Analyzing and implementing technological solutions to drive innovation.",
       initials: "HT",
     },
