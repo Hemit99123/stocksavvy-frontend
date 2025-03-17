@@ -1,42 +1,9 @@
 /* eslint-disable */
 "use client"
 
+import { teamMembers } from "@/data/team"
+import { CardProps, AvatarProps, AvatarImageProps, AvatarFallbackProps, ButtonProps } from "@/types/team"
 import type React from "react"
-import type { ReactNode, ButtonHTMLAttributes, ImgHTMLAttributes, HTMLAttributes } from "react"
-
-// Type definitions
-type CardProps = {
-  className?: string
-  children: ReactNode
-} & HTMLAttributes<HTMLDivElement>
-
-type AvatarProps = {
-  className?: string
-  children: ReactNode
-} & HTMLAttributes<HTMLDivElement>
-
-type AvatarImageProps = {
-  className?: string
-  src: string
-  alt?: string
-} & ImgHTMLAttributes<HTMLImageElement>
-
-type AvatarFallbackProps = {
-  className?: string
-  children: ReactNode
-} & HTMLAttributes<HTMLDivElement>
-
-type ButtonProps = {
-  children: ReactNode
-} & ButtonHTMLAttributes<HTMLButtonElement>
-
-type TeamMember = {
-  name: string
-  role: string
-  image: string
-  bio: string
-  initials: string
-}
 
 // Card components
 const Card: React.FC<CardProps> = ({ className, children, ...props }) => {
@@ -170,29 +137,6 @@ const LinkedinIcon: React.FC = () => (
 
 // Main TeamUI component
 const TeamUI: React.FC = () => {
-  const teamMembers: TeamMember[] = [
-    {
-      name: "Misha Patel",
-      role: "President",
-      image: "/images/people/placeholder.png",
-      bio: "Leading our organization with vision and strategic direction to achieve our goals.",
-      initials: "MP",
-    },
-    {
-      name: "Jiya Patel",
-      role: "Vice President",
-      image: "/images/people/placeholder.png",
-      bio: "Supporting our president and overseeing day-to-day operations with dedication.",
-      initials: "JV",
-    },
-    {
-      name: "Hemit Patel",
-      role: "Technology Analyst",
-      image: "/images/people/hemit.png",
-      bio: "Analyzing and implementing technological solutions to drive innovation.",
-      initials: "HT",
-    },
-  ]
 
   return (
     <div className="container mx-auto py-12 px-4">
