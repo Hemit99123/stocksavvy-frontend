@@ -12,4 +12,4 @@ export type TeamMember = {
     image: string
     bio: string
     initials: string
-  }
+}
