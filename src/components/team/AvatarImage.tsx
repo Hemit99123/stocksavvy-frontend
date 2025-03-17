@@ -1,5 +1,11 @@
-import { AvatarImageProps } from "@/types/team"
+import { ImgHTMLAttributes } from "react"
 
+export type AvatarImageProps = {
+    className?: string
+    src: string
+    alt?: string
+  } & ImgHTMLAttributes<HTMLImageElement>
+  
 const AvatarImage: React.FC<AvatarImageProps> = ({ className, src, alt = "", ...props }) => {
     return (
       <img

@@ -1,5 +1,9 @@
-import { AvatarProps } from '@/types/team'
-import React from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
+
+type AvatarProps = {
+    className?: string
+    children: ReactNode
+  } & HTMLAttributes<HTMLDivElement>
 
 // Avatar components
 const Avatar: React.FC<AvatarProps> = ({ className, children, ...props }) => {

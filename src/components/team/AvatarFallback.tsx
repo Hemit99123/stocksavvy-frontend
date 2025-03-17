@@ -1,5 +1,10 @@
-import { AvatarFallbackProps } from '@/types/team'
-import React from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
+
+export type AvatarFallbackProps = {
+    className?: string
+    children: ReactNode
+} & HTMLAttributes<HTMLDivElement>
+
 const AvatarFallback: React.FC<AvatarFallbackProps> = ({ className, children, ...props }) => {
     return (
       <div

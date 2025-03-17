@@ -1,5 +1,8 @@
-import { ButtonProps } from '@/types/team'
-import React from 'react'
+import React, { ButtonHTMLAttributes, ReactNode } from 'react'
+
+type ButtonProps = {
+    children: ReactNode
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 // Button component
 const SocialButton: React.FC<ButtonProps> = ({ children }) => {
