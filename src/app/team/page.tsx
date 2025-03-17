@@ -27,9 +27,6 @@ type AvatarFallbackProps = {
 } & HTMLAttributes<HTMLDivElement>
 
 type ButtonProps = {
-  className?: string
-  variant?: "default" | "outline" | "icon"
-  size?: "default" | "sm" | "lg" | "icon"
   children: ReactNode
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
@@ -122,24 +119,11 @@ const AvatarFallback: React.FC<AvatarFallbackProps> = ({ className, children, ..
 }
 
 // Button component
-const Button: React.FC<ButtonProps> = ({ className, variant = "default", size = "default", children, ...props }) => {
-  const variantClasses = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-    icon: "h-10 w-10 p-0",
-  }
-
-  const sizeClasses = {
-    default: "h-10 px-4 py-2",
-    sm: "h-9 rounded-md px-3",
-    lg: "h-11 rounded-md px-8",
-    icon: "h-10 w-10",
-  }
+const SocialButton: React.FC<ButtonProps> = ({ children }) => {
 
   return (
     <button
-      className={`inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${variantClasses[variant] || ""} ${sizeClasses[size] || ""} ${className || ""}`}
-      {...props}
+    className="rounded-full flex justify-center items-center w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
     >
       {children}
     </button>
@@ -275,34 +259,14 @@ const TeamUI: React.FC = () => {
               <p className="text-gray-600">{member.bio}</p>
             </CardContent>
             <CardFooter className="flex gap-2 border-t pt-4">
-              <Button
-                variant="outline"
-                className="rounded-full w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
-              >
+              <SocialButton>
                 <TwitterIcon />
-                <span className="sr-only">Twitter</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="rounded-full w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
-              >
+                <span className="sr-only">X</span>
+              </SocialButton>
+              <SocialButton>
                 <LinkedinIcon />
                 <span className="sr-only">LinkedIn</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="rounded-full w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
-              >
-                <GithubIcon />
-                <span className="sr-only">GitHub</span>
-              </Button>
-              <Button
-                variant="outline"
-                className="rounded-full w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
-              >
-                <MailIcon />
-                <span className="sr-only">Email</span>
-              </Button>
+              </SocialButton>
             </CardFooter>
           </Card>
         ))}
