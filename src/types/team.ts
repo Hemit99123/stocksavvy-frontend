@@ -1,4 +1,4 @@
-import { ReactNode, HTMLAttributes, ImgHTMLAttributes, ButtonHTMLAttributes } from "react"
+import { ReactNode, HTMLAttributes } from "react"
 
 // Type definitions
 export type CardProps = {
