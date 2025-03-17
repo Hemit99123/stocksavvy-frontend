@@ -1,101 +1,20 @@
 /* eslint-disable */
 "use client"
 
+import Avatar from "@/components/team/Avatar"
+import AvatarFallback from "@/components/team/AvatarFallback"
+import AvatarImage from "@/components/team/AvatarImage"
+import Card from "@/components/team/Card"
+import CardContent from "@/components/team/CardContent"
+import CardDescription from "@/components/team/CardDescription"
+import CardFooter from "@/components/team/CardFooter"
+import CardHeader from "@/components/team/CardHeader"
+import CardTitle from "@/components/team/CardTitle"
+import SocialButton from "@/components/team/SocialButton"
 import { teamMembers } from "@/data/team"
-import { CardProps, AvatarProps, AvatarImageProps, AvatarFallbackProps, ButtonProps } from "@/types/team"
 import type React from "react"
 
-// Card components
-const Card: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <div className={`rounded-lg border bg-card text-card-foreground shadow-sm ${className || ""}`} {...props}>
-      {children}
-    </div>
-  )
-}
 
-const CardHeader: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <div className={`flex flex-col space-y-1.5 p-6 ${className || ""}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-const CardTitle: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <h3 className={`text-2xl font-semibold leading-none tracking-tight ${className || ""}`} {...props}>
-      {children}
-    </h3>
-  )
-}
-
-const CardDescription: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <p className={`text-sm text-muted-foreground ${className || ""}`} {...props}>
-      {children}
-    </p>
-  )
-}
-
-const CardContent: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <div className={`p-6 pt-0 ${className || ""}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-const CardFooter: React.FC<CardProps> = ({ className, children, ...props }) => {
-  return (
-    <div className={`flex items-center p-6 pt-0 ${className || ""}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-// Avatar components
-const Avatar: React.FC<AvatarProps> = ({ className, children, ...props }) => {
-  return (
-    <div className={`relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full ${className || ""}`} {...props}>
-      {children}
-    </div>
-  )
-}
-
-const AvatarImage: React.FC<AvatarImageProps> = ({ className, src, alt = "", ...props }) => {
-  return (
-    <img
-      className={`aspect-square h-full w-full ${className || ""}`}
-      src={src || "/placeholder.svg"}
-      alt={alt}
-      {...props}
-    />
-  )
-}
-
-const AvatarFallback: React.FC<AvatarFallbackProps> = ({ className, children, ...props }) => {
-  return (
-    <div
-      className={`flex h-full w-full items-center justify-center rounded-full bg-muted ${className || ""}`}
-      {...props}
-    >
-      {children}
-    </div>
-  )
-}
-
-// Button component
-const SocialButton: React.FC<ButtonProps> = ({ children }) => {
-
-  return (
-    <button
-    className="rounded-full flex justify-center items-center w-9 h-9 text-green-500 hover:text-white hover:bg-green-500"
-    >
-      {children}
-    </button>
-  )
-}
 
 // SVG Icons
 const TwitterIcon: React.FC = () => (
