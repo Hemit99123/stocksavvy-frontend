@@ -37,11 +37,12 @@ const QuestionView = () => {
     } catch (error: any) {
       if (error.response?.status === 401) {
         // in case user not logged in (401 error) give them option to log in
-        const shouldRedirect = prompt("Not authenticated, would you like to login? Y/N:")?.toUpperCase();
-
-        if (shouldRedirect == "Y") {
-          router.push("/login")
-        }
+        toast.error('Not authenticated, automatically redirecting...', {
+          onClose: () => {
+            // Redirect after toast disappears
+            router.push("/login");
+          }
+        });
         
       } else {
         alert("Something went wrong, please try again later.");
