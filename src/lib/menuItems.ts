@@ -1,7 +1,7 @@
-import { getSessionCookie } from "@/lib/auth"; // assuming you have a function for this
+import { handleCheckAuth } from "@/lib/auth"; // assuming you have a function for this
 
 export async function getMenuItems() {
-  const authStatus = await getSessionCookie() as boolean;
+  const authStatus = await handleCheckAuth() as boolean;
   return [
     {
       display: "Platform",

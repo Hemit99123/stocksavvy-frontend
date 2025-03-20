@@ -1,13 +1,8 @@
-// this checks for the session-id cookie for frontend rendering 
-// backend checks the session-id cookie for validity w/ the redis cache set up
+import httpHeader from '@/services/httpHeader'
 
-"use server"
+export const handleCheckAuth = async () => {
+    const response = await httpHeader.get("/auth/get-session")
 
-import { cookies } from 'next/headers'
-
-export const getSessionCookie = async () => {
-    const cookieStore = await cookies()
-    const sessionCookie = cookieStore.get('session-id')
-
-    return sessionCookie ? true : false
+    // either a true (authenticated) or false (unauthentcated) response
+    return response.data.auth
 }
