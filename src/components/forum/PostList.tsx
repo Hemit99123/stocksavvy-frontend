@@ -5,7 +5,6 @@ import { Post } from "./Post"
 import {posts} from "@/data/post"
 import httpHeader from "@/services/httpHeader"
 import { handleUnauthenticatedUser } from "@/lib/auth"
-import { ToastContainer } from "react-toastify"
 export function PostList() {
 
   useEffect(() => {
