@@ -7,4 +7,4 @@ const page = async () => {
   )
 }
 
-export default Home
+export default page

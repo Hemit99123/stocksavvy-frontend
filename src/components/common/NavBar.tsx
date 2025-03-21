@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
 import { getMenuItems } from "@/lib/menuItems";
-
+import Link from "next/link";
 const NavBar = () => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([])
 
