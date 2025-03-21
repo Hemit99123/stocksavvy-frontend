@@ -20,6 +20,6 @@ export const handleUnauthenticatedUser = async (error: any) => {
         });
         
       } else {
-        alert("Something went wrong, please try again later.");
+        toast.info("Something went wrong, please try again later.");
       }
 }

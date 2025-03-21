@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { CheckCircle, RotateCw } from "lucide-react"
 import { motion } from "framer-motion"
-import { toast, ToastContainer } from "react-toastify"
+import { toast } from "react-toastify"
 import { Option } from "@/types/option"
 import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
@@ -89,7 +89,6 @@ const QuestionView = () => {
       </motion.div>
       <span className="ml-3 text-lg font-medium text-green-600">🔥 Streak</span>
     </div>
-      <ToastContainer />
       {type === "None" ? (
         <div className="text-center">
           <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
