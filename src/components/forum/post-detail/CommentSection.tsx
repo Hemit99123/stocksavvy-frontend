@@ -1,6 +1,6 @@
 import { Shield } from "lucide-react";
 import { Avatar } from "./PostHeader";
-import type { Comment } from "@/types/post"
+import type { Comment } from "@/types/post-dummy"
 
 
 

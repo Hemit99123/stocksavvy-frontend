@@ -1,7 +1,7 @@
 "use client"
 
 import useSharePopupStore from "@/store/sharepopup"
-import { Post } from "@/types/post"
+import { Post } from "@/types/post-dummy"
 import { MessageSquare, Share2 } from "lucide-react"
 
 /* 📌 POST ACTIONS */

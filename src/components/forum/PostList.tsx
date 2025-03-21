@@ -1,16 +1,19 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Post } from "./Post"
-import {posts} from "@/data/post"
 import httpHeader from "@/services/httpHeader"
 import { handleUnauthenticatedUser } from "@/lib/auth"
+import { Post as PostType } from "@/types/post"
 export function PostList() {
+
+  const [posts, setPosts] = useState<PostType[]>([])
 
   useEffect(() => {
     const handleGetPosts = async () => {
       try {
-        await httpHeader.get("/forum/all-questions");
+        const response = await httpHeader.get("/forum/all-questions");
+        setPosts(response.data.questions)
         /* eslint-disable  @typescript-eslint/no-explicit-any */
       } catch (error: any) {
         handleUnauthenticatedUser(error)

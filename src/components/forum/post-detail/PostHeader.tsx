@@ -1,5 +1,5 @@
 import { formatTimeAgo } from "@/lib/formatTime";
-import { Post } from "@/types/post";
+import { Post } from "@/types/post-dummy";
 import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 
