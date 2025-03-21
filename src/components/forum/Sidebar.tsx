@@ -1,4 +1,4 @@
-import { Home, Bookmark, Settings } from "lucide-react"
+import { Home, Bookmark } from "lucide-react"
 import Link from "next/link"
 
 export function Sidebar() {
