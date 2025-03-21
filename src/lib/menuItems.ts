@@ -4,11 +4,11 @@ export async function getMenuItems() {
   const authStatus = await handleCheckAuth() as boolean;
   return [
     {
-      display: "Platform",
-      pathname: "/platform",
+      display: "Forum",
+      pathname: "/forum",
     },
     {
-      display: "Questions",
+      display: "Question bank",
       pathname: "/questions",
     },
     {
