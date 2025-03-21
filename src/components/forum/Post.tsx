@@ -1,8 +1,6 @@
 "use client"
 
-import { useRouter } from 'next/navigation';
-import { formatTimeAgo } from '@/lib/formatTime';
-import {Post as PostType} from "@/types/post"
+import { useRouter } from 'next/navigation';import {Post as PostType} from "@/types/post"
 
 
 interface PostProps {
