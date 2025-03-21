@@ -1,13 +1,9 @@
-"use client"
-
-import HomeView from '@/components/landing-page/Home'
-import { useGetMenuItems } from '@/hooks/menuitems'
+import Home from '@/components/landing-page/Home'
 import React from 'react'
 
-const Home = () => {
-  const menuItems = useGetMenuItems()
+const page = async () => {
   return (
-    <HomeView menuItems={menuItems}/>
+    <Home />
   )
 }
 

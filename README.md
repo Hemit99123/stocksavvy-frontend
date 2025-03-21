@@ -1,8 +1,9 @@
 # StockSavvy Frontend
+
 This is the frontend for the StockSavvy web platform. It includes the whole interface for all technology that is used by the platform.
 
 ## Technology 🧑🏽‍💻:
-### - NextJS:
+### - NextJS (switching to Vite soon):
 
 NextJS is a framework of ReactJS. It provides all the tools nescarry to start development like a router and SSR (rendering static pages on server for better response times). It also has amazing SEO capabilities which will help make StockSavvy more popular in Search Engine searches like Google or Bing. 
 

@@ -10,12 +10,8 @@ import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/li
 import Mission from "@/components/landing-page/Mission";
 import Testimonial from "@/components/landing-page/Testimonial";
 import Footer from "@/components/landing-page/Footer";
-import { MenuItem } from "@/types/navbar";
 
-interface Home {
-  menuItems: MenuItem[]
-}
-const Home: React.FC<Home> = ({ menuItems }) => {
+const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -53,8 +49,8 @@ const Home: React.FC<Home> = ({ menuItems }) => {
       animate={{ opacity: 1 }} // Animate to opacity 1
       transition={{ duration: 1.5 }} // Duration of the opacity transition
     >
-      <div className="bg-gradient-to-br from-yellow-300 via-lime-500 to-green-400 rounded-b-3xl">
-        <NavBar menuItems={menuItems}/>
+      <div className="bg-green-300 rounded-b-3xl">
+        <NavBar />
         <Hero />
       </div>
       <About />

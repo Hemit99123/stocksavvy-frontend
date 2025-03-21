@@ -24,13 +24,13 @@ const Mission = () => {
                         isLifted={true}
                     />
                     <MissionItem
-                        color="yellow"
+                        color="light-green"
                         title="Building Strong Foundations"
                         text="We teach fundamental financial concepts such as budgeting, saving, and investing, to set students up for success."
                         isLifted={false} 
                     />
                     <MissionItem
-                        color="yellow"
+                        color="light-green"
                         title="Inspiring Confidence"
                         text="We aim to inspire confidence in students, helping them understand the power of financial decision-making and how to apply it in their lives."
                         isLifted={true}
@@ -46,7 +46,7 @@ const Mission = () => {
             <div className="text-center lg:text-left">
                 <h1 className="font-bold text-4xl mb-3">We are passionate</h1>
                 <p className="max-w-full lg:max-w-lg mx-auto lg:mx-0">
-                    At StockSavvy, we are committed to building a generation of financially literate individuals who are empowered to make sound financial decisions, contribute to their communities, and pave the way for a more secure future.
+                    At Stock Savvy, we are committed to building a generation of financially literate individuals who are empowered to make sound financial decisions, contribute to their communities, and pave the way for a more secure future.
                 </p>
             </div>
         </div>

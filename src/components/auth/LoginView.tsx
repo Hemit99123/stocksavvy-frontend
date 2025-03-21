@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { GoogleLogin } from "@react-oauth/google";
 import httpHeader from "@/services/httpHeader";
+import { toast } from "react-toastify";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -10,25 +10,13 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [isOTPGenerated, setIsOTPGenerated] = useState(false); // Track if OTP is generated
 
-  const handleLoginGoogleSSO = async (idToken: string | undefined) => {
-    try {
-      const response = await httpHeader.post("/auth/login/google", {
-        idToken,
-      });
-      alert(response.data.message);
-    } catch (error) {
-      alert("Google login failed. Please try again.");
-      console.error(error);
-    }
-  };
-
   const handleGenerateOTP = async () => {
     try {
       await httpHeader.post("/auth/assign-otp", { email });
       setIsOTPGenerated(true); // Mark OTP as generated
-      alert("OTP has been sent to your email!");
+      toast.info("OTP has been sent to your email!");
     } catch (error) {
-      alert("Failed to generate OTP. Please check your email and try again.");
+      toast.info("Failed to generate OTP. Please check your email and try again.");
       console.error(error);
     }
   };
@@ -40,9 +28,9 @@ const Auth = () => {
         otp,
         name,
       });
-      alert(response.data.message);
+      toast.info("OTP verification successful!");
     } catch (error) {
-      alert("OTP verification failed. Please try again.");
+      toast.info("OTP verification failed. Please try again.");
       console.error(error);
     }
   };
@@ -54,15 +42,6 @@ const Auth = () => {
           <h1 className="text-4xl font-bold mb-11">Welcome Back!</h1>
         </div>
         <div className="w-full mt-10">
-          {/* Google Login Section */}
-          <div className="mb-6">
-            <GoogleLogin
-              onSuccess={(response) => handleLoginGoogleSSO(response.credential)}
-              onError={() => alert("An error has occurred!")}
-              width="100%" // Ensures the button fills the container's width
-            />
-          </div>
-
           <hr className="my-6 border-gray-300" />
 
           {/* Email Login Section */}

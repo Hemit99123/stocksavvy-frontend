@@ -41,12 +41,12 @@ const About: React.FC = () => {
     <div className="px-4">
       <Header 
         smalltext="Built by students, for students"
-        title="What is StockSavvy about?"
+        title="What is Stock Savvy about?"
       />
       {/* Main content container */}
       <div className="max-w-5xl mx-auto mb-8">
         <p className="text-gray-600 text-lg mt-4 text-center">
-          StockSavvy is a financial literacy initiative that helps young and
+          Stock Savvy is a financial literacy initiative that helps young and
           aspiring high school students learn about economic concepts such as
           saving and spending, teaches investment strategies, and provides steps
           to becoming a successful investor.

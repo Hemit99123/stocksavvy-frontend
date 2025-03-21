@@ -1,44 +1,67 @@
-import React from 'react'
-import Spacer from '../common/Spacers/Spacer'
-import { FaInstagram } from "react-icons/fa";
-import { FiArrowUpRight } from "react-icons/fi";
+"use client"
+
+import Link from "next/link"
+import { FaMailBulk, FaPhone, FaInstagram, FaArrowUp } from "react-icons/fa"
+import { useCallback } from "react"
 
 const Footer = () => {
-
-  const getCurrentYear = () => {
-        return new Date().getFullYear()
-  }
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    })
+  }, [])
 
   return (
-    <div className="bg-green-50 text-green-800 rounded-t-3xl">
-        <div className="text-right md:text-left md:flex md:justify-between p-10 mb-56 space-y-11 lg:space-y-0">
-            <div className="text-2xl md:text-3xl lg:text-5xl font-medium">
-                <h3>SMART</h3>
-                <h3>MONEY</h3>
-                <h3>CHOICES</h3>
+    <footer className="w-full">
+      {/* Main Footer */}
+      <div className="bg-green-500 pt-12 md:pt-24 pb-6 md:pb-8 px-4 sm:px-8 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          {/* CTA Section */}
+          <div className="mb-8 md:mb-10">
+            <p className="text-white/80 mb-1 md:mb-2 uppercase text-sm md:text-base">Got a question in mind?</p>
+            <h2 className="text-white text-4xl sm:text-5xl md:text-7xl font-light">Let&apos;s talk</h2>
+            <div className="text-white flex items-center mt-3 md:mt-4 space-x-3 md:space-x-4">
+              <FaPhone className="text-sm md:text-base" />
+              <p className="text-sm md:text-base">(123)-456-7890</p>
             </div>
 
-            <a className="flex items-center self-start cursor-pointer space-x-2 text-sm md:text-base lg:text-lg" href="https://www.instagram.com/stock.savvy_/">
-                <FaInstagram />
-                <p className="font-medium">Instagram</p>
-                <FiArrowUpRight className="font-light" />
-            </a>
-
-            <div className="text-left md:text-right">
-                <p className="md:text-lg lg:text-xl mb-1 font-semibold">Get in touch!</p>
-                <p className="text-sm md:text-base underline cursor-pointer">stocksavvy00@gmail.com </p>
-                <p className="text-sm md:text-base underline cursor-pointer">123 456 7890</p>
+            <div className="text-white flex items-center mt-2 md:mt-4 space-x-3 md:space-x-4">
+              <FaMailBulk className="text-sm md:text-base" />
+              <p className="text-sm md:text-base break-all md:break-normal">stocksavvy00@gmail.com</p>
             </div>
+          </div>
+
+          {/* Bottom Footer */}
+          <div className="border-t border-white/10 pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div className="flex gap-6 items-center">
+              <Link href="/privacy-policy" className="text-white/80 hover:text-white text-xs sm:text-sm">
+                Privacy Policy
+              </Link>
+              <Link
+                href="https://www.instagram.com/stock.savvy_?igsh=dmxza2RkYmY0c3o4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white text-xs sm:text-sm flex items-center gap-1"
+              >
+                <FaInstagram className="text-sm md:text-base" />
+                Instagram
+              </Link>
+              <button
+                onClick={scrollToTop}
+                className="text-white/80 hover:text-white text-xs sm:text-sm flex items-center gap-1 cursor-pointer"
+                aria-label="Scroll to top"
+              >
+                <FaArrowUp className="text-sm md:text-base" />
+                Up
+              </button>
+            </div>
+          </div>
         </div>
-
-        <h1 className="font-black text-center text-10xl">STOCKSAVVY</h1>
-        <p className="text-right mr-8 text-xs md:text-sm">
-            <span>© StockSavvy {getCurrentYear()} </span>
-            <a className="underline cursor-pointer">Privacy & Policy</a>
-        </p>
-        <Spacer />
-    </div>
+      </div>
+    </footer>
   )
 }
 
 export default Footer
+

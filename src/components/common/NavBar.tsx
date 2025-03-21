@@ -1,15 +1,22 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MenuItem } from "@/types/navbar";
 import Image from "next/image";
-import Link from "next/link";
+import { getMenuItems } from "@/lib/menuItems";
 
-interface NavBarProps {
-  menuItems: MenuItem[];
-}
+const NavBar = () => {
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([])
 
-const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
+  useEffect(() => {
+    const handleGetMenuItems = async () => {
+      const menuItems = await getMenuItems()
+      setMenuItems(menuItems)
+    }
+
+    handleGetMenuItems()
+  }, [])
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -17,20 +24,24 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
   };
 
   return (
-    <nav className="text-white">
+    <nav>
       <div className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center">
               <Image src="/images/logo.png" height={30} width={75} alt="logo" />
-              <span className="font-medium text-lg text-gray-800 mb-3">
+              <span className="font-medium text-lg mb-3">
                 StockSavvy
               </span>
             </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
-          <button type="button" className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onClick={toggleMobileMenu}>
+          <button
+            type="button"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+            onClick={toggleMobileMenu}
+          >
             <span className="sr-only">Open main menu</span>
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -39,7 +50,11 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
           {menuItems.map((item: MenuItem) => (
-            <a key={item.display} href={item.pathname} className="text-sm font-semibold text-gray-900">
+            <a
+              key={item.display}
+              href={item.pathname}
+              className="text-sm font-semibold"
+            >
               {item.display}
             </a>
           ))}
@@ -51,7 +66,11 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
           <div className="fixed inset-0 z-10"></div>
           <div className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <button type="button" className="-m-2.5 rounded-md p-2.5 text-gray-700" onClick={toggleMobileMenu}>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5"
+                onClick={toggleMobileMenu}
+              >
                 <span className="sr-only">Close menu</span>
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -62,7 +81,11 @@ const NavBar: React.FC<NavBarProps> = ({ menuItems }) => {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {menuItems.map((item: MenuItem) => (
-                    <a key={item.display} href={item.pathname} className="block rounded-lg py-2 text-sm font-semibold text-gray-900 hover:bg-gray-50">
+                    <a
+                      key={item.display}
+                      href={item.pathname}
+                      className="block rounded-lg py-2 text-sm font-semibold hover:bg-gray-50"
+                    >
                       {item.display}
                     </a>
                   ))}
