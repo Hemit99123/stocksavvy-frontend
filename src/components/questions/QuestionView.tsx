@@ -12,7 +12,7 @@ import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
-import { useRouter } from "next/navigation"
+import { handleUnauthenticatedUser } from "@/lib/auth"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
@@ -26,7 +26,6 @@ const QuestionView = () => {
   const [isClient, setIsClient] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
   const [question, setQuestion] = useState<Question>()
-  const router = useRouter()
   const [streak, setStreak] = useState(0)
 
   const handleGetRandomQuestion = async () => {
@@ -35,18 +34,7 @@ const QuestionView = () => {
       setQuestion(response.data.question);
       /* eslint-disable  @typescript-eslint/no-explicit-any */
     } catch (error: any) {
-      if (error.response?.status === 401) {
-        // in case user not logged in (401 error) give them option to log in
-        toast.error('Not authenticated, automatically redirecting...', {
-          onClose: () => {
-            // Redirect after toast disappears
-            router.push("/login");
-          }
-        });
-        
-      } else {
-        alert("Something went wrong, please try again later.");
-      }
+      handleUnauthenticatedUser(error)
     }
   };    
 
