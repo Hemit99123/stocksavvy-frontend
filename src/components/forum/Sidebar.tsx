@@ -12,10 +12,6 @@ export function Sidebar() {
         <Bookmark size={20} />
         <span>Saved</span>
       </Link>
-      <Link href="/settings" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
-        <Settings size={20} />
-        <span>Settings</span>
-      </Link>
     </div>
   )
 }
