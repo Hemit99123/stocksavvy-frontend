@@ -15,7 +15,7 @@ export function PostList() {
       try {
         const response = await httpHeader.get("/forum/all-questions")
         setPosts(response.data.questions)
-      } catch (error: any) {
+      } catch (error) {
         handleUnauthenticatedUser(error)
       } finally {
         setLoading(false)
