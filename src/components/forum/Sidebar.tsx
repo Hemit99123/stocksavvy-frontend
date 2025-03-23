@@ -8,7 +8,7 @@ export function Sidebar() {
         <Home size={20} />
         <span>Home</span>
       </a>
-      <a href="/bookmarked" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
+      <a href="/bookmark" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
         <Bookmark size={20} />
         <span>Bookmark</span>
       </a>
