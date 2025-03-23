@@ -6,7 +6,6 @@ import httpHeader from "@/services/httpHeader";
 import { Trash } from "lucide-react";
 import { toast } from "react-toastify";
 
-/* 📌 COMMENT SECTION */
 function CommentSection({ comments: initialComments }: { comments: Comment[] | undefined }) {
   const [session, setSession] = useState<Session>();
   const [comments, setComments] = useState<Comment[]>(initialComments ?? []);

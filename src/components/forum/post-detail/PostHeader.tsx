@@ -1,12 +1,6 @@
 import { Forum } from "@/types/forum";
 import { FaArrowLeft } from "react-icons/fa";
 
-/* 📌 AVATAR */
-export function Avatar({ src, fallback }: { src?: string; fallback: string }) {
-    return <div className="w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center">{src ? <img src={"https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg"} alt="Avatar" /> : fallback}</div>
-}
-
-/* 📌 POST HEADER */
 function PostHeader({ post }: { post: Forum | undefined }) {
     return (
       <div className="flex items-center gap-2 mb-4">
