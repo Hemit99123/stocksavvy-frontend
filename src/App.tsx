@@ -35,7 +35,7 @@ const App = () => {
 
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="team" element={<Team />} />
-        <Route path="workshop" element={<WorkShopInfo />} />
+        <Route path="workshop/:slug" element={<WorkShopInfo />} />
 
         {/* Not found render */}
         <Route path="*" element={<NotFound />} />
