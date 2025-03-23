@@ -13,6 +13,7 @@ import WorkShopInfo from "./routes/workshop/page"
 import Forum from "./routes/forum/main"
 import ID from "./routes/forum/id/main"
 import Me from "./routes/forum/me/main"
+import NotFound from "./routes/not-found"
 
 const App = () => {
   return (
@@ -32,6 +33,10 @@ const App = () => {
       <Route path="privacy-policy" element={<PrivacyPolicy />} />
       <Route path="team" element={<Team />} />
       <Route path="workshop" element={<WorkShopInfo />} />
+
+      {/* Not found render */}
+      <Route path="*" element={<NotFound />} />
+
     </Routes>
   )
 }
