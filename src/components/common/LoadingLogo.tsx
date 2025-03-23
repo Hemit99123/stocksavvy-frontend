@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const Loading = () => {
+const LoadingLogo = () => {
   const [showText, setShowText] = useState(false); // State to control showing text
 
   useEffect(() => {
@@ -56,4 +56,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingLogo;
