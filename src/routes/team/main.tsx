@@ -1,5 +1,4 @@
 import Avatar from "@/components/team/Avatar"
-import AvatarFallback from "@/components/team/AvatarFallback"
 import AvatarImage from "@/components/team/AvatarImage"
 import Card from "@/components/team/Card"
 import CardContent from "@/components/team/CardContent"
@@ -73,7 +72,6 @@ const Team: React.FC = () => {
             <div className="aspect-square bg-green-50 flex items-center justify-center">
               <Avatar className="h-48 w-48 border-4 border-green-500">
                 <AvatarImage src={member.image} alt={member.name} />
-                <AvatarFallback className="text-4xl bg-green-100 text-green-700">{member.initials}</AvatarFallback>
               </Avatar>
             </div>
             <CardHeader className="pb-2">
