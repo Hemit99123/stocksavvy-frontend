@@ -4,6 +4,7 @@ import { handleGetSession } from "@/lib/auth";
 import { Session } from "@/types/session";
 import httpHeader from "@/services/httpHeader";
 import { Trash } from "lucide-react";
+import { toast } from "react-toastify";
 
 /* 📌 COMMENT SECTION */
 function CommentSection({ comments: initialComments }: { comments: Comment[] | undefined }) {
@@ -25,6 +26,7 @@ function CommentSection({ comments: initialComments }: { comments: Comment[] | u
 
     if (response.status === 200) {
       setComments((prevComments) => prevComments.filter(comment => comment.id !== id));
+      toast.info("Deleted comment")
     }
   };
 
