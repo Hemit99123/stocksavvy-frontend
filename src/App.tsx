@@ -10,6 +10,8 @@ import Logout from "./routes/logout/main"
 import PrivacyPolicy from "./routes/privacy-policy/main"
 import Team from "./routes/team/main"
 import WorkShopInfo from "./routes/workshop/page"
+import Forum from "./routes/forum/main"
+import ID from "./routes/forum/ID"
 
 const App = () => {
   return (
@@ -17,6 +19,9 @@ const App = () => {
       <Route index element={<Home />} />
       <Route path="questions" element={<Questions />} />
       <Route path="login" element={<Login />} />
+      <Route path="forum" element={<Forum />} />
+      <Route path="forum/:id" element={<ID />} />
+
 
       {/* All logout routes */}
       <Route path="logout/success" element={<LogoutSuccess />} />

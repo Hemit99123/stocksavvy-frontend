@@ -1,4 +1,4 @@
-import { Post } from "@/types/post-dummy";
+import { Forum } from "@/types/forum";
 import { FaArrowLeft } from "react-icons/fa";
 
 /* 📌 AVATAR */
@@ -7,17 +7,16 @@ export function Avatar({ src, fallback }: { src?: string; fallback: string }) {
 }
 
 /* 📌 POST HEADER */
-function PostHeader({ post }: { post: Post }) {
+function PostHeader({ post }: { post: Forum | undefined }) {
     return (
       <div className="flex items-center gap-2 mb-4">
         <a href="/forum" className="text-zinc-400 hover:text-white">
           <FaArrowLeft />
         </a>
         <div className="flex-1">
-          <h1 className="text-xl font-semibold">{post.title}</h1>
+          <h1 className="text-xl font-semibold">{post?.question}</h1>
           <div className="flex items-center gap-2 text-sm text-zinc-400">
-            <span>Posted by u/{post.subreddit}</span>
-            <span>•</span>
+            <span>Posted by {post?.email}</span>
           </div>
         </div>
       </div>

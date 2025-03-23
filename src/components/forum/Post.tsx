@@ -1,10 +1,10 @@
 "use client"
 
 import { useNavigate } from "react-router";
-import {Post as PostType} from "@/types/post"
+import {Forum} from "@/types/forum"
 
 interface PostProps {
-  post: PostType;
+  post: Forum;
 }
 
 export function Post({ post }: PostProps) {

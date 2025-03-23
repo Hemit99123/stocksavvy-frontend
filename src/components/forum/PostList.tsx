@@ -4,10 +4,10 @@ import { useEffect, useState } from "react"
 import { Post } from "./Post"
 import httpHeader from "@/services/httpHeader"
 import { handleUnauthenticatedUser } from "@/lib/auth"
-import { Post as PostType } from "@/types/post"
+import { Forum } from "@/types/forum"
 export function PostList() {
 
-  const [posts, setPosts] = useState<PostType[]>([])
+  const [posts, setPosts] = useState<Forum[]>([])
 
   useEffect(() => {
     const handleGetPosts = async () => {

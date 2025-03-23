@@ -2,7 +2,7 @@ import { Header } from "@/components/forum/Header"
 import { Sidebar } from "@/components/forum/Sidebar"
 import { PostList } from "@/components/forum/PostList"
 
-export default function Home() {
+const Forum = () => {
   return (
     <div className="min-h-screen bg-green-50">
       <Header />
@@ -22,3 +22,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Forum;
