@@ -23,3 +23,11 @@ export const handleUnauthenticatedUser = async (error: any) => {
         toast.info("Something went wrong, please try again later.");
       }
 }
+
+export const handleGetSession = async () => {
+  const response = await httpHeader.get("/auth/get-session")
+
+  return {
+      session: response.data.session,
+  }
+}

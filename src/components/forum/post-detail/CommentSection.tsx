@@ -1,26 +1,62 @@
-import type { Comment } from "@/types/forum"
+import { useEffect, useState } from "react";
+import type { Comment } from "@/types/forum";
+import { handleGetSession } from "@/lib/auth";
+import { Session } from "@/types/session";
+import httpHeader from "@/services/httpHeader";
+import { Trash } from "lucide-react";
 
 /* 📌 COMMENT SECTION */
-function CommentSection({ comments }: { comments: Comment[] | undefined}) {
-    return (
-      <div className="space-y-6 mt-6">
-        <h2 className="text-lg font-semibold">Discussion ({comments?.length})</h2>
-        {comments?.map((comment) => (
-      <div className={`relative p-4 bg-zinc-800 rounded-lg ${0 > 0 ? "ml-8 border-l-4 border-zinc-700 pl-4" : ""}`}>
-      {/* Author */}
-      <div className="flex items-center gap-2 mb-2">
-        <span className="font-medium flex items-center gap-1">
-          {comment.email}
-        </span>
-        <span className="text-zinc-400 text-sm"></span>
-      </div>
+function CommentSection({ comments: initialComments }: { comments: Comment[] | undefined }) {
+  const [session, setSession] = useState<Session>();
+  const [comments, setComments] = useState<Comment[]>(initialComments ?? []);
 
-      {/* Content */}
-      <div className="text-zinc-100">{comment.content}</div>
-    </div>        
-  ))}
-      </div>
-    )
-  }
+  useEffect(() => {
+    async function fetchSession() {
+      const userSession = await handleGetSession();
+      setSession(userSession.session);
+    }
+    fetchSession();
+  }, []);
 
-export default CommentSection
+  const handleDeleteComment = async (id: string) => {
+    const response = await httpHeader.delete("/forum/delete-comment", {
+      data: { id }
+    });
+
+    if (response.status === 200) {
+      setComments((prevComments) => prevComments.filter(comment => comment.id !== id));
+    }
+  };
+
+  return (
+    <div className="space-y-6 mt-6">
+      <h2 className="text-lg font-semibold">Discussion ({comments.length})</h2>
+      {comments.map((comment) => (
+        <div
+          key={comment.id}
+          className={"relative p-4 bg-zinc-800 rounded-lg"}
+        >
+          {/* Author */}
+          <div className="flex items-center gap-2 mb-2">
+            <span className="font-medium flex items-center gap-1">
+              {comment.email}
+            </span>
+            {session?.email === comment.email && (
+              <div>
+                <span className="text-green-400 text-sm"> (You) </span>
+                <button className="bg-red-500 px-2 py-2 rounded-full" onClick={() => handleDeleteComment(comment.id)}>
+                  <Trash size={15} />
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Content */}
+          <div className="text-zinc-100">{comment.content}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default CommentSection;
