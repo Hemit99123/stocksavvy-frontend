@@ -1,11 +1,10 @@
 import { useState } from "react"
 import useSharePopupStore from "@/store/sharepopup"
 import { Forum } from "@/types/forum"
-import { Bookmark, MessageSquare, Share2, X } from "lucide-react"
+import { MessageSquare, Share2, X } from "lucide-react"
 import httpHeader from "@/services/httpHeader"
 import { useParams } from "react-router"
 import { useShowCommentStore } from "@/store/comment"
-import { toast } from "react-toastify"
 
 /* 📌 POST ACTIONS */
 function PostActions() {
