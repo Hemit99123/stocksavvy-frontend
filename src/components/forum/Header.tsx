@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Plus } from "lucide-react"
 import httpHeader from "@/services/httpHeader"
+import { toast } from "react-toastify"
 
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -16,6 +17,7 @@ export function Header() {
       content,
       question
     })
+    toast.info("Created question")
   }
 
   return (
@@ -34,7 +36,18 @@ export function Header() {
         <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-96">
             <h2 className="text-xl font-bold mb-4">Your Question</h2>
-            <form>
+            <div className="mb-4">
+                <label htmlFor="question" className="block text-sm font-medium text-gray-700">
+                  Question
+                </label>
+                <input
+                  id="question"
+                  name="question"
+                  onChange={(e) => setQuestion(e.target.value)}
+                  type="text"
+                  className="w-full p-2 mt-1 border border-gray-300 rounded-md"
+                />
+              </div>
               <div className="mb-4">
                 <label htmlFor="content" className="block text-sm font-medium text-gray-700">
                   Content
@@ -47,19 +60,6 @@ export function Header() {
                   rows={4}
                   className="w-full p-2 mt-1 border border-gray-300 rounded-md"
                 ></textarea>
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="question" className="block text-sm font-medium text-gray-700">
-                  Question
-                </label>
-                <input
-                  id="question"
-                  name="question"
-                  onChange={(e) => setQuestion(e.target.value)}
-                  type="text"
-                  className="w-full p-2 mt-1 border border-gray-300 rounded-md"
-                />
               </div>
 
               <div className="flex justify-end space-x-4">
@@ -77,7 +77,6 @@ export function Header() {
                   Submit
                 </button>
               </div>
-            </form>
           </div>
         </div>
       )}

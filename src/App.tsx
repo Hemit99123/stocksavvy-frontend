@@ -14,30 +14,34 @@ import Forum from "./routes/forum/main"
 import ID from "./routes/forum/id/main"
 import Me from "./routes/forum/me/main"
 import NotFound from "./routes/not-found"
+import { ToastContainer } from "react-toastify"
 
 const App = () => {
   return (
-    <Routes>
-      <Route index element={<Home />} />
-      <Route path="questions" element={<Questions />} />
-      <Route path="login" element={<Login />} />
-      <Route path="forum" element={<Forum />} />
-      <Route path="forum/:id" element={<ID />} />
-      <Route path="forum/me" element={<Me />} />
+    <>
+      <ToastContainer />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="questions" element={<Questions />} />
+        <Route path="login" element={<Login />} />
+        <Route path="forum" element={<Forum />} />
+        <Route path="forum/:id" element={<ID />} />
+        <Route path="forum/me" element={<Me />} />
 
-      {/* All logout routes */}
-      <Route path="logout/success" element={<LogoutSuccess />} />
-      <Route path="logout/error" element={<LogoutError />} />
-      <Route path="logout" element={<Logout />} />
+        {/* All logout routes */}
+        <Route path="logout/success" element={<LogoutSuccess />} />
+        <Route path="logout/error" element={<LogoutError />} />
+        <Route path="logout" element={<Logout />} />
 
-      <Route path="privacy-policy" element={<PrivacyPolicy />} />
-      <Route path="team" element={<Team />} />
-      <Route path="workshop" element={<WorkShopInfo />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="team" element={<Team />} />
+        <Route path="workshop" element={<WorkShopInfo />} />
 
-      {/* Not found render */}
-      <Route path="*" element={<NotFound />} />
+        {/* Not found render */}
+        <Route path="*" element={<NotFound />} />
 
-    </Routes>
+      </Routes>
+    </>
   )
 }
 
