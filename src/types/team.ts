@@ -11,5 +11,4 @@ export type TeamMember = {
     role: string
     image: string
     bio: string
-    initials: string
 }
