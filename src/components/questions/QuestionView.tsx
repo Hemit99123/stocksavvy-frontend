@@ -12,6 +12,7 @@ import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
 import { handleUnauthenticatedUser } from "@/lib/auth"
+import Loading from "../common/Loading"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>
@@ -24,13 +25,16 @@ const QuestionView = () => {
   const { setType: setSubmitType } = useSubmitTypeStore.getState()
   const [isClient, setIsClient] = useState(false)
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
+  const [isLoading, setLoading] = useState(false )
   const [question, setQuestion] = useState<Question>()
   const [streak, setStreak] = useState(0)
 
   const handleGetRandomQuestion = useCallback(async () => {
     try {
+      setLoading(true)
       const response = await httpHeader.get(`/question/get?type=${type}`);
       setQuestion(response.data.question);
+      setLoading(false)
     } catch (error) {
       handleUnauthenticatedUser(error);
     }
@@ -75,7 +79,12 @@ const QuestionView = () => {
   
   return (
     <div className="overflow-auto w-11/12">
-          <div className="flex items-center justify-center bg-green-100 rounded-lg shadow-md p-4 my-4">
+    
+    {isLoading ? (
+      <Loading />
+    ): (
+      <>
+    <div className="flex items-center justify-center bg-green-100 rounded-lg shadow-md p-4 my-4">
       <motion.div
         key={streak}
         initial={{ scale: 0.8, opacity: 0 }}
@@ -182,6 +191,9 @@ const QuestionView = () => {
           </div>
         </div>
       )}
+      </>
+    )}
+
     </div>
   )
 }

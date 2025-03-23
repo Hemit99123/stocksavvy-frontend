@@ -4,7 +4,7 @@ import NavBar from "@/components/common/NavBar";
 import About from "@/components/landing-page/About";
 import Hero from "@/components/landing-page/Hero";
 import Loading from "@/components/common/LoadingLogo";
-import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loading";
+import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loadingLogo";
 import Mission from "@/components/landing-page/Mission";
 import Testimonial from "@/components/landing-page/Testimonial";
 import Footer from "@/components/landing-page/Footer";
