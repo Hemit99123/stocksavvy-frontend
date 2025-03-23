@@ -2,7 +2,7 @@
 
 import { useQuestionTypeStore } from "@/store/questions"
 import { MdOutlineOpenInNew } from "react-icons/md"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { CheckCircle, RotateCw } from "lucide-react"
 import { motion } from "framer-motion"
 import { toast } from "react-toastify"
@@ -27,15 +27,14 @@ const QuestionView = () => {
   const [question, setQuestion] = useState<Question>()
   const [streak, setStreak] = useState(0)
 
-  const handleGetRandomQuestion = async () => {
+  const handleGetRandomQuestion = useCallback(async () => {
     try {
       const response = await httpHeader.get(`/question/get?type=${type}`);
       setQuestion(response.data.question);
-      /* eslint-disable  @typescript-eslint/no-explicit-any */
-    } catch (error: any) {
-      handleUnauthenticatedUser(error)
+    } catch (error) {
+      handleUnauthenticatedUser(error);
     }
-  };    
+  }, [type]); // Add necessary dependencies
 
   useEffect(() => {
     setIsClient(true) // Set state to true once client-side rendering occurs (after component mounted)
