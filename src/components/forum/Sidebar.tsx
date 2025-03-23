@@ -9,7 +9,7 @@ export function Sidebar() {
       </a>
       <a href="/saved" className="flex items-center space-x-2 text-green-800 hover:bg-green-100 p-2 rounded-lg">
         <Bookmark size={20} />
-        <span>Saved</span>
+        <span>Bookmark</span>
       </a>
     </div>
   )
