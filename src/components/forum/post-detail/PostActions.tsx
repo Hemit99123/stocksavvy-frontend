@@ -25,6 +25,7 @@ const PostActions = () => {
       if (response.status == 200) {
         toast.info("Created a comment")
         setContent("")
+        setFormOpen(false)
       } else {
         toast.error("A error occured")
       }
