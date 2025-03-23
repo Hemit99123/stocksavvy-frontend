@@ -47,6 +47,6 @@ Now create a PR (pull request) to merge that development branch to the main bran
 - fix: (for a fix to a bug/feature not working)
 - chore: (for any other task that does not fit the other 2 categories)
   
-**Add all comments into the PR itself.** We will *not* accept any PRs without some sort of documentation/record of changes. 
+**Add all comments into the PR itself.** We will *not* accept any PRs without some sort of documentation/record of changes. Previously, all documentation was kept on issues. Therefore, if you want to look at a PR dated prior to Sunday, March 23rd, 2025 you must refer to the issues tab. **This practice is no longer in use however**.
 
 ### Happy Coding 🧑🏽‍💻
