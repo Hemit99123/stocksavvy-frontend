@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import Avatar from "@/components/team/Avatar"
 import AvatarFallback from "@/components/team/AvatarFallback"
 import AvatarImage from "@/components/team/AvatarImage"

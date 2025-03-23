@@ -45,7 +45,7 @@ const QuestionView = () => {
     if (type !== "None") {
       handleGetRandomQuestion();
     }
-  }, [type])
+  }, [type, handleGetRandomQuestion])
 
   // Only use window object on the client-side
   const url = isClient ? encodeURIComponent(window.location.href) : ""

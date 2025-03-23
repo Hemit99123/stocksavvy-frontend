@@ -22,7 +22,7 @@ const Logout = () => {
     } else {
       navigate("/logout/success")
     }
-  }, [])
+  }, [navigate, response])
 
   return null
 }
