@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+<div align="center">
+  <img src="/public/images/logo.png" width="30%" alt="Talem AI" />
+</div>
+<hr>
+<div align="center" style="line-height: 1;">
+  <a href="https://stocksavvy-frontend.vercel.app/"><img alt="Demo"
+    src="https://img.shields.io/badge/🚀%20Live%20Demo-API-2F80ED?color=2F80ED&logoColor=white"/></a>
+  <a href="LICENSE-CODE"><img alt="Code License"
+    src="https://img.shields.io/badge/Code%20License-Apache%202.0-00BFFF?color=00BFFF"/></a>
+  <br>
+</div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for the StockSavvy web platform. It includes the whole interface for all technology that is used by the platform.
 
-Currently, two official plugins are available:
+## Technology 🧑🏽‍💻:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### - React:
+React is a UI library developed by Meta. I used it mainly due to its component reusability which saves repetition in HTML (JSX/TSX) code. 
 
-## Expanding the ESLint configuration
+### - Vite:
+Vite is a build-pack for React which gives us the basic configs to set up a React project. It does this in a fast manner and its performance is the best in the market, making it a great choice to start-up the frontend.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### - TailwindCSS:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+TailwindCSS is a CSS alternative that is used by many big companies like OpenAI, Shopify and NASA JPL. It allows us to design webpages through utlity class which saves productivity time because a standalone CSS file is no longer needed. This also helps keep bundling sizes to a minimum because we got rid of the need for an extra file. 
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### - Husky:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Husky is a developer tool that allows bash commands to run prior to a Git commit being added (`git commit...`) This way, we can run some pre-checks on our code before it is committed onto the remote repository and added to the history of the repo **forever**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### - ESLint:
+
+ESLint is a tool that allows for linting, published in 2013. Linting is a program that analyzes the code for any errors/violations to a certain set of rules. These rules ensure that the code is easy to read and production ready. 
+
+## Contributions?
+
+Contributions are allowed! We ask that you follow certain rules whilst making contributions. All work that you do will be **voluntary** and not privy to payment. However, you can use **your** contributions as work experience for any future work you might apply for. This can only be done if you follow our rules as listed below...
+
+#### The rules:
+
+First, create a development branch for your work. **DO NOT COMMIT ON MAIN** 
+The branch should have the following naming structure: `YOUR NAME/GITHUB USER/1-2 WORDS ON THE CONTRIBUTION MADE` Examples of such naming structure include `hemit99123/about-page`
+
+Now create a PR (pull request) to merge that development branch to the main branch. The naming of the PR should start off with:
+
+- feat: (for a new feature)
+- fix: (for a fix to a bug/feature not working)
+- chore: (for any other task that does not fit the other 2 categories)
+  
+**Add all comments into the PR itself.** We will *not* accept any PRs without some sort of documentation/record of changes. 
+
+### Happy Coding 🧑🏽‍💻
