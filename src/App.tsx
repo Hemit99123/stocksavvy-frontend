@@ -12,6 +12,7 @@ import Team from "./routes/team/main"
 import WorkShopInfo from "./routes/workshop/page"
 import Forum from "./routes/forum/main"
 import ID from "./routes/forum/ID"
+import Me from "./routes/forum/Me"
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="login" element={<Login />} />
       <Route path="forum" element={<Forum />} />
       <Route path="forum/:id" element={<ID />} />
+      <Route path="forum/me" element={<Me />} />
 
 
       {/* All logout routes */}
