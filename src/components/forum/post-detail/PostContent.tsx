@@ -4,9 +4,11 @@ import { Forum } from "@/types/forum"
 import { MessageSquare, Share2, X } from "lucide-react"
 import httpHeader from "@/services/httpHeader"
 import { useParams } from "react-router"
+import { useShowCommentStore } from "@/store/comment"
 
 /* 📌 POST ACTIONS */
 function PostActions() {
+  const {setShowComment} = useShowCommentStore()
   const params = useParams()
   const id = params.id
   const togglePopupStatus = useSharePopupStore((state) => state.toggleStatus)
@@ -20,10 +22,15 @@ function PostActions() {
     })
   }
 
+  const handleOpenForm = () => {
+    setShowComment(false)
+    setFormOpen(true)
+  }
+
   return (
     <>
       <div className="flex items-center gap-4 mt-4 ml-px">
-        <button className="flex items-center hover:text-zinc-100 transition" onClick={() => setFormOpen(true)}>
+        <button className="flex items-center hover:text-zinc-100 transition" onClick={handleOpenForm}>
           <MessageSquare className="h-4 w-4 mr-2" />
         </button>
         <button className="flex items-center hover:text-zinc-100 transition" onClick={togglePopupStatus}>

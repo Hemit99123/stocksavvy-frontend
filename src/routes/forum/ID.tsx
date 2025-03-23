@@ -7,13 +7,14 @@ import CommentSection from "@/components/forum/post-detail/CommentSection";
 import { useEffect, useState } from "react";
 import { Forum, Comment } from "@/types/forum";
 import httpHeader from "@/services/httpHeader";
+import { useShowCommentStore } from "@/store/comment";
 
 const ID = () => {
   const params = useParams();
   const [post, setPost] = useState<Forum>();
-  const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState<Comment[]>();
   const id = params.id;
+  const {showComment, setShowComment} = useShowCommentStore()
 
   useEffect(() => {
     const handleGetPost = async () => {
@@ -32,12 +33,13 @@ const ID = () => {
   }
 
   const toggleComments = async () => {
-    if (showComments === false) {
+    if (showComment === false) {
         const response = await httpHeader.get(`/forum/get-comments?id=${id}`)
         setComments(response.data.comments)
+        setShowComment(true)
+    } else {
+        setShowComment(false)
     }
-    
-    setShowComments((prev) => !prev);
   };
 
   return (
@@ -49,9 +51,9 @@ const ID = () => {
             <PostHeader post={post} />
             <PostContent post={post} />
             <button onClick={toggleComments} className="my-4">
-              {showComments ? "Hide Comments" : "Show Comments"}
+              {showComment ? "Hide Comments" : "Show Comments"}
             </button>
-            {showComments && <CommentSection comments={comments} />}
+            {showComment && <CommentSection comments={comments} />}
             <SharePopUp />
           </div>
         </div>
