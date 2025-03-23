@@ -11,8 +11,8 @@ import PrivacyPolicy from "./routes/privacy-policy/main"
 import Team from "./routes/team/main"
 import WorkShopInfo from "./routes/workshop/page"
 import Forum from "./routes/forum/main"
-import ID from "./routes/forum/ID"
-import Me from "./routes/forum/Me"
+import ID from "./routes/forum/id/main"
+import Me from "./routes/forum/me/main"
 
 const App = () => {
   return (
