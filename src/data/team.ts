@@ -19,4 +19,10 @@ export const teamMembers: TeamMember[] = [
       image: "/images/people/hemit.png",
       bio: "Analyzing and implementing technological solutions to drive innovation.",
     },
+    {
+      name: "Anosan",
+      role: "Director of Marketing and Finance",
+      image: "/images/people/placeholder.png",
+      bio: "Overseeing financials of StockSavvy and growth of userbase",
+    },
   ]
