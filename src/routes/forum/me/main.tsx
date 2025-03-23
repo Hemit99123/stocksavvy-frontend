@@ -1,4 +1,6 @@
+import Loading from "@/components/common/Loading"
 import { Header } from "@/components/forum/Header"
+import NoPostBanner from "@/components/forum/NoPostBanner"
 import httpHeader from "@/services/httpHeader"
 import { Forum } from "@/types/forum"
 import { PencilIcon, Trash } from "lucide-react"
@@ -83,16 +85,11 @@ export default function Me() {
           <h1 className="text-2xl md:text-3xl font-bold text-green-800 mb-6">My Posts</h1>
 
           {isLoading && (
-            <div className="flex justify-center items-center min-h-[50vh]">
-              <div className="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
-            </div>
+            <Loading />
           )}
 
           {!isLoading && !error && questions.length === 0 && (
-            <div className="bg-white rounded-lg p-8 text-center shadow-sm border border-green-200">
-              <h2 className="text-xl font-medium text-green-700 mb-2">No questions found</h2>
-              <p className="text-green-600">You haven't asked any questions yet.</p>
-            </div>
+            <NoPostBanner />
           )}
 
           {!isLoading && !error && questions.length > 0 && (
