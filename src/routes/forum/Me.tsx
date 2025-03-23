@@ -102,8 +102,10 @@ export default function Me() {
                   <div className="p-4">
                     <p className="text-green-700 line-clamp-3">{question.question}</p>
 
-                    <PencilIcon onClick={() => handleEditForum(question)} />
-                    <Trash onClick={() => handleDeleteForum(question.id)} />
+                    <div className="flex space-x-2 mt-2 text-green-400 cursor-pointer">
+                        <PencilIcon size={20} onClick={() => handleEditForum(question)} />
+                        <Trash size={20} onClick={() => handleDeleteForum(question.id)} />
+                    </div>
                   </div>
                 </div>
               ))}
