@@ -85,7 +85,7 @@ const About: React.FC = () => {
           onMouseLeave={handleMouseUp} // To stop dragging if mouse leaves the area
         >
           {workshopItems.map((workshop, index) => (
-            <a href={`/workshop?slug=${workshop.slug}`} key={index}>
+            <a href={`/workshop/${workshop.slug}`} key={index}>
               <WorkshopItem
                 img={workshop.img}
                 title={workshop.title}
