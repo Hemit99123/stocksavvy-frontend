@@ -8,11 +8,13 @@ import { useEffect, useState } from "react";
 import { Forum, Comment } from "@/types/forum";
 import httpHeader from "@/services/httpHeader";
 import { useShowCommentStore } from "@/store/comment";
+import Loading from "@/components/common/Loading";
 
 const ID = () => {
   const params = useParams();
   const [post, setPost] = useState<Forum>();
   const [comments, setComments] = useState<Comment[]>();
+  const [isCommentLoading, setCommentLoading] = useState(false)
   const id = params.id;
   const {showComment, setShowComment} = useShowCommentStore()
 
@@ -34,9 +36,13 @@ const ID = () => {
 
   const toggleComments = async () => {
     if (showComment === false) {
+        setCommentLoading(true)
+
         const response = await httpHeader.get(`/forum/get-comments?id=${id}`)
         setComments(response.data.comments)
         setShowComment(true)
+
+        setCommentLoading(false)
     } else {
         setShowComment(false)
     }
@@ -53,6 +59,7 @@ const ID = () => {
             <button onClick={toggleComments} className="my-4">
               {showComment ? "Hide Comments" : "Show Comments"}
             </button>
+            {isCommentLoading && <Loading />}
             {showComment && <CommentSection comments={comments} />}
             <SharePopUp />
           </div>
