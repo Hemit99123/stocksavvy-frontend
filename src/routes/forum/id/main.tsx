@@ -43,7 +43,7 @@ const ID = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900 text-white">
+    <div className="min-h-screen bg-green-50">
       <div className="container mx-auto py-6 px-4">
         <div className="flex gap-8">
           {/* Main Content */}

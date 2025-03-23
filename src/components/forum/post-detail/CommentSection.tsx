@@ -36,7 +36,7 @@ function CommentSection({ comments: initialComments }: { comments: Comment[] | u
       {comments.map((comment) => (
         <div
           key={comment.id}
-          className={"relative p-4 bg-zinc-800 rounded-lg"}
+          className={"relative p-4 bg-green-100 rounded-lg"}
         >
           {/* Author */}
           <div className="flex items-center gap-2 mb-2">
@@ -45,16 +45,16 @@ function CommentSection({ comments: initialComments }: { comments: Comment[] | u
             </span>
             {session?.email === comment.email && (
               <div>
-                <span className="text-green-400 text-sm"> (You) </span>
+                <span className="text-green-900 text-sm"> (You) </span>
                 <button className="bg-red-500 px-2 py-2 rounded-full" onClick={() => handleDeleteComment(comment.id)}>
-                  <Trash size={15} />
+                  <Trash color="white" size={15} />
                 </button>
               </div>
             )}
           </div>
 
           {/* Content */}
-          <div className="text-zinc-100">{comment.content}</div>
+          <div >{comment.content}</div>
         </div>
       ))}
     </div>
