@@ -1,10 +1,11 @@
 import { useState } from "react"
 import useSharePopupStore from "@/store/sharepopup"
 import { Forum } from "@/types/forum"
-import { MessageSquare, Share2, X } from "lucide-react"
+import { Bookmark, MessageSquare, Share2, X } from "lucide-react"
 import httpHeader from "@/services/httpHeader"
 import { useParams } from "react-router"
 import { useShowCommentStore } from "@/store/comment"
+import { toast } from "react-toastify"
 
 /* 📌 POST ACTIONS */
 function PostActions() {
@@ -35,7 +36,6 @@ function PostActions() {
         </button>
         <button className="flex items-center hover:text-zinc-100 transition" onClick={togglePopupStatus}>
           <Share2 className="h-4 w-4 mr-2" />
-          Share
         </button>
       </div>
 

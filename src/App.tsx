@@ -13,7 +13,6 @@ import WorkShopInfo from "./routes/workshop/page"
 import Forum from "./routes/forum/main"
 import ID from "./routes/forum/ID"
 import Me from "./routes/forum/Me"
-import Bookmark from "./routes/bookmark/main"
 
 const App = () => {
   return (
@@ -24,7 +23,6 @@ const App = () => {
       <Route path="forum" element={<Forum />} />
       <Route path="forum/:id" element={<ID />} />
       <Route path="forum/me" element={<Me />} />
-      <Route path="bookmark" element={<Bookmark />} />
 
       {/* All logout routes */}
       <Route path="logout/success" element={<LogoutSuccess />} />
