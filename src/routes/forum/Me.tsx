@@ -11,7 +11,7 @@ export default function Me() {
   const [editingQuestion, setEditingQuestion] = useState<Forum | null>(null)
   const [newQuestion, setNewQuestion] = useState("")
   const [newContent, setNewContent] = useState("")
-  const [showUpdate, setShowUpdate] = useState(true)
+  const [showUpdate, setShowUpdate] = useState(false)
 
   useEffect(() => {
     async function fetchUserQuestions() {
