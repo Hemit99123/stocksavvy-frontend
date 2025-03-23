@@ -42,10 +42,13 @@ export default function Me() {
   }
 
   const handleEditForum = (question: Forum) => {
+    if (showUpdate === false) {
+        setEditingQuestion(question)
+        setNewQuestion(question.question)
+        setNewContent(question.content)
+    }
+
     setShowUpdate((prev) => !prev)
-    setEditingQuestion(question)
-    setNewQuestion(question.question)
-    setNewContent(question.content)
   }
 
   const handleUpdateForum = async () => {
