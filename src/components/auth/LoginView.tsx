@@ -23,7 +23,7 @@ const Auth = () => {
 
   const handleVerifyOTPLogin = async () => {
     try {
-      await httpHeader.post("/auth/login/email-magic", {
+      await httpHeader.post("/auth/login", {
         email,
         otp,
         name,
