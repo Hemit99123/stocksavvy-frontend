@@ -26,7 +26,15 @@ const Forum = () => {
               <Home />
             ) : type === "Me" ? (
               <Me />
-            ) : null}
+            ) : type == "None" ? (
+              <>
+                <div className="text-center">
+                  <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
+                  <h1 className="font-bold text-lg">Let's get started 🚀</h1>
+                  <p className="text-gray-500">Click one of the features in the sidebar to start!</p>
+                </div>
+              </>
+            ): null}
           </main>
         </div>
     </div>
