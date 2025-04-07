@@ -2,6 +2,7 @@ import SideBar from "@/components/common/SideBar"
 import { PostList } from "@/components/forum/PostList"
 import PageHeader from "@/components/common/PageHeader"
 import NotReadyYet from "@/components/questions/NotReadyYet"
+import { useForumTypeStore } from "@/store/forum"
 
 const Forum = () => {
   return (
@@ -14,6 +15,7 @@ const Forum = () => {
         <div className="flex">
           <SideBar 
             page="forum"
+            storeHook={useForumTypeStore}
           />
           <main className="flex-1 px-4">
             <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>

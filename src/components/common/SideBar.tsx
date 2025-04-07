@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 "use client"
 
 import { useState } from "react"
@@ -5,24 +7,20 @@ import { motion } from "framer-motion"
 import { Search, Trash } from "lucide-react"
 import { topics as questionTopics } from "@/data/topics"
 import { features as forumFeatures } from "@/data/forumFeatures"
-import { useQuestionTypeStore } from "@/store/questions" // Import your zustand store
-import { useForumTypeStore } from "@/store/forum"
 
 
 interface SidebarProps {
   page: "forum" | "question"
+  storeHook: () => {
+    type: any;
+    setType: (type: any) => void
+  }
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ page }) => {
-  
-  /* eslint-disable  @typescript-eslint/no-explicit-any */
-  let type: any, setType: any;
+const Sidebar: React.FC<SidebarProps> = ({ page, storeHook }) => {
 
-  if (page == "question") {
-    ({ type, setType } = useQuestionTypeStore());
-  } else if (page == "forum") {
-    ({ type, setType } = useForumTypeStore());
-  }
+  const { type, setType } = storeHook()
+  
   
   const selectedItems = page === "question" ? questionTopics : forumFeatures
 

@@ -2,6 +2,7 @@ import PageHeader from '@/components/common/PageHeader'
 import NotReadyYet from '@/components/questions/NotReadyYet'
 import QuestionView from '@/components/questions/QuestionView'
 import Sidebar from '@/components/common/SideBar'
+import { useQuestionTypeStore } from "@/store/questions" 
 
 const Questions = () => {
   return (
@@ -15,6 +16,7 @@ const Questions = () => {
       <div className="lg:flex flex-col lg:flex-row px-px justify-center ">
         <Sidebar
           page="question"
+          storeHook={useQuestionTypeStore}
         />
         <div className="flex flex-grow justify-center"> 
           <QuestionView />
