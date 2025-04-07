@@ -3,16 +3,34 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Search, Trash } from "lucide-react"
-import { topics } from "@/data/topics"
+import { topics as questionTopics } from "@/data/topics"
+import { features as forumFeatures } from "@/data/forumFeatures"
 import { useQuestionTypeStore } from "@/store/questions" // Import your zustand store
-import type { Topic } from "@/types/topic"
+import { useForumTypeStore } from "@/store/forum"
 
-const Sidebar = () => {
-  const { type, setType } = useQuestionTypeStore() // Use the store's state and setter
+
+interface SidebarProps {
+  page: "forum" | "question"
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ page }) => {
+  
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  let type: any, setType: any;
+
+  if (page == "question") {
+    ({ type, setType } = useQuestionTypeStore());
+  } else if (page == "forum") {
+    ({ type, setType } = useForumTypeStore());
+  }
+  
+  const selectedItems = page === "question" ? questionTopics : forumFeatures
+
+  
   const [showSearchModal, setShowSearchModal] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
 
-  const handleTopicClick = (newTopic: Topic) => {
+  const handleTopicClick = (newTopic: any) => {
 
     // If clicked again, unselect it!
     if (newTopic.name == type) {
@@ -23,7 +41,7 @@ const Sidebar = () => {
 
   }
 
-  const filteredTopics = topics.filter((topic) =>
+  const filteredTopics = selectedItems.filter((topic: any) =>
     topic.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     topic.description.toLowerCase().includes(searchQuery.toLowerCase())
   )

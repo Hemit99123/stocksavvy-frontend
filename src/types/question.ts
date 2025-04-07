@@ -1,4 +1,4 @@
-import { TopicName } from "./topic";
+import { TopicName } from "./item";
 
 interface Option {
     letter: string;

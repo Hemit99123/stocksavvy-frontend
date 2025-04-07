@@ -1,16 +1,20 @@
-import { Header } from "@/components/forum/Header"
-import { Sidebar } from "@/components/forum/Sidebar"
+import SideBar from "@/components/common/SideBar"
 import { PostList } from "@/components/forum/PostList"
+import PageHeader from "@/components/common/PageHeader"
+import NotReadyYet from "@/components/questions/NotReadyYet"
 
 const Forum = () => {
   return (
-    <div className="min-h-screen bg-green-50">
-      <Header />
-      <div className="container mx-auto py-8">
+    <div className="min-h-screen">
+      <PageHeader 
+        title="Stock Forum"
+        description="Learn and share financial knowledge for free!"
+        sideComponent={<NotReadyYet />}
+      />
         <div className="flex">
-          <div className="w-64 hidden md:block">
-            <Sidebar />
-          </div>
+          <SideBar 
+            page="forum"
+          />
           <main className="flex-1 px-4">
             <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>
             <div className="space-y-4">
@@ -18,7 +22,6 @@ const Forum = () => {
             </div>
           </main>
         </div>
-      </div>
     </div>
   )
 }
