@@ -7,6 +7,6 @@ interface ForumTypeStore {
 }
 
 export const useForumTypeStore = create<ForumTypeStore>((set) => ({
-  type: "None", // initial type value
+  type: "Home", // initial type value
   setType: (newType) => set({ type: newType }), // updates the type state
 }));
