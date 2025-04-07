@@ -31,7 +31,6 @@ const Home = () => {
 
   return (
     <div className="space-y-4">
-      <h1 className="font-bold text-3xl text-center">Recent Posts</h1>
       {posts.length > 0 ? (
         posts.map((post) => <Post key={post.id} post={post} />)
       ) : (
