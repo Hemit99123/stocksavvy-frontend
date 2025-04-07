@@ -1,9 +1,9 @@
 import SideBar from "@/components/common/SideBar"
 import Home from "@/components/forum/Home"
 import PageHeader from "@/components/common/PageHeader"
-import NotReadyYet from "@/components/questions/NotReadyYet"
 import { useForumTypeStore } from "@/store/forum"
 import Me from "@/components/forum/Me"
+import HandyResource from "@/components/forum/HandyResource"
 
 const Forum = () => {
 
@@ -14,7 +14,7 @@ const Forum = () => {
       <PageHeader 
         title="Financial Forum"
         description="Learn and share financial knowledge for free!"
-        sideComponent={<NotReadyYet />}
+        sideComponent={<HandyResource />}
       />
         <div className="flex">
           <SideBar 
