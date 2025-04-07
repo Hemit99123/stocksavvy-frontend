@@ -1,5 +1,5 @@
 import SideBar from "@/components/common/SideBar"
-import { PostList } from "@/components/forum/PostList"
+import Home from "@/components/forum/Home"
 import PageHeader from "@/components/common/PageHeader"
 import NotReadyYet from "@/components/questions/NotReadyYet"
 import { useForumTypeStore } from "@/store/forum"
@@ -23,7 +23,7 @@ const Forum = () => {
           />
           <main className="flex-1 px-4">
           { type === "Home" ? (
-              <PostList />
+              <Home />
             ) : type === "Me" ? (
               <Me />
             ) : null}
