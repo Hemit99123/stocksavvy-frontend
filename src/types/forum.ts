@@ -11,3 +11,5 @@ export interface Comment {
     forumID: number; // foreign key to link it to forum 
     email: string
 }
+
+export type FeatureType = "Home" | "Me" | "None"

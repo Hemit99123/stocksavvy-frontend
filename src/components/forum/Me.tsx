@@ -1,5 +1,5 @@
 import Loading from "@/components/common/Loading"
-import { Header } from "@/components/forum/Header"
+import ActionHeader from "./ActionHeader"
 import NoPostBanner from "@/components/forum/NoPostBanner"
 import httpHeader from "@/services/httpHeader"
 import { Forum } from "@/types/forum"
@@ -79,11 +79,9 @@ export default function Me() {
 
   return (
     <>
-      <Header />
-      <div className="bg-green-50 min-h-screen p-4 md:p-6">
+      <ActionHeader />
+      <div className="min-h-screen p-4 md:p-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-2xl md:text-3xl font-bold text-green-800 mb-6">My Posts</h1>
-
           {isLoading && (
             <Loading />
           )}
@@ -93,16 +91,16 @@ export default function Me() {
           )}
 
           {!isLoading && !error && questions.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div>
               {questions.map((question) => (
                 <div
                   key={question.id}
-                  className="bg-white rounded-lg overflow-hidden border border-green-200 hover:shadow-md transition-shadow"
+                  className="rounded-lg overflow-hidden border border-green-500 hover:shadow-md transition-shadow mb-7"
                 >
                   <div className="p-4">
-                    <p className="text-green-700 line-clamp-3">{question.question}</p>
+                    <p className="text-green-800 line-clamp-3">{question.question}</p>
 
-                    <div className="flex space-x-2 mt-2 text-green-400 cursor-pointer">
+                    <div className="flex space-x-2 mt-2 text-green-500 cursor-pointer">
                         <PencilIcon size={20} onClick={() => handleEditForum(question)} />
                         <Trash size={20} onClick={() => handleDeleteForum(question.id)} />
                     </div>

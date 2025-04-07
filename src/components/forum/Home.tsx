@@ -6,7 +6,7 @@ import httpHeader from "@/services/httpHeader"
 import { handleUnauthenticatedUser } from "@/lib/auth"
 import { Forum } from "@/types/forum"
 
-export function PostList() {
+const Home = () => {
   const [posts, setPosts] = useState<Forum[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -39,3 +39,5 @@ export function PostList() {
     </div>
   )
 }
+
+export default Home

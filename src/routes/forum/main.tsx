@@ -1,24 +1,42 @@
-import { Header } from "@/components/forum/Header"
-import { Sidebar } from "@/components/forum/Sidebar"
-import { PostList } from "@/components/forum/PostList"
+import SideBar from "@/components/common/SideBar"
+import Home from "@/components/forum/Home"
+import PageHeader from "@/components/common/PageHeader"
+import { useForumTypeStore } from "@/store/forum"
+import Me from "@/components/forum/Me"
+import HandyResource from "@/components/forum/HandyResource"
 
 const Forum = () => {
+
+  const { type } = useForumTypeStore()
+
   return (
-    <div className="min-h-screen bg-green-50">
-      <Header />
-      <div className="container mx-auto py-8">
+    <div className="min-h-screen">
+      <PageHeader 
+        title="Financial Forum"
+        description="Learn and share financial knowledge for free!"
+        sideComponent={<HandyResource />}
+      />
         <div className="flex">
-          <div className="w-64 hidden md:block">
-            <Sidebar />
-          </div>
+          <SideBar 
+            page="forum"
+            storeHook={useForumTypeStore}
+          />
           <main className="flex-1 px-4">
-            <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>
-            <div className="space-y-4">
-              <PostList />
-            </div>
+          { type === "Home" ? (
+              <Home />
+            ) : type === "Me" ? (
+              <Me />
+            ) : type == "None" ? (
+              <>
+                <div className="text-center">
+                  <hr className="w-52 h-0.5 mx-auto bg-gray-300 border-0 rounded-sm my-2" />
+                  <h1 className="font-bold text-lg">Let's get started 🚀</h1>
+                  <p className="text-gray-500">Click one of the features in the sidebar to start!</p>
+                </div>
+              </>
+            ): null}
           </main>
         </div>
-      </div>
     </div>
   )
 }
