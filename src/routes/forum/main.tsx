@@ -3,8 +3,12 @@ import { PostList } from "@/components/forum/PostList"
 import PageHeader from "@/components/common/PageHeader"
 import NotReadyYet from "@/components/questions/NotReadyYet"
 import { useForumTypeStore } from "@/store/forum"
+import Me from "@/components/forum/Me"
 
 const Forum = () => {
+
+  const { type } = useForumTypeStore()
+
   return (
     <div className="min-h-screen">
       <PageHeader 
@@ -18,10 +22,11 @@ const Forum = () => {
             storeHook={useForumTypeStore}
           />
           <main className="flex-1 px-4">
-            <h1 className="text-2xl font-bold text-green-800 mb-6">Recent Posts</h1>
-            <div className="space-y-4">
+          { type === "Home" ? (
               <PostList />
-            </div>
+            ) : type === "Me" ? (
+              <Me />
+            ) : null}
           </main>
         </div>
     </div>

@@ -12,7 +12,7 @@ import Team from "./routes/team/main"
 import WorkShopInfo from "./routes/workshop/page"
 import Forum from "./routes/forum/main"
 import ID from "./routes/forum/id/main"
-import Me from "./routes/forum/me/main"
+import Me from "./components/forum/Me"
 import NotFound from "./routes/not-found"
 import { ToastContainer } from "react-toastify"
 
