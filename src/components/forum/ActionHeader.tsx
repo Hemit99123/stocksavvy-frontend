@@ -3,7 +3,7 @@ import { Plus } from "lucide-react"
 import httpHeader from "@/services/httpHeader"
 import { toast } from "react-toastify"
 
-export function Header() {
+const ActionHeader = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [content, setContent] = useState("")
   const [question, setQuestion] = useState("")
@@ -21,14 +21,14 @@ export function Header() {
   }
 
   return (
-    <header className="bg-green-800 p-4">
+    <header className="p-4">
       <div className="container mx-auto flex items-center justify-between">
-        <a href="/" className="text-2xl font-bold text-white">
-          StockSavvy
+        <a href="/" className="text-3xl font-bold text-green-800">
+          My Posts
         </a>
         
-        <div className="flex items-center space-x-4">
-          <Plus className="text-green-300 hover:text-white cursor-pointer" onClick={toggleModal} />
+        <div className="flex items-center space-x-4 bg-green-500 px-2 py-2 rounded-full">
+          <Plus className="text-white cursor-pointer" onClick={toggleModal} />
         </div>
       </div>
 
@@ -83,3 +83,5 @@ export function Header() {
     </header>
   )
 }
+
+export default ActionHeader
