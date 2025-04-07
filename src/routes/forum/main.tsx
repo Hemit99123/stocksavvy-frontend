@@ -12,7 +12,7 @@ const Forum = () => {
   return (
     <div className="min-h-screen">
       <PageHeader 
-        title="Stock Forum"
+        title="Financial Forum"
         description="Learn and share financial knowledge for free!"
         sideComponent={<NotReadyYet />}
       />
