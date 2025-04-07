@@ -1,4 +1,3 @@
-import { Hand } from 'lucide-react'
 import { MdHomeFilled } from 'react-icons/md'
 
 interface PageHeaderProps {
