@@ -1,4 +1,5 @@
 import PageHeader from '@/components/common/PageHeader'
+import NotReadyYet from '@/components/questions/NotReadyYet'
 import QuestionView from '@/components/questions/QuestionView'
 import Sidebar from '@/components/questions/SideBar'
 
@@ -8,7 +9,7 @@ const Questions = () => {
       <PageHeader 
         title="Financial Questions"
         description="Let&apos;s test your financial skills! Explore below..."
-        sideComponent
+        sideComponent={<NotReadyYet />}
       />
 
       {/* Main content with Sidebar and Question View */}
