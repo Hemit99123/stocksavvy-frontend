@@ -1,4 +1,4 @@
-import { TopicName } from '@/types/item';
+import { TopicName } from '@/types/topics';
 import { create } from 'zustand';
 
 interface QuestionTypeStore {
