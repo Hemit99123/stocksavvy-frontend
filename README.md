@@ -10,7 +10,9 @@
   <br>
 </div>
 
-## Technology 🧑🏽‍💻:
+## Technology :
+
+https://codesandbox.io/p/github/cruip/tailwind-dashboard-template/csb-pjj5j3/draft/compassionate-hill
 
 ### - React:
 React is a UI library developed by Meta. I used it mainly due to its component reusability which saves repetition in HTML (JSX/TSX) code. 
