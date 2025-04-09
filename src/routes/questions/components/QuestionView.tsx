@@ -12,7 +12,7 @@ import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
 import { handleUnauthenticatedUser } from "@/lib/auth"
-import Loading from "../common/Loading"
+import Loading from "@/components/common/Loading"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
   <div className={`w-8 h-8 rounded-full border-2 ${isSelected ? 'border-green-500' : 'border-gray-300'} flex items-center justify-center`}>

@@ -1,6 +1,6 @@
 import PageHeader from '@/components/common/PageHeader'
-import NotReadyYet from '@/components/questions/NotReadyYet'
-import QuestionView from '@/components/questions/QuestionView'
+import NotReadyYet from './components/NotReadyYet'
+import QuestionView from './components/QuestionView'
 import Sidebar from '@/components/common/SideBar'
 import { useQuestionTypeStore } from "@/store/questions" 
 
