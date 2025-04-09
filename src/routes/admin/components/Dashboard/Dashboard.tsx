@@ -1,6 +1,6 @@
 import React from "react";
 import { TopBar } from "./TopBar";
-import { Grid } from "./Grid";
+import { Grid } from "./Info";
 
 export const Dashboard = () => {
   return (

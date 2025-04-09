@@ -1,11 +1,15 @@
-import { Dashboard } from "./components/Dashboard/Dashboard";
+import { Grid } from "./components/Dashboard/Info";
+import { TopBar } from "./components/Dashboard/TopBar";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 
 const Admin = () => {
   return (
-    <main className="grid gap-4 p-4 grid-cols-[220px,_1fr]">
+    <main className="grid gap-4 p-4 grid-cols-[350px,_1fr]">
       <Sidebar />
-      <Dashboard />
+      <div className="bg-white rounded-lg pb-4 shadow">
+        <TopBar />
+        <Grid />
+      </div>    
     </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiCommand, FiSearch } from "react-icons/fi";
 import { CommandMenu } from "./CommandMenu";
 
@@ -9,7 +9,7 @@ export const Search = () => {
 
   return (
     <>
-      <div className="bg-stone-200 mb-4 relative rounded flex items-center px-2 py-1.5 text-sm">
+      <div className="bg-stone-200 mb-4 relative rounded flex items-center px-2 py-4 text-sm">
         <FiSearch className="mr-2" />
         <input
           onFocus={(e) => {
