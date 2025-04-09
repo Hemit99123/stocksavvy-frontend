@@ -1,7 +1,7 @@
 import Header from './common/Header';
 import TestimonialCard from './common/TestimonialCard';
 import {testimonials} from '@/data/testimonial'
-import MultipleSpacer from '../common/Spacers/MultipleSpacer';
+import MultipleSpacer from '@/components/common/Spacers/MultipleSpacer';
 
 const Testimonial = () => {
 
