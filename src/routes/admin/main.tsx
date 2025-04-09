@@ -1,5 +1,5 @@
 import { Grid } from "./components/Dashboard/Info";
-import { TopBar } from "./components/Dashboard/TopBar";
+import { Header } from "./components/Dashboard/Header";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 
 const Admin = () => {
