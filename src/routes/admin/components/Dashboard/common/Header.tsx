@@ -1,5 +1,3 @@
-import React from "react";
-import { FiCalendar } from "react-icons/fi";
 
 export const Header = () => {
 
