@@ -1,5 +1,5 @@
 import { FaChevronDown } from "react-icons/fa";
-import MultipleSpacer from "../common/Spacers/MultipleSpacer";
+import MultipleSpacer from "@/components/common/Spacers/MultipleSpacer";
 
 const Hero = () => {
   return (

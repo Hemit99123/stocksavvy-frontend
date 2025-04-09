@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 import { useParams } from "react-router";
-import SharePopUp from "@/components/forum/SharePopUp";
-import PostHeader from "@/components/forum/post-detail/PostHeader";
-import PostContent from "@/components/forum/post-detail/PostContent";
-import CommentSection from "@/components/forum/post-detail/CommentSection";
+import SharePopUp from "../components/SharePopUp";
+import PostHeader from "../components/post-detail/PostHeader";
+import PostContent from "../components/post-detail/PostContent";
+import CommentSection from "../components/post-detail/CommentSection";
 import { useEffect, useState } from "react";
 import { Forum, Comment } from "@/types/forum";
 import httpHeader from "@/services/httpHeader";

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import NavBar from "@/components/common/NavBar";
-import About from "@/components/landing-page/About";
-import Hero from "@/components/landing-page/Hero";
+import About from "./components/About";
+import Hero from "./components/Hero";
 import Loading from "@/components/common/LoadingLogo";
 import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loadingLogo";
-import Mission from "@/components/landing-page/Mission";
-import Testimonial from "@/components/landing-page/Testimonial";
-import Footer from "@/components/landing-page/Footer";
+import Mission from "./components/Mission";
+import Testimonial from "./components/Testimonial";
+import Footer from "./components/Footer";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
