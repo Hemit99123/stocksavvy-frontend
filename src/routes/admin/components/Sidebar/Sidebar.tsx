@@ -1,6 +1,5 @@
 import { Search } from "./Search";
 import { RouteSelect } from "./RouteSelect";
-import { Plan } from "./Plan";
 
 export const Sidebar = () => {
   return (
@@ -9,8 +8,6 @@ export const Sidebar = () => {
         <Search />
         <RouteSelect />
       </div>
-
-      <Plan />
     </div>
   );
 };
