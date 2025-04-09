@@ -1,9 +1,9 @@
 import SideBar from "@/components/common/SideBar"
-import Home from "@/components/forum/Home"
+import Home from "./components/Home"
 import PageHeader from "@/components/common/PageHeader"
 import { useForumTypeStore } from "@/store/forum"
-import Me from "@/components/forum/Me"
-import HandyResource from "@/components/forum/HandyResource"
+import Me from "./components/Me"
+import HandyResource from "./components/HandyResource"
 
 const Forum = () => {
 

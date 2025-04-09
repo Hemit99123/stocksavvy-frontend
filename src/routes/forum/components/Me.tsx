@@ -1,6 +1,6 @@
 import Loading from "@/components/common/Loading"
 import ActionHeader from "./ActionHeader"
-import NoPostBanner from "@/components/forum/NoPostBanner"
+import NoPostBanner from "../components/NoPostBanner"
 import httpHeader from "@/services/httpHeader"
 import { Forum } from "@/types/forum"
 import { PencilIcon, Trash } from "lucide-react"
