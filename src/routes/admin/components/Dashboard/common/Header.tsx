@@ -3,18 +3,22 @@ import { FiCalendar } from "react-icons/fi";
 
 export const Header = () => {
 
-  const dateObj = new Date();
+  const handleGetCurrentDate = () => {
+    const dateObj = new Date();
 
-  const monthRef = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-
-  const dateNumber = dateObj.getDate()
-  const month = monthRef[dateObj.getMonth()]
-  const year = dateObj.getFullYear()
+    const monthRef = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
   
-  const date = `${month} ${dateNumber} ${year}`;
+    const dateNumber = dateObj.getDate()
+    const month = monthRef[dateObj.getMonth()]
+    const year = dateObj.getFullYear()
+    
+    const date = `${month} ${dateNumber} ${year}`;
+
+    return date;
+  }
   
   return (
     <div className="border-b px-4 mb-4 mt-2 pb-4 border-stone-200">
@@ -22,7 +26,7 @@ export const Header = () => {
         <div>
           <span className="text-sm font-bold block">🚀 Good morning!</span>
           <span className="text-xs block text-stone-500">
-            {date}
+            {handleGetCurrentDate()}
           </span>
         </div>
 
