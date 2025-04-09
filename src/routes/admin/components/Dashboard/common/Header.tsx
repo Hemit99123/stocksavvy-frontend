@@ -3,7 +3,7 @@ import { FiCalendar } from "react-icons/fi";
 
 export const Header = () => {
 
-  let dateObj = new Date()
+  const dateObj = new Date()
 
   const handleGetCurrentDate = () => {
     const monthRef = [
