@@ -27,7 +27,7 @@ const useAuth: React.FC<UseAuthProps> = ({ role }) => {
         setAuthStatus('authenticated');
       }
     } catch (error) {
-      toast.error('Error checking authentication');
+      toast.error('Error checking authentication: ' + error);
       setAuthStatus('unauthenticated');
     }
   };
