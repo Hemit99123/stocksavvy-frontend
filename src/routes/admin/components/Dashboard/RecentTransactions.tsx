@@ -1,4 +1,3 @@
-import React from "react";
 import { FiArrowUpRight, FiDollarSign, FiMoreHorizontal } from "react-icons/fi";
 
 export const RecentTransactions = () => {
