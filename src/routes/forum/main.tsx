@@ -8,7 +8,6 @@ import { Post } from "./components/Post"
 import NoPostBanner from "./components/NoPostBanner"
 import Loading from "@/components/common/Loading"
 import httpHeader from "@/services/httpHeader"
-import { handleCheckAuth } from "@/lib/auth"
 import { Forum as ForumType } from "@/types/forum"
 
 const Forum = () => {
@@ -22,7 +21,6 @@ const Forum = () => {
       if (type !== "Home") return // only fetch if type is Home
 
       try {
-        await handleCheckAuth()
         const response = await httpHeader.get("/forum/all-questions")
         setPosts(response.data.questions)
       } finally {

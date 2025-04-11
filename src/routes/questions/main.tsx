@@ -11,7 +11,6 @@ import { SubmitButton } from "./components/SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
-import { handleCheckAuth } from "@/lib/auth"
 import Loading from "@/components/common/Loading"
 import PageHeader from "@/components/common/PageHeader"
 import NotReadyYet from "./components/NotReadyYet"
@@ -24,13 +23,6 @@ const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: bool
 )
 
 const QuestionView = () => {
-
-  useEffect(() => {
-    const handleRunCheckAuth = async () => {
-      await handleCheckAuth()
-    }
-    handleRunCheckAuth()
-  }, [])
 
   const { type } = useQuestionTypeStore()
   const { setType: setSubmitType } = useSubmitTypeStore.getState()
