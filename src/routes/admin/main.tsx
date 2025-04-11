@@ -8,12 +8,12 @@ const Admin = () => {
 
   useEffect(() => {
     const handleRunCheckAuth = async () => {
-      await handleCheckAuth()
+      await handleCheckAuth("admin")
     }
 
     handleRunCheckAuth()
   }, [])
-  
+
   return (
     <main className="grid gap-4 p-4 grid-cols-[350px,_1fr]">
       <Sidebar />
