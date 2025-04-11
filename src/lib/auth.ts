@@ -1,8 +1,8 @@
 import httpHeader from '@/services/httpHeader'
 import { toast } from 'react-toastify'
  
-export const handleCheckAuth = async (isAdmin = false) => {
-  const apiURL = isAdmin ? "/admin/get-session" : "/auth/get-session"
+export const handleCheckAuth = async (role: "user" | "admin" = "user") => {
+  const apiURL = role == "admin" ? "/admin/get-session" : "/auth/get-session"
   const response = await httpHeader.get(apiURL)
 
   if (!response.data.auth) {
