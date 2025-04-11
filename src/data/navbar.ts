@@ -1,7 +1,11 @@
-import { handleCheckAuth } from "@/lib/auth"; // assuming you have a function for this
+import httpHeader from "@/services/httpHeader";
 
 export async function getMenuItems() {
-  const authStatus = await handleCheckAuth() as boolean;
+
+  const response = await httpHeader.get("/auth/get-session")
+
+  const authStatus = response.data.auth as boolean
+
   return [
     {
       display: "Forum",
