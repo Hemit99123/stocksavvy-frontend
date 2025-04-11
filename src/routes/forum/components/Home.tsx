@@ -3,7 +3,7 @@ import { Post } from "./Post"
 import NoPostBanner from "./NoPostBanner"
 import Loading  from "@/components/common/Loading"
 import httpHeader from "@/services/httpHeader"
-import { handleUnauthenticatedUser } from "@/lib/auth"
+import { handleCheckAuth } from "@/lib/auth"
 import { Forum } from "@/types/forum"
 
 const Home = () => {
@@ -13,10 +13,11 @@ const Home = () => {
   useEffect(() => {
     const handleGetPosts = async () => {
       try {
+
+        await handleCheckAuth()
+
         const response = await httpHeader.get("/forum/all-questions")
         setPosts(response.data.questions)
-      } catch (error) {
-        handleUnauthenticatedUser(error)
       } finally {
         setLoading(false)
       }

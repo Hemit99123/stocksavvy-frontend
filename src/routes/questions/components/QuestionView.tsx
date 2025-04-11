@@ -11,7 +11,7 @@ import { SubmitButton } from "./SubmitButton"
 import { useSubmitTypeStore } from "@/store/submit"
 import httpHeader from "@/services/httpHeader"
 import { Question } from "@/types/question"
-import { handleUnauthenticatedUser } from "@/lib/auth"
+import { handleCheckAuth } from "@/lib/auth"
 import Loading from "@/components/common/Loading"
 
 const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: boolean }) => (
@@ -30,14 +30,16 @@ const QuestionView = () => {
   const [streak, setStreak] = useState(0)
 
   const handleGetRandomQuestion = useCallback(async () => {
-    try {
-      setLoading(true)
-      const response = await httpHeader.get(`/question/get?type=${type}`);
-      setQuestion(response.data.question);
-      setLoading(false)
-    } catch (error) {
-      handleUnauthenticatedUser(error);
-    }
+      try {
+        await handleCheckAuth()
+        setLoading(true)
+        const response = await httpHeader.get(`/question/get?type=${type}`);
+        setQuestion(response.data.question);
+      } finally {
+        setLoading(false)
+      }
+
+    
   }, [type]); // Add necessary dependencies
 
   useEffect(() => {
