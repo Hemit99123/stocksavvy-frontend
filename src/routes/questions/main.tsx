@@ -24,6 +24,14 @@ const LetterCircle = ({ letter, isSelected }: { letter: string, isSelected: bool
 )
 
 const QuestionView = () => {
+
+  useEffect(() => {
+    const handleRunCheckAuth = async () => {
+      await handleCheckAuth()
+    }
+    handleRunCheckAuth()
+  }, [])
+
   const { type } = useQuestionTypeStore()
   const { setType: setSubmitType } = useSubmitTypeStore.getState()
 
@@ -35,7 +43,6 @@ const QuestionView = () => {
 
   const handleGetRandomQuestion = useCallback(async () => {
     try {
-      await handleCheckAuth()
       setLoading(true)
       const response = await httpHeader.get(`/question/get?type=${type}`)
       setQuestion(response.data.question)
