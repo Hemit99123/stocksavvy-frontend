@@ -11,7 +11,7 @@ const handleUnauthenticatedUser = async () => {
         });
 }
 
-export const handleAuthCheck = async (isAdmin = false) => {
+export const handleCheckAuth = async (isAdmin = false) => {
   const apiURL = isAdmin ? "/admin/get-session" : "/auth/get-session"
 
   const response = await httpHeader.get(apiURL)
