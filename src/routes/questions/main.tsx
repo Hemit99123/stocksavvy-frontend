@@ -40,8 +40,6 @@ const QuestionView = () => {
       const response = await httpHeader.get(`/question/get?type=${type}`)
       setQuestion(response.data.question)
       setSelectedOption(null) // Reset selection
-    } catch (error) {
-      toast.error("Failed to fetch question.")
     } finally {
       setLoading(false)
     }
