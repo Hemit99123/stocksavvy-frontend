@@ -24,6 +24,12 @@ export const handleUnauthenticatedUser = async (error: any) => {
       }
 }
 
+export const handleCheckAdmin = async () => {
+  const response = await httpHeader.get("/admin/get-session")
+
+  return response.data.auth
+}
+
 export const handleGetSession = async () => {
   const response = await httpHeader.get("/auth/get-session")
 
