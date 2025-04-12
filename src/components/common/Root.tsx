@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { handleAuthenticatedUser, handleCheckAuth, handleUnauthenticatedUser } from '@/lib/auth.ts'
-import unauthenticatedRoutes from '@/data/unauthenticatedRoutes'
+import unauthenticatedRoutes, { prefixes } from '@/data/unauthenticatedRoutes'
 import Router from '@/Router'
 
 const Root: React.FC = () => {
@@ -11,9 +11,10 @@ const Root: React.FC = () => {
 
   // turns those routes that start with /workshop/ such as /workshop/deca into the normalized route of /workshop
 
-  const normalizedRoute = currentRoute.startsWith("/workshop/")
-    ? "/workshop"
-    : currentRoute;
+
+  const normalizedRoute = prefixes.find(prefix => currentRoute.startsWith(`${prefix}/`))
+    || currentRoute;
+  
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -25,11 +26,11 @@ const Root: React.FC = () => {
       }
 
       else if (normalizedRoute == "/login" && auth) {
-        await handleAuthenticatedUser()
+        return await handleAuthenticatedUser()
       } 
 
       else if (!auth) {
-        await handleUnauthenticatedUser()
+        return await handleUnauthenticatedUser()
       }
     };
 
