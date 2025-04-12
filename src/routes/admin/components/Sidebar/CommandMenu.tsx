@@ -1,6 +1,6 @@
 import { Command } from "cmdk";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { FiEye, FiLink, FiLogOut, FiPhone, FiPlus } from "react-icons/fi";
+import { FiEye, FiLink, FiPhone, FiPlus } from "react-icons/fi";
 
 export const CommandMenu = ({
   open,
@@ -45,7 +45,7 @@ export const CommandMenu = ({
         <Command.List className="p-3">
           <Command.Empty>
             No results found for{" "}
-            <span className="text-violet-500">"{value}"</span>
+            <span className="text-green-500">"{value}"</span>
           </Command.Empty>
 
           <Command.Group heading="Team" className="text-sm mb-3 text-stone-400">
@@ -72,11 +72,6 @@ export const CommandMenu = ({
               Contact Support
             </Command.Item>
           </Command.Group>
-
-          <Command.Item className="flex cursor-pointer transition-colors p-2 text-sm text-stone-50 hover:bg-stone-700 bg-stone-950 rounded items-center gap-2">
-            <FiLogOut />
-            Sign Out
-          </Command.Item>
         </Command.List>
       </div>
     </Command.Dialog>
