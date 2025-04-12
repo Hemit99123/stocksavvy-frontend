@@ -6,35 +6,33 @@ import {
   FiArrowUpRight,
   FiFileText,
 } from "react-icons/fi";
-
-type Question = {
-  id: string;
-  title: string;
-  date: string;
-  difficulty: string;
-};
+import { Question } from "@/types/question";
 
 const CreateQuestion = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({ title: "", difficulty: "" });
+  const [visibleCount, setVisibleCount] = useState(5); // Show first 5 questions
 
   useEffect(() => {
-
     const handleGetAllQuestions = async () => {
-      const response = await httpHeader.get("/questions/get-all")
-      setQuestions(response.data.questions)
-    }
-    
+      const response = await httpHeader.get("/question/get-all");
+      setQuestions(response.data.questions);
+    };
+
     handleGetAllQuestions();
   }, []);
 
   const handleCreateQuestion = async () => {
     try {
-      console.log("going to add logic")
+      console.log("going to add logic");
     } catch (err) {
       console.error("Error creating question:", err);
     }
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 5); // Show 5 more on each click
   };
 
   return (
@@ -55,19 +53,24 @@ const CreateQuestion = () => {
       <table className="w-full table-auto">
         <TableHead />
         <tbody>
-          {questions.map((q, idx) => (
-            <TableRow
-              key={q.id}
-              id={q.id}
-              title={q.title}
-              date={q.date}
-              difficulty={q.difficulty}
-              order={idx + 1}
-            />
+          {questions.slice(0, visibleCount).map((q, idx) => (
+            <TableRow key={q.id} id={q.id || ""} question={q.question} order={idx + 1} />
           ))}
         </tbody>
       </table>
 
+      {visibleCount < questions.length && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={handleShowMore}
+            className="text-sm text-blue-600 hover:underline"
+          >
+            Show More
+          </button>
+        </div>
+      )}
+
+      {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
@@ -118,9 +121,7 @@ const TableHead = () => (
   <thead>
     <tr className="text-sm font-normal text-stone-500">
       <th className="text-start p-1.5">ID</th>
-      <th className="text-start p-1.5">Title</th>
-      <th className="text-start p-1.5">Date</th>
-      <th className="text-start p-1.5">Difficulty</th>
+      <th className="text-start p-1.5">Question</th>
       <th className="w-8"></th>
     </tr>
   </thead>
@@ -128,15 +129,11 @@ const TableHead = () => (
 
 const TableRow = ({
   id,
-  title,
-  date,
-  difficulty,
+  question,
   order,
 }: {
   id: string;
-  title: string;
-  date: string;
-  difficulty: string;
+  question: string;
   order: number;
 }) => (
   <tr className={order % 2 ? "bg-stone-100 text-sm" : "text-sm"}>
@@ -145,9 +142,7 @@ const TableRow = ({
         {id} <FiArrowUpRight />
       </a>
     </td>
-    <td className="p-1.5">{title}</td>
-    <td className="p-1.5">{date}</td>
-    <td className="p-1.5">{difficulty}</td>
+    <td className="p-1.5">{question}</td>
     <td className="w-8">
       <button className="hover:bg-stone-200 transition-colors grid place-content-center rounded text-sm size-8">
         <FiMoreHorizontal />

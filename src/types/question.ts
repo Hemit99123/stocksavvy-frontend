@@ -9,6 +9,7 @@ export interface Question {
     options: Option[];
     type: TopicName;
     correctAnswer: string;
+    id?: string
 }
 
 // Topic interface representing a topic with an id, name, and description
