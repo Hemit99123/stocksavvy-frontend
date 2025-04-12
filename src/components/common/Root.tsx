@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import App from '@/App.tsx'
-import { handleCheckAuth, handleUnauthenticatedUser } from '@/lib/auth.ts'
+import { handleAuthenticatedUser, handleCheckAuth, handleUnauthenticatedUser } from '@/lib/auth.ts'
 import unauthenticatedRoutes from '@/data/unauthenticatedRoutes'
 
 const Root: React.FC = () => {
@@ -17,14 +17,18 @@ const Root: React.FC = () => {
 
   useEffect(() => {
     const checkAuth = async () => {
+      const auth = await handleCheckAuth(currentRoute === "/admin" ? "admin" : "user");
+
       // If it's an unauthenticated route, skip auth
       if (unauthenticatedRoutes.includes(normalizedRoute)) {
         return <App />;
       }
 
-      const auth = await handleCheckAuth(currentRoute === "/admin" ? "admin" : "user");
+      else if (normalizedRoute == "/login" && auth) {
+        await handleAuthenticatedUser()
+      } 
 
-      if (!auth) {
+      else if (!auth) {
         await handleUnauthenticatedUser()
       }
     };
@@ -32,7 +36,7 @@ const Root: React.FC = () => {
     checkAuth();
   }, [currentRoute, navigate]);
 
-
+  // if all if statements are not met, then just render the contents from the route (given by RouterManager)
   return <App />;
 };
 

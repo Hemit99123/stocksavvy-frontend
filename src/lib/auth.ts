@@ -21,6 +21,14 @@ export const handleUnauthenticatedUser = () => {
   });
 }
 
+export const handleAuthenticatedUser = () => {
+  return toast.success('Already authenticated, automatically redirecting...', {
+    onClose: () => {
+      window.location.href = "/"
+    }
+  });
+}
+
 export const handleGetSession = async () => {
   const response = await httpHeader.get("/auth/get-session")
 
@@ -28,3 +36,4 @@ export const handleGetSession = async () => {
       session: response.data.session,
   }
 }
+
