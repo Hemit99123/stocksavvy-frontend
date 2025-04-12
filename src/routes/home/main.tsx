@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import NavBar from "@/components/common/NavBar";
 import About from "./components/About";
 import Hero from "./components/Hero";
-import Loading from "@/components/common/LoadingLogo";
+import Loading from "@/components/common/Loaders/LoadingLogo";
 import { getLoadingState, setLoadingState as setLoadingStateCookies } from "@/lib/loadingLogo";
 import Mission from "./components/Mission";
 import Testimonial from "./components/Testimonial";
