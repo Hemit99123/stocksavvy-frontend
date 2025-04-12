@@ -21,7 +21,6 @@ const TableRow = ({
         id
       }
     })
-    
   };
 
   return (
