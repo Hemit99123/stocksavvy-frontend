@@ -31,7 +31,7 @@ const CreateQuestion = () => {
 
   const handleCreate = async () => {
     try {
-      
+      console.log("going to add logic")
     } catch (err) {
       console.error("Error creating question:", err);
     }
