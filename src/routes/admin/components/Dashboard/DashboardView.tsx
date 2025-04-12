@@ -7,29 +7,25 @@ import {
   FiFileText,
 } from "react-icons/fi";
 import { Question } from "@/types/question";
+import CreateQuestionModal from "./CreateQuestionModal";
 
 const DashboardView = () => {
+
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
-  const [form, setForm] = useState({ title: "", difficulty: "" });
+  const [form, setForm] = useState<Question>({ question: "", options: [], type: "None", correctAnswer: "" });
   const [visibleCount, setVisibleCount] = useState(5); // Show first 5 questions
 
   useEffect(() => {
     const handleGetAllQuestions = async () => {
-      const response = await httpHeader.get("/question/get-all");
+      const response = await httpHeader.get("/question/get-multiple");
       setQuestions(response.data.questions);
     };
 
     handleGetAllQuestions();
   }, []);
 
-  const handleCreateQuestion = async () => {
-    try {
-      console.log("going to add logic");
-    } catch (err) {
-      console.error("Error creating question:", err);
-    }
-  };
+
 
   const handleShowMore = () => {
     setVisibleCount((prev) => prev + 5); // Show 5 more on each click
@@ -54,7 +50,7 @@ const DashboardView = () => {
         <TableHead />
         <tbody>
           {questions.slice(0, visibleCount).map((q, idx) => (
-            <TableRow key={q.id} id={q.id || ""} question={q.question} order={idx + 1} />
+            <TableRow key={q.id} id={q.id as string} type={q.type} question={q.question} order={idx + 1} />
           ))}
         </tbody>
       </table>
@@ -72,46 +68,7 @@ const DashboardView = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl w-full max-w-md shadow-lg">
-            <h4 className="text-lg font-semibold mb-4">Create a New Question</h4>
-            <div className="space-y-3">
-              <input
-                type="text"
-                placeholder="Question Title"
-                value={form.title}
-                onChange={(e) => setForm({ ...form, title: e.target.value })}
-                className="w-full border p-2 rounded text-sm"
-              />
-              <select
-                value={form.difficulty}
-                onChange={(e) =>
-                  setForm({ ...form, difficulty: e.target.value })
-                }
-                className="w-full border p-2 rounded text-sm"
-              >
-                <option value="">Select Difficulty</option>
-                <option value="Easy">Easy</option>
-                <option value="Moderate">Moderate</option>
-                <option value="Hard">Hard</option>
-              </select>
-              <div className="flex justify-end gap-2">
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="px-4 py-2 rounded bg-stone-200 hover:bg-stone-300 text-sm"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleCreateQuestion}
-                  className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 text-sm"
-                >
-                  Create
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CreateQuestionModal form={form} setForm={setForm} setModalOpen={setModalOpen}/>
       )}
     </div>
   );
@@ -122,6 +79,8 @@ const TableHead = () => (
     <tr className="text-sm font-normal text-stone-500">
       <th className="text-start p-1.5">ID</th>
       <th className="text-start p-1.5">Question</th>
+      <th className="text-start p-1.5">Type</th>
+
       <th className="w-8"></th>
     </tr>
   </thead>
@@ -130,9 +89,11 @@ const TableHead = () => (
 const TableRow = ({
   id,
   question,
+  type, 
   order,
 }: {
   id: string;
+  type: string;
   question: string;
   order: number;
 }) => (
@@ -143,6 +104,7 @@ const TableRow = ({
       </a>
     </td>
     <td className="p-1.5">{question}</td>
+    <td className="p-1.5">{type}</td>
     <td className="w-8">
       <button className="hover:bg-stone-200 transition-colors grid place-content-center rounded text-sm size-8">
         <FiMoreHorizontal />
