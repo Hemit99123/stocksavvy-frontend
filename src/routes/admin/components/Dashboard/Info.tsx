@@ -1,11 +1,11 @@
 import { StatCards } from "./StatCards";
-import { RecentTransactions } from "./RecentTransactions";
+import CreateQuestion from "./CreateQuestion";
 
 export const Grid = () => {
   return (
     <div className="px-4">
       <StatCards />
-      <RecentTransactions />
+      <CreateQuestion />
     </div>
 
   );
