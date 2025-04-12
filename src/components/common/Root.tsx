@@ -9,11 +9,16 @@ const Root: React.FC = () => {
   const navigate = useNavigate();
   const currentRoute = location.pathname
 
-  
+  // turns those routes that start with /workshop/ such as /workshop/deca into the normalized route of /workshop
+
+  const normalizedRoute = currentRoute.startsWith("/workshop/")
+    ? "/workshop"
+    : currentRoute;
+
   useEffect(() => {
     const checkAuth = async () => {
       // If it's an unauthenticated route, skip auth
-      if (unauthenticatedRoutes.includes(currentRoute)) {
+      if (unauthenticatedRoutes.includes(normalizedRoute)) {
         return <App />;
       }
 
