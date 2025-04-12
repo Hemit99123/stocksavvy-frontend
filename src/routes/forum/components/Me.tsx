@@ -1,4 +1,4 @@
-import Loading from "@/components/common/Loaders/Loading"
+import Loading from "@/components/common/Loading"
 import ActionHeader from "./ActionHeader"
 import NoPostBanner from "../components/NoPostBanner"
 import httpHeader from "@/services/httpHeader"

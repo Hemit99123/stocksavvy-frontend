@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Forum, Comment } from "@/types/forum";
 import httpHeader from "@/services/httpHeader";
 import { useShowCommentStore } from "@/store/comment";
-import Loading from "@/components/common/Loaders/Loading";
+import Loading from "@/components/common/Loading";
 
 const ID = () => {
   const params = useParams();

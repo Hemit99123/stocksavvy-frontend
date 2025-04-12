@@ -8,7 +8,7 @@ import {
 } from "react-icons/fi";
 import { Question } from "@/types/question";
 
-const CreateQuestion = () => {
+const DashboardView = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isModalOpen, setModalOpen] = useState(false);
   const [form, setForm] = useState({ title: "", difficulty: "" });
@@ -151,4 +151,4 @@ const TableRow = ({
   </tr>
 );
 
-export default CreateQuestion;
+export default DashboardView;

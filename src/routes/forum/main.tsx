@@ -6,7 +6,7 @@ import Me from "./components/Me"
 import HandyResource from "./components/HandyResource"
 import { Post } from "./components/Post"
 import NoPostBanner from "./components/NoPostBanner"
-import Loading from "@/components/common/Loaders/Loading"
+import Loading from "@/components/common/Loading"
 import httpHeader from "@/services/httpHeader"
 import { Forum as ForumType } from "@/types/forum"
 

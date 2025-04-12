@@ -1,4 +1,4 @@
-import { Grid } from "./components/Dashboard/Info";
+import DashboardView from "./components/Dashboard/DashboardView"
 import { Header } from "./components/Dashboard/common/Header";
 import { Sidebar } from "./components/Sidebar/Sidebar";
 
@@ -9,7 +9,7 @@ const Admin = () => {
       <Sidebar />
       <div className="bg-white rounded-lg pb-4 shadow">
         <Header />
-        <Grid />
+        <DashboardView />
       </div>    
     </main>
   );
