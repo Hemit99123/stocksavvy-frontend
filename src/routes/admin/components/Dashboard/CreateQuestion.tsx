@@ -29,7 +29,7 @@ const CreateQuestion = () => {
     handleGetAllQuestions();
   }, []);
 
-  const handleCreate = async () => {
+  const handleCreateQuestion = async () => {
     try {
       console.log("going to add logic")
     } catch (err) {
@@ -100,7 +100,7 @@ const CreateQuestion = () => {
                   Cancel
                 </button>
                 <button
-                  onClick={handleCreate}
+                  onClick={handleCreateQuestion}
                   className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 text-sm"
                 >
                   Create
