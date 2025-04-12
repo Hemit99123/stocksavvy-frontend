@@ -16,7 +16,7 @@ import NotFound from "./routes/not-found"
 import { ToastContainer } from "react-toastify"
 import Admin from "./routes/admin/main"
 
-const App = () => {
+const Router = () => {
   return (
     <>
       <ToastContainer />
@@ -44,4 +44,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Router

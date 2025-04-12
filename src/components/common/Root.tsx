@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import App from '@/App.tsx'
 import { handleAuthenticatedUser, handleCheckAuth, handleUnauthenticatedUser } from '@/lib/auth.ts'
 import unauthenticatedRoutes from '@/data/unauthenticatedRoutes'
+import Router from '@/Router'
 
 const Root: React.FC = () => {
   const location = useLocation(); 
@@ -21,7 +21,7 @@ const Root: React.FC = () => {
 
       // If it's an unauthenticated route, skip auth
       if (unauthenticatedRoutes.includes(normalizedRoute)) {
-        return <App />;
+        return <Router />;
       }
 
       else if (normalizedRoute == "/login" && auth) {
@@ -37,7 +37,7 @@ const Root: React.FC = () => {
   }, [currentRoute, navigate]);
 
   // if all if statements are not met, then just render the contents from the route (given by RouterManager)
-  return <App />;
+  return <Router />;
 };
 
 export default Root
