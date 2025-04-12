@@ -1,6 +1,16 @@
 import httpHeader from '@/services/httpHeader'
+import { roleTypes } from '@/types/auth';
 import { toast } from 'react-toastify'
- 
+
+export const handleCheckAuth = async (role: roleTypes) => {
+  const apiURL = role === 'admin' ? '/admin/get-session' : '/auth/get-session';
+    const response = await httpHeader.get(apiURL);
+    if (response.data.auth) {
+      return true
+  } else {
+    return false
+  }
+};
 
 export const handleUnauthenticatedUser = () => {
   return toast.error('Not authenticated, automatically redirecting...', {
