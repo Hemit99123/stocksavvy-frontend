@@ -66,12 +66,12 @@ const PostActions = () => {
               <div className="flex justify-end gap-2 mt-4">
                 <button
                   onClick={() => setFormOpen(false)}
-                  className="px-4 py-2 text-sm bg-gray-200 rounded-mdtransition"
+                  className="px-4 py-2 text-sm bg-gray-200 rounded-md transition"
                 >
                   Cancel
                 </button>
                 <button
-                  className="px-4 py-2 text-sm bg-green-600 rounded-md transition"
+                  className="px-4 py-2 text-sm bg-green-600 rounded-md transition text-white"
                   onClick={handlePostComment}
                 >
                   Send
