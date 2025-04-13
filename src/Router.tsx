@@ -14,8 +14,9 @@ import Forum from "./routes/forum/main"
 import ID from "./routes/forum/id/main"
 import NotFound from "./routes/not-found"
 import { ToastContainer } from "react-toastify"
+import Admin from "./routes/admin/main"
 
-const App = () => {
+const Router = () => {
   return (
     <>
       <ToastContainer />
@@ -34,7 +35,7 @@ const App = () => {
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
         <Route path="team" element={<Team />} />
         <Route path="workshop/:slug" element={<WorkShopInfo />} />
-
+        <Route path="admin" element={<Admin />} />
         {/* Not found render */}
         <Route path="*" element={<NotFound />} />
 
@@ -43,4 +44,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Router
