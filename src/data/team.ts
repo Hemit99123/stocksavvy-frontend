@@ -14,12 +14,6 @@ export const teamMembers: TeamMember[] = [
       bio: "Supporting our president and overseeing day-to-day operations with dedication.",
     },
     {
-      name: "Hemit Patel",
-      role: "Technology Analyst",
-      image: "/images/people/hemit.png",
-      bio: "Analyzing and implementing technological solutions to drive innovation.",
-    },
-    {
       name: "Anosan",
       role: "Director of Marketing and Finance",
       image: "/images/people/placeholder.png",
