@@ -57,7 +57,7 @@ const PostActions = () => {
                 </button>
               </div>
               <textarea
-                className="w-full p-3 bg-slate-300 rounded-md border border-zinc-700 focus:outline-none focus:ring-1 focus:ring-white resize-none"
+                className="w-full p-3 bg-slate-300 rounded-md border focus:outline-none focus:ring-1 focus:ring-white resize-none"
                 placeholder="Write your message here..."
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
@@ -66,12 +66,12 @@ const PostActions = () => {
               <div className="flex justify-end gap-2 mt-4">
                 <button
                   onClick={() => setFormOpen(false)}
-                  className="px-4 py-2 text-sm bg-gray-200 rounded-md hover:bg-zinc-600 transition"
+                  className="px-4 py-2 text-sm bg-gray-200 rounded-mdtransition"
                 >
                   Cancel
                 </button>
                 <button
-                  className="px-4 py-2 text-sm bg-blue-600 rounded-md hover:bg-blue-500 transition"
+                  className="px-4 py-2 text-sm bg-green-600 rounded-md transition"
                   onClick={handlePostComment}
                 >
                   Send
