@@ -48,8 +48,8 @@ const PostActions = () => {
         </div>
   
         {isFormOpen && (
-          <div className="fixed inset-0 flex items-center justify-center bg-white">
-            <div className="bg-zinc-900 p-6 rounded-lg w-[90%] max-w-md shadow-lg">
+          <div className="fixed inset-0 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-lg font-semibold">Leave a Comment</h2>
                 <button onClick={() => setFormOpen(false)} className="text-zinc-400 hover:text-white">
@@ -71,7 +71,7 @@ const PostActions = () => {
                   Cancel
                 </button>
                 <button
-                  className="px-4 py-2 text-sm bg-green-600 rounded-md hover:bg-blue-500 transition"
+                  className="px-4 py-2 text-sm bg-blue-600 rounded-md hover:bg-blue-500 transition"
                   onClick={handlePostComment}
                 >
                   Send
